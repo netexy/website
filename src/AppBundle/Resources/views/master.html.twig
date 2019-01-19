@@ -1,0 +1,93 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set isArticle = pages|default()|length %}
+{% set templateName = _self %}
+
+<!DOCTYPE html>
+<html class="js no-touch svg no-ie8 progressive-image anim-system inline-video-autoplay css-sticky
+      modal-background-scale hero-masks css-mask" xmlns="http://www.w3.org/1999/xhtml" xml:lang="uk-UA" lang="uk-UA"
+      dir="ltr" prefix="og: http://ogp.me/ns#">
+<head>
+    {% block meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if extension is defined and content is defined %}
+            {%- include 'SuluWebsiteBundle:Extension:seo.html.twig' with
+                {
+                    seo: extension.seo,
+                    excerpt: extension.excerpt,
+                    content: content,
+                    urls: urls,
+                    shadowBaseLocale: shadowBaseLocale,
+                    defaultLocale: request.defaultLocale
+                } %}
+        {% endif %}
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="creator" itemprop="publisher" content="Netexy Inc.">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="uk_UA">
+        <meta property="twitter:card" content="summary">
+        <meta itemprop="copyrightYear" content="{{ 'now'|date('Y') }}"/>
+        <meta itemprop="isFamilyFriendly" content="true"/>
+    {% endblock %}
+
+    {% block style %}{% endblock %}
+
+    {% block top_javascripts %}
+        <!--[if lt IE 10]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+        <![endif]-->
+    {% endblock %}
+</head>
+
+{% block body_tag %}
+<body class="body-bg">
+
+{% endblock %}
+{% block before_content %}
+    <!--[if lt IE 9]>
+    <div class="alert alert-warning"> You are using an <strong>outdated</strong> browser. Please <a
+            href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </div> <![endif]-->
+{% endblock %}
+
+{% block nav_top %}
+    {{ helpers.loadSection('navigation_top', _context) }}
+{% endblock %}
+
+
+{% if isArticle %}
+    <article>
+{% endif %}
+
+{% block header %}
+    {{ helpers.loadSection('header', _context) }}
+{% endblock %}
+      
+<section id="content" vocab="http://schema.org/" typeof="Content">
+    <div id="content-first"></div>
+    {% block content %}
+        {# The content of the page. #}
+        {# Have a look at app/Resources/views/templates/homepage.html.twig for an example. #}
+    {% endblock %}
+</section>
+
+{% if isArticle %}
+    </article>
+{% endif %}
+
+{% block after_content %}
+    <div id="fb-root"></div>
+{% endblock %}
+
+{% block footer %}
+    <div class="pulse-grid">
+      <div class="blur-line"></div>
+      <div class="linebox"></div>
+    </div>  
+    {{ helpers.loadSection('footer', _context) }}
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

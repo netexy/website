@@ -1,0 +1,80 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="headerimage">
+        <types>
+            <type name="headerimage">
+                <meta>
+                    <title lang="en">Header Image</title>
+                    <title lang="uk">Зображення заголовку</title>
+                </meta>
+
+                <properties>
+                    <property name="headerImage" type="media_selection">
+                        <meta>
+                            <title lang="en">Image</title>
+                            <title lang="uk">Зображення</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="image,video"/>
+                        </params>
+                    </property>
+
+                    <property name="headerHeading" type="text_line">
+                        <meta>
+                            <title lang="en">Heading</title>
+                            <title lang="uk">Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="headerSubheading" type="text_line">
+                        <meta>
+                            <title lang="en">Subheading</title>
+                            <title lang="uk">Підзаголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="headerType" type="single_select">
+                        <meta>
+                            <title lang="en">Size</title>
+                            <title lang="uk">Розмір</title>
+                        </meta>
+
+                        <params>
+                            <param name="values" type="collection">
+                                <param name="small">
+                                    <meta>
+                                        <title lang="en">Small</title>
+                                        <title lang="uk">Малий</title>
+                                    </meta>
+                                </param>
+
+                                <param name="medium">
+                                    <meta>
+                                        <title lang="en">Medium</title>
+                                        <title lang="uk">Середній</title>
+                                    </meta>
+                                </param>
+
+                                <param name="large">
+                                    <meta>
+                                        <title lang="en">Large</title>
+                                        <title lang="uk">Великий</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

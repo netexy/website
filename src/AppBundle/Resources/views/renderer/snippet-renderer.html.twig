@@ -1,0 +1,34 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set templateNamespace = config.template_namespace|default('default') %}
+
+{% if blocks|length %}
+    {% for block in blocks %}
+        {# Here we render the single blocks according to its type. #}
+        {% set views = views|default([]) %}
+        {% set currentView = views[loop.index0]|default() %}
+
+        {# a little trick #}
+        {% set templateFullname = currentView.template|replace({'__':'/'}) %}
+
+        {% set templateName = templateFullname|split('/')|last %}
+        {% set templatePath = templateFullname|split('/')|slice(1,-1)|join('/') %}
+
+        {% set inheritedTemplate = null %}
+        {% set defaultTemplate = 'AppBundle:renderer:snippets/' ~ templateFullname ~ '.html.twig' %}
+
+        {% if templateNamespace %}
+            {% set inheritedTemplate = ('AppBundle:renderer:snippets/' ~ templatePath ~ '/' ~ templateNamespace ~ '/_override/' ~ templateName ~ '.html.twig')|replace({'//':'/'}) %}
+        {% endif %}
+
+        {% include ([inheritedTemplate, defaultTemplate]) ignore missing with {
+            'block' : block,
+            'blockType': templateName,
+            'view': currentView,
+            'entityId': loop.index0
+        } %}
+
+    {% endfor %}
+{% endif %}

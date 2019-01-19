@@ -1,0 +1,64 @@
+<?php
+
+namespace AppBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Request;
+
+class SvgController extends Controller
+{
+    /**
+     * Returns the SVG file for the given $id.
+     *
+     * @param Request $request
+     * @param integer $id
+     *
+     * @return BinaryFileResponse
+     */
+    public function svgAction(Request $request, $id)
+    {
+        die('boo');
+        try {
+            $mediaManager = $this->get('sulu_media.media_manager');
+            $media = $mediaManager->getById($id, $request->getLocale());
+            $version = $media->getVersion();
+
+            $path = $this->get('sulu_media.storage')->load(
+                $media->getName(),
+                $media->getVersion(),
+                $media->getStorageOptions()
+            );
+
+            $cachePath = $this->cache($path, $id, $version);
+
+            $response = new BinaryFileResponse($cachePath);
+            $response->headers->set('Content-Type', 'image/svg+xml');
+
+            return $response;
+        } catch (\Exception $e) {
+            throw $this->createNotFoundException('Media not found!', $e);
+        }
+    }
+
+    /**
+     * @param string  $path
+     *
+     * @param integer $id
+     * @param mixed   $version
+     *
+     * @return string
+     */
+    protected function cache($path, $id, $version)
+    {
+        $fileSystem = new Filesystem();
+
+        $fileSystem->copy(
+            $path,
+            sprintf('%s/../web/uploads/svg/%s-%s.svg', $this->get('kernel')->getRootDir(), $id, $version)
+        );
+
+        return $path;
+    }
+}

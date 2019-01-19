@@ -1,0 +1,76 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set bgColor = block.background_color|default() ? block.background_color : '' %}
+
+{% set bgMedia = block.background_image|default()|length ? sulu_resolve_media(block.background_image[0], context.request.locale) : [] %}
+{% set bgImageSM = asset(bgMedia.thumbnails['600x343']|default()) %}
+{% set bgImageLG = asset(bgMedia.thumbnails['1280x658']|default()) %}
+
+{% if block.banners|length %}
+    <style>
+        .promo-products-{{ blockId }} {
+            background-color: {{ bgColor }};
+        {% if bgImageLG|length > 2 %} background-image: url({{ bgImageLG }});
+        {% endif %}
+        }
+
+        @media screen and (min-width: 768px) {
+            .promo-products-{{ blockId }} {
+                background-color: {{ bgColor }};
+            {% if bgImageLG|length > 2 %} background-image: url({{ bgImageSM }});
+            {% endif %}
+            }
+        }
+    </style>
+
+    <div class="row">
+        <div class="col-xs-12 pad-xs-x pad-lg-z promo-products-{{ blockId }} {{ customClass }} ">
+            {% if block.display_heading|default(true) %}
+                {% set heading = {
+                    'title': block.title|default(),
+                    'heading_level': 2,
+                } %}
+                {{ helpers.loadBlock('heading', {block: heading}) }}
+            {% endif %}
+            <div class="container-bg">
+                <div class="products">
+                    <div class="row bord-xs-t">
+                        {% for _block in block.banners %}
+                            {# grid size #}
+                            {% set gridSize = 12 %} {# default size #}
+                            {% if loop.last and block.banners|length % view.banners.presentAs|default(1) == 1 %}
+                                {% set gridSize = 12 %} {# size of last element #}
+                            {% elseif loop.index >= block.banners|length - 1 and block.banners|length % view.banners.presentAs|default(1) == 2 %}
+                                {% set gridSize = 6 %} {# size of last 2 elements if 3 in row #}
+                            {% else %}
+                                {% set gridSize = gridSize / view.banners.presentAs|default(1) %}
+                            {% endif %}
+                            {% if view.banners.presentAs == 3 and loop.index %}
+                                {% set gridSize = 6 %}
+                            {% endif %}
+                            {% if view.banners.presentAs == 3 and loop.index % 5 == 0 %}
+                                {% set gridSize = 12 %}
+                            {% endif %}
+                            {% if view.banners.presentAs == 3 and loop.index % 6 == 0 %}
+                                {% set gridSize = 12 %}
+                            {% endif %}       
+                      
+                      
+                            {% include '@App/renderer/snippets/product_banner.html.twig' with  {
+                                block: _block,
+                                entityId: blockId ~ '_' ~ loop.index0,
+                                gridSize: gridSize
+                            } %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

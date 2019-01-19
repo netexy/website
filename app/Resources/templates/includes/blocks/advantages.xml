@@ -1,0 +1,96 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="advantages">
+        <types>
+            <type name="advantages">
+                <meta>
+                    <title lang="en">Advantages</title>
+                    <title lang="uk">Переваги</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <!-- todo: help text (how to fill) -->
+
+                    <property name="title_1" type="text_line">
+                        <meta>
+                            <title lang="en">Title 1</title>
+                            <title lang="uk">Назва 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_1" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 1</title>
+                            <title lang="uk">Текст 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="material_icon_1" type="text_line">
+                        <meta>
+                            <title lang="en">Material Icon 1</title>
+                            <title lang="uk">Material Icon 1</title>
+                        </meta>
+                    </property>
+
+
+                    <property name="title_2" type="text_line">
+                        <meta>
+                            <title lang="en">Title 2</title>
+                            <title lang="uk">Назва 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_2" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 2</title>
+                            <title lang="uk">Текст 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="material_icon_2" type="text_line">
+                        <meta>
+                            <title lang="en">Material Icon 2</title>
+                            <title lang="uk">Material Icon 2</title>
+                        </meta>
+                    </property>
+
+
+                    <property name="title_3" type="text_line">
+                        <meta>
+                            <title lang="en">Title 3</title>
+                            <title lang="uk">Назва 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_3" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 3</title>
+                            <title lang="uk">Текст 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="material_icon_3" type="text_line">
+                        <meta>
+                            <title lang="en">Material Icon 3</title>
+                            <title lang="uk">Material Icon 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

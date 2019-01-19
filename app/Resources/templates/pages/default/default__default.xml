@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+
+    <!-- This is the template for the "Homepage". -->
+    <!-- For further information, on how to make a Sulu template have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/templates.html -->
+
+    <!-- This is the unique key that identifies the template. It must be identical to the file name without the ".xml" suffix!!! -->
+    <key>default__default</key>
+
+    <!--<tag name="sulu.allowed_webspaces" value="ws-default"/>-->
+
+    <!-- Path to "Home" page's Twig file: -->
+    <view>AppBundle:templates:default/default</view>
+
+    <!-- Path to "Home" page's Controller -->
+    <!-- In this case that's Sulu's default controller -->
+    <!-- vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Controller/DefaultController.php -->
+    <controller>SuluWebsiteBundle:Default:index</controller>
+
+    <!-- Lifetime of this pages cache -->
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <!-- The localized titles of the template. These titles appear in the dropdown where you select the template of a page. -->
+        <title lang="en">Page (Default)</title>
+        <title lang="uk">Сторінка (за замовченням)</title>
+    </meta>
+
+    <properties>
+        <!-- This section typically appears in every template. Here you can configure the title and URL of a page. -->
+        <xi:include href="../../includes/sections/_common/highlight.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <!-- The rest of the template defines the properties of a page. -->
+        <!-- Each property is resembled by a field in the admin. -->
+        <!-- In the corresponding Twig file, you can access the properties of the page and render them as HTML. -->
+
+        <!-- You can separate the properties into sections with section headers. -->
+        <!-- These sections appear in the admin UI only. Otherwise, they have no effect. -->
+
+        <xi:include href="../../includes/sections/default/navigation_top.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <!--<xi:include href="../../includes/sections/default/header.xml"-->
+                    <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>-->
+
+        <!--<xi:include href="../includes/sections/default/body/blocks.xml"-->
+                    <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>-->
+
+        <xi:include href="../../includes/sections/default/main_content.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <xi:include href="../../includes/sections/default/footer.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+    </properties>
+</template>

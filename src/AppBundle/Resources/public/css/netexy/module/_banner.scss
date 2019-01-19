@@ -1,0 +1,48 @@
+.banner-block {
+  height: 343px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;  
+}
+.banner-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  @include mq('tablet-small') {
+    background-size: 100%;
+    background-position: center top;
+  }
+  @include mq('tablet') {
+    background-size: 100%;
+    background-position: center top;
+  }
+}
+.banner-bg h1 {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, .55);
+  @include mq('tablet-small') {
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, .55);
+  }
+}
+.banner-bg:hover h1 {
+}
+
+
+$block: '.work';
+
+#{$block} {
+
+	&__client {
+      background-image: $c--xs-gradient;      
+      
+      color: $c--white;
+      padding: .44rem;
+      
+      @include mq('tablet') {
+        background-image: $c--gradient;  
+      }          
+      
+	}
+}

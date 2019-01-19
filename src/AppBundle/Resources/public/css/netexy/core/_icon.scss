@@ -1,0 +1,178 @@
+$icon-size: 1em;
+
+/*---
+
+Branding:
+
+```
+<div class="h1">
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#branding--e"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#branding--logo"></use></svg>
+</div>
+```
+
+Stats:
+
+```
+<ul class="
+    block-grid
+    block-grid--gutter
+    block-grid--2
+    flush-first--2
+    block-grid--phone-wide-3
+    flush-first--phone-wide-3
+    block-grid--tablet-small-6
+    flush-first--tablet-small-6
+    block-grid--tablet-wide-9
+    flush-first--tablet-wide-9
+">
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/code.svg" alt="stats code icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/email.svg" alt="stats email icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/increase.svg" alt="stats increase icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/pageview.svg" alt="stats pageview icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/search.svg" alt="stats search icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/shares.svg" alt="stats shares icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/social.svg" alt="stats social icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/star.svg" alt="stats star icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/webview.svg" alt="stats webview icon"></li>
+	<li><img style="max-width: 33vw" src="/assets/img/icons/stats/bike.svg" alt="stats bike icon"></li>
+</div>
+```
+
+Social:
+
+```
+<div class="h3">
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--blog"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--codepen"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--dribbble"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--facebook"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--github"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--instagram"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--pinterest"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--playstation"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--spotify"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--steam"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--twitter"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--xbox"></use></svg>
+</div>
+
+<div class="h4">
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--codepen"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--dribbble"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--facebook"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--github"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--instagram"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--pinterest"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--playstation"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--spotify"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--steam"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--twitter"></use></svg></a>
+	<a class="a--subtle icon-link" href="#0"><svg class="icon"><use xlink:href="/assets/img/sprite.svg#social--xbox"></use></svg></a>
+</div>
+```
+
+Others:
+
+```
+<div class="h3">
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#menu"></use></svg>
+	<svg class="icon"><use xlink:href="/assets/img/sprite.svg#arrow"></use></svg>
+</div>
+```
+
+*/
+
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: top;
+  width: $icon-size;
+  height: $icon-size;
+
+  &--inline {
+    // y = line-height measurment was taken at
+    // x =  how far off centre the baseline is, at `y`
+    $x: 10;
+    $y: 90;
+    vertical-align: n($x/$y * 100%);
+  }
+
+  &--large {
+    font-size: $h--xxx-large;
+
+    @include mq('phablet') {
+      font-size: rem(100px);
+    }
+  }
+
+  &-link {
+    $height: rem(46px)/$h--large * 1em;
+    position: relative;
+    display: inline-block;
+    padding: h($height - 1);
+    line-height: 1;
+    border: 3px solid;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    will-change: transform;
+    transition: $transition--transform;
+    transform-origin: h($height) h($height);
+
+    &::before {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $c--akcent;
+      z-index: -1;
+      opacity: 0;
+      transform: scale(0.001);
+      will-change: transform, opacity;
+      transition: opacity $transition--duration * 2 $ease--smooth-fade, transform $transition--duration * 2 $transition--ease;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1/.9 * 1);
+
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.icon-text {
+  display: inline-block;
+  position: relative;
+
+  &__i {
+    width: $icon-size;
+    height: $icon-size;
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+
+    &:first-child {
+      right: auto; left: 0;
+    }
+  }
+
+  &__t {
+    display: inline-block;
+    padding-right: $icon-size + $rel-spacing-unit--small;
+
+    &:last-child {
+      padding: {
+        right: 0;
+        left: $icon-size + $rel-spacing-unit--small;
+      }
+    }
+  }
+}
+

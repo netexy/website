@@ -1,0 +1,37 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="article_full">
+        <types>
+            <type name="article_full">
+                <meta>
+                    <title lang="en">Article</title>
+                    <title lang="uk">Стаття</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+                    
+                    <property name="content" type="text_editor">
+                        <meta>
+                            <title lang="en">Article Content</title>
+                            <title lang="uk">Наповнення</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

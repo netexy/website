@@ -1,0 +1,45 @@
+{% set previewImages = sulu_content_load(article.content.uuid).content.preview_image__media|default() %}
+{% if 0 == previewImages|length %}
+    {% set previewImages = article.excerpt.images %}
+{% endif %}
+{#{{ dump(previewImages) }}#}
+<div class="preview preview--link">
+    {#<a class="preview__link" href="{{ sulu_content_path(article.routePath, article.targetWebspace) }}">#}
+    <a class="preview__link" href="{{ sulu_content_path(article.routePath) }}">
+        <div class="preview__img block-bg">
+            {#<div class="placeholder placeholder--square placeholder--rounded">#}
+            <div class="placeholder placeholder--square">
+                {% if previewImages|length %}
+                    <img class="js-lazy is-active" src="{{ previewImages[0].thumbnails['192x192'] }}"
+                         alt="{{ article.title }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="preview__main">
+            {#<time class="secondary preview__date" datetime="2018-03-28T09:00:00+01:00">#}
+            <time class="secondary preview__date" datetime="{{ article.published.date|date("c") }}">
+                {{ article.published.date|localizeddate('long', 'none', 'uk') }}
+            </time>
+            <h2 class="flush h4 preview__heading">{{ article.title }}</h2>
+            <p class="copy preview__copy">{{ article.excerpt.description|raw }}</p>
+        </div>
+    </a>
+</div>
+
+
+{#<div class="preview preview--link">#}
+    {#<a class="preview__link" href="#!">#}
+        {#<div class="preview__img block-bg">#}
+            {#<div class="placeholder placeholder--square">#}
+                {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/news/nadiyni-dveri-poster.jpg" alt="Надійні вхідні двері у кожному проекті" data-src="https://netexy.if.ua/img/news/nadiyni-dveri-poster.jpg" data-srcset="[]">#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="preview__main">#}
+            {#<time class="secondary preview__date" datetime="2018-03-28T10:00:00+01:00">#}
+                {#28 березня 2018#}
+            {#</time>#}
+            {#<h2 class="flush h4 preview__heading">Надійні вхідні двері у кожному проекті</h2>#}
+            {#<p class="copy preview__copy">В наших будинках для Вас підібрано найкращі вхідні двері українського виробника ABWEHR.</p>#}
+        {#</div>#}
+    {#</a>#}
+{#</div>#}

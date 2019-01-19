@@ -1,0 +1,48 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="quote">
+        <types>
+            <type name="quote">
+                <meta>
+                    <title lang="en">Quote (test)</title>
+                    <title lang="uk">Цитата (test)</title>
+                </meta>
+
+                <properties>
+                    <property name="quote" type="text_area">
+                        <meta>
+                            <title lang="en">Quote</title>
+                            <title lang="uk">Цитата</title>
+                        </meta>
+                    </property>
+
+                    <property name="quoteReference" type="text_line">
+                        <meta>
+                            <title lang="en">Reference</title>
+                            <title lang="uk">Посилання</title>
+                        </meta>
+                    </property>
+
+                    <property name="background" type="checkbox">
+                        <meta>
+                            <title lang="en">Background Color</title>
+                            <title lang="uk">Фон</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

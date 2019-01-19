@@ -1,0 +1,26 @@
+{% set enlarge_image_state = block.enlarge_image == 'none' ? 'four' : ('large-' ~ block.enlarge_image) %}
+
+<div class="grid-row grid-row--{{ enlarge_image_state }}">
+    {% for item in block.items %}
+        {% set imageMeta = item.fileVersion|default() ? item.fileVersion.defaultMeta : [] %}
+        <div class="item">
+            <article class="profile profile--preview">
+                <div class="a--block a--subtle">
+                    <div class="profile__img">
+                        <div class="placeholder placeholder--square ">
+                            <img class="js-lazy is-active" src="{{ item.thumbnails['600x600'] }}"
+                                 alt="{{ imageMeta.description }}">
+
+                        </div>
+                    </div>
+                    <div class="profile__copy">
+                        {% if imageMeta.description|length %}
+                            <h1 class="h4 profile__name">{{ imageMeta.title }}</h1>
+                            <p class="hidden-desktop visible--tablet-small small profile__title">{{ imageMeta.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+</div>

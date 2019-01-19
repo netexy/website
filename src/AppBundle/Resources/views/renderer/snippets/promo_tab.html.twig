@@ -1,0 +1,35 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+<div id="{{ elementId }}" class="col-xs-12 {% if isFirst %}active{% endif %} {{ customClass }}">
+    <div class="row">
+        <div class="col-xs-12 text-align--center">
+            {{ block.description|raw }}
+            {#<div class="collage collage--copy">#}
+                {#<div class="row row--tall">#}
+                    {#<div class="column panel panel--align col-xs-12">#}
+                        {#<h2 class="h4 layout-text--default">{{ block.title }}</h2>#}
+                        {#<div class="push--copy copy copy--cms a--underlines layout-text--default">#}
+                            {#{{ block.description|raw }}#}
+
+                            {% if block.media|length %}
+                                <div class="tab-image">
+                                    {% set media = sulu_resolve_media(block.media[0], context.request.locale) %}
+                                    {% set imageMeta = image.fileVersion|default() ? image.fileVersion.defaultMeta : [] %}
+
+                                    <img style="display: inline-block;" class="js-lazy is-active" src="{{ media.thumbnails['480x'] }}" alt="{{ imageMeta.title|default() }}">
+                                </div>
+                            {% endif %}
+                            {#<p><a href="#"></a><a href="https://engageinteractive.co.uk/the-team">Meet the&nbsp;team</a></p>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+
+        </div>
+    </div>
+</div>

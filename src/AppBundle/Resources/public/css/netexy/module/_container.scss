@@ -1,0 +1,25 @@
+.container {
+	position: relative;
+	max-width: $max-width;
+	// max-width: rem(1800px);
+	background-color: $c--white;
+	// box-shadow: 1px 0 #efefef, -1px 0 #efefef;
+
+	&__inner {
+		@include push--auto;
+		@include soft--sides($page-gutter);
+		max-width: breakpoint('tablet-wide') + (2 * $page-gutter--desktop);
+
+		&--small {
+			max-width: breakpoint('tablet-wide') - (2 * $page-gutter--desktop);
+		}
+	}
+
+	@include mq('tablet-small') {
+		@include push--auto;
+
+		&__inner {
+			@include soft--sides($page-gutter--desktop);
+		}
+	}
+}

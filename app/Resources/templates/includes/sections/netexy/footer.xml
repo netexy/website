@@ -1,0 +1,29 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="footer">
+        <meta>
+            <title lang="en">Site Footer</title>
+            <title lang="uk">Футер</title>
+        </meta>
+
+        <properties>
+            <property name="footer__disabled" type="checkbox">
+                <meta>
+                    <title lang="en">Disable</title>
+                    <title lang="uk">Відключити</title>
+                </meta>
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+            <property name="footer__custom_class" type="text_line">
+                <meta>
+                    <title lang="en">Custom CSS Class</title>
+                    <title lang="uk">CSS Клас</title>
+                </meta>
+            </property>
+        </properties>
+    </section>
+</properties>

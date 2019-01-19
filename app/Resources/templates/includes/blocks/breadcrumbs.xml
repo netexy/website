@@ -1,0 +1,36 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="breadcrumbs">
+        <types>
+            <type name="breadcrumbs">
+                <meta>
+                    <title lang="en">Breadcrumbs (test)</title>
+                    <title lang="uk">Breadcrumbs (test)</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <property name="parent_node" type="single_internal_link">
+                        <meta>
+                            <title lang="en">Custom Parent Node (required for articles)</title>
+                            <title lang="uk">Сторінка-предок (необхідно для статей)</title>
+                        </meta>
+                    </property>
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

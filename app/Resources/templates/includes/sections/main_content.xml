@@ -1,0 +1,24 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="blocks">
+        <meta>
+            <title lang="en">Content Blocks</title>
+            <title lang="uk">Блоки Контенту</title>
+        </meta>
+
+        <properties>
+            <block name="main_content" default-type="html_code" minOccurs="0">
+                <meta>
+                    <title lang="uk">Контент</title>
+                    <title lang="en">Content</title>
+                </meta>
+                <types>
+                    <xi:include href="../../includes/blocks/text.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                </types>
+            </block>
+        </properties>
+    </section>
+</properties>

@@ -1,0 +1,136 @@
+{% set sectionName = sectionName|default('footer') %}
+
+{# necessary for sections #}
+{% set content = context.content|default([]) %}
+
+{% set block = array_split_by_double_underscore(content)[sectionName]|default([]) %}
+{% set enabled = block and not block.disabled|default(false) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+{% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set contact = config.navigation_contact|default() %}
+{% set address = config.footer_address|default() %}
+{% set copyright = config.copyright|default() %}
+{% set footer_buttons = config.footer_social_buttons|default() %}
+
+{% if enabled %}
+<div class="content-main">
+  <footer class="site-footer js-site-footer ">
+    <div class="site-footer__inner container__inner">
+      <div class="site-footer__section site-footer__section--primary">
+        <h3 class="site-footer__address">
+          {% if address|length %}
+          {{ address|striptags('<br>')|raw }}
+          {% endif %}
+        </h3>
+
+        <ul class="site-footer__contact">
+          {% if contact|length %}
+          {% for phone in contact[0].phones %}
+          {% set cleanPhone = phone.phone|replace({' ':'', '-':'', '/':''}) %}
+          {% set normalizedPhone = phone.phone|replace({'-':' ', '/':' '}) %}
+          {% set phoneParts = normalizedPhone|split(' ') %}
+          <li>
+            <a href="tel:{{ cleanPhone }}">
+              <span class="binct-phone-number-{{ loop.index }}">{{ normalizedPhone }}</span>
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            <a href="mailto:{{ contact[0].mainEmail }}">{{ contact[0].mainEmail }}</a>
+          </li>
+          {% endif %}
+        </ul>
+
+
+        <ul class="site-footer__social pad-xs">
+          {% if footer_buttons|length %}
+          {% for button in footer_buttons %}
+          <li>
+            {% include '@App/renderer/snippets/button.html.twig' with { block: button,
+            customClass: 'a--block' } %}
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="site-footer__section site-footer__section--secondary">
+        <div class="site-footer__tagline">
+        </div>
+
+
+        <ul class="site-footer__legal">
+
+          {% for item in sulu_navigation_root_flat('footer', 20) %}
+          {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+          {% if itemUrl is not empty %}
+          <li class="item item-menu">
+            <a title="{{ item.title }}" class="link" href="{{ itemUrl }}">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{ item.title }}</font>
+              </font>
+            </a>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+        </ul>
+
+        <ul class="site-footer__logos">
+          <li>
+            <span class="partner-logo partner-logo--ovh">
+              <img src="https://netexy.com/media/86/download/web-community.png?v=3&inline=1" alt="Партнер OVH">
+            </span>
+          </li>
+
+          <li>
+            <span class="partner-logo partner-logo--google-cloud-partner">
+              <img src="https://netexy.com/media/85/download/gcp-partner-badge.png?v=5&inline=1" alt="Партнер Google Cloud Platform">
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="row center-xs site-footer__bottom pad-xs-y">
+      <div class="col-xs-12 col-md-4 pad-xs-x">
+      </div>
+      <div class="col-xs-12 col-md-4 pad-xs-x center">
+        <ul class="site-footer__legal">
+
+          <li class="row pad-xs-y">
+            <a href="#" uk-totop uk-scroll></a>
+          </li>
+        </ul>
+        <ul class="site-footer__legal">
+          <li>
+            {% if copyright|length %}
+            {% include '@App/renderer/snippets/copyright.html.twig' with { block: copyright[0] } %}
+            {% endif %}
+          </li>
+
+          {#<li>#}
+            {#{%- if context.extension.seo.urls|length > 1 -%}#}
+            {#{%- for locale, url in context.extension.seo.urls -%}#}
+            {#{%- if defaultLocale == locale -%}#}
+            {#<a rel="alternate" href="{{ sulu_content_path(url, null, locale) }}" hreflang="x-default">Lang</a>#}
+            {#{%- endif -%}#}
+            {#<a rel="alternate" href="{{ sulu_content_path(url, null, locale) }}">Lang</a>#}
+            {#{%- endfor -%}#}
+            {#{%- endif -%}#}
+            {#</li>#}
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-4 last-md center">
+      </div>
+    </div>
+  </footer>
+</div>
+{% endif %}

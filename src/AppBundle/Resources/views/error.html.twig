@@ -1,0 +1,81 @@
+{% extends 'AppBundle:templates:default/default.html.twig' %}
+{# This is the template for the "Error:" pages. #}
+{# Further information on twig templates can be found under #}
+{# views/master.html.twig and views/templates/homepage.html.twig. #}
+{% block meta %}
+    {{ parent() }}
+    <title>{{ 'error'|trans }}</title>
+{% endblock %}
+
+{% block content %}
+    {#<div class="error">#}
+        {#<img src="{{ asset('bundles/suluframework/media/img/static/icon-136.png') }}"/>#}
+
+        {#<h1>{{ 'error_occured'|trans }}</h1>#}
+
+        {#{% if 404 == status_code %}#}
+            {#{{ 'page_not_found'|trans }}#}
+        {#{% else %}#}
+            {#<div class="error-content">#}
+                {#<h2 class="heading-h2">{{ 'error'|trans|ucfirst }} {{ status_code }}</h2>#}
+
+                {#<p class="error-content-text">{{ status_text }}</p>#}
+
+                {#<a href="/" class="button-large">{{ 'homepage'|trans }}</a>#}
+            {#</div>#}
+        {#{% endif %}#}
+
+
+    {#</div>#}
+
+
+
+    <section id="content" vocab="http://schema.org/" typeof="Content">
+
+        <div class="row center-xs ">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-9 body-bg pad-xs pad-lg-y ">
+                <div class="row">
+
+                    <div class="row center-xs">
+                        <div class="pad-xs-y body-bg heading" style="background: inherit;">
+                            <h2 class="h2 center layout-text--default pad-xs-x ">
+                                {{ 'error'|trans }}
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="layout-padding--medium">
+                    <div class="row around-xs">
+
+                        <article class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pad-xs-x mar-xs-b">
+                            <div class="a--subtle a--block block-grid--align-item">
+
+                                <div class="text-align--center stat-icon-wrapper js-in-view is-active">
+                                    <i class="material-icons xl c--akcent">warning</i>
+                                </div>
+
+                                <h2 class="col-xs-12 flush h4 center layout-text--default mar-xs-t">{{ status_code }}</h2>
+
+                                <div class="pad-xs-x center">
+                                    <p class="error-content-text pad-xs">{{ status_text|trans }}</p>
+
+                                    {#{% if 404 == status_code %}#}
+                                        <div class="pad-xs-y mar-xs-y">
+                                            <a href="/" class="button button--future button-large">{{
+                                                'to_homepage'|trans }}</a>
+                                        </div>
+                                    {#{% endif %}#}
+                                </div>
+
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

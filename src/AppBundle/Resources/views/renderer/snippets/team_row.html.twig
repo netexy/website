@@ -1,0 +1,35 @@
+{% set enlarge_image_state = block.enlarge_image == 'none' ? 'four' : ('large-' ~ block.enlarge_image) %}
+
+{% if block.items|length %}
+    <div class="grid-row grid-row--{{ enlarge_image_state }}">
+        {% for item in block.items %}
+            {% set url = "/"~context.request.locale ~
+                        item.url %}
+            {% if item.mediaId %}
+                {% set image = sulu_resolve_media(item.mediaId, context.request.locale) %}
+                <div class="item">
+                    <article class="profile profile--preview">
+                        <div class="a--block a--subtle" href="/about/pippa-holman">
+                            <div class="profile__img">
+                                {% set fullName = item.title %}
+                                {% set position = item.moreText|default('') %}
+
+                                <div class="placeholder placeholder--square ">
+                                    <img class="js-lazy is-active" src="{{ image.thumbnails['600x600'] }}"
+                                         alt="{{ fullName }}">
+
+                                </div>
+                            </div>
+                            <div class="profile__copy">
+                                <h1 class="h4 profile__name">{{ fullName }}</h1>
+                                {% if position|length %}
+                                    <p class="hidden-desktop visible--tablet-small small profile__title">{{ position }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

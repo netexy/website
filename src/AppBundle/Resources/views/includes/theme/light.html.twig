@@ -1,0 +1,54 @@
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set ui_text_color = config.ui_text_color|default('#000') %}
+{% set ui_block_background_color = config.ui_block_background_color|default('#FFF') %}
+{% set ui_background_color = config.ui_background_color|default('#FF0') %}
+
+<style>
+    /* LIGHT-THEME 
+
+    body {
+        color: {{ ui_text_color }};
+    }
+
+    .body-bg {
+        background-color: {{ ui_background_color }};
+    }
+
+    .block-bg {
+        background-color: {{ ui_block_background_color }};
+    }
+
+    .body-bg h1,
+    .body-bg h2,
+    .body-bg h3,
+    .body-bg h4,
+    .body-bg h5,
+    .body-bg h6 {
+        color: {{ ui_text_color }};
+    }
+
+    .body-bg .product-headline {
+        color: {{ ui_background_color }};
+    }
+
+    .preview--link .preview__link,
+    .preview--link .preview__link:focus,
+    .preview--link .preview__link:hover {
+        color: {{ ui_text_color }};
+    }
+
+    input,
+    textarea,
+    keygen,
+    select,
+    button {
+        color: {{ ui_text_color }};
+    }
+*/
+</style>

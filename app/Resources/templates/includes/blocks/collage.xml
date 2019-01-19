@@ -1,0 +1,40 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="collage">
+        <types>
+            <type name="collage">
+                <meta>
+                    <title lang="en">Collage</title>
+                    <title lang="uk">Колаж</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <property name="rows" type="snippet">
+                        <meta>
+                            <title lang="en">Rows</title>
+                            <title lang="uk">Рядки</title>
+                        </meta>
+                        <params>
+                            <param name="snippetType" value="collage_row"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,17 @@
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes width-grow {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: calc(100% - 2px);
+	}
+}

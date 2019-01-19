@@ -1,0 +1,31 @@
+<a
+        style="
+        {% if block.bg_color is not empty %}
+                background-color: {{ block.bg_color }};
+        {% endif %}
+       {% if block.text_color is not empty %}
+               color: {{ block.text_color }};
+       {% endif %}
+                "
+        href="{{ block.url }}"
+        class="{{ block.custom_class|default(customClass|default()) }}"
+        uk-tooltip="title: {{ block.text }}; pos: top"
+        target="_blank">
+    {% if block.icon|length %}
+        {#{% if 'svg' in block.icon[0].url|split('.')|last %}#}
+            {#<svg class="icon" aria-label="{{ block.text }}">#}
+                {#<use xlink:href="{{ sulu_resolve_media(block.icon[0], context.request.locale).url }}"></use>#}
+            {#</svg>#}
+        {#{% else %}#}
+            {# todo: test. #}
+            <img src="{{ sulu_resolve_media(block.icon[0], context.request.locale).thumbnails['sulu-50x50'] }}" alt="{{ block.text }}">
+        {#{% endif %}#}
+    {#{% endif %}#}
+    {% elseif block.text|length %}
+        {{ block.text }}
+    {% endif %}
+</a>
+
+
+
+{#btn#}

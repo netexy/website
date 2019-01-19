@@ -1,0 +1,33 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="articles_list">
+        <types>
+            <type name="articles_list">
+                <meta>
+                    <title lang="en">Articles List</title>
+                    <title lang="uk">Список Статей</title>
+                </meta>
+                <properties>
+                    <property name="articles" type="smart_content" mandatory="true">
+                        <meta>
+                            <title lang="en">Articles</title>
+                            <title lang="uk">Статті</title>
+                        </meta>
+
+                        <params>
+                            <param name="provider" value="articles"/>
+                            <!--<param name="types" value="blog"/>-->
+                            <param name="structureTypes" value="blog"/>
+                            <param name="max_per_page" value="3"/>
+
+                            <!--<param name="properties" type="collection">-->
+                                <!--<param name="description" value="excerpt.description"/>-->
+                            <!--</param>-->
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

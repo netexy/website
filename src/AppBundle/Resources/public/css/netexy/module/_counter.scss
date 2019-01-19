@@ -1,0 +1,41 @@
+.counter-font-top,
+.counter-font-bottom {
+  color: inherit;
+  font-size: $p--small;
+  font-weight: $w--semibold;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  @include mq('tablet-small') {
+    font-size: $h--xxx-small;
+    padding: 0.5rem 0.8rem;
+  }
+}
+.counter-block {
+  padding: 1rem 0;
+  border-radius: 3px;
+  @include mq('tablet-small') {
+  border-radius: 5px;
+  }   
+}
+.counter-style {
+  font-size: $h--small;
+  font-weight: $w--light;
+  @include mq('tablet-small') {
+    font-size: $h--medium; 
+  } 
+}
+.counter-style,
+.counter-style i {
+  letter-spacing: -0.005rem;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, .33);
+  @include mq('tablet-small') {
+    letter-spacing: -0.008rem;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, .33);
+  } 
+}
+.counter-end-num {
+  display: none;
+  @include mq('tablet-small') {
+    display: inline-block;
+  }   
+}

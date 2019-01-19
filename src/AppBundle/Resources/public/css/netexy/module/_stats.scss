@@ -1,0 +1,496 @@
+/*---
+
+Stats
+
+```
+<div>
+	<ul class="block-grid
+		block-grid--gutter
+		block-grid--1
+		flush-first--1
+		block-grid--tablet-wide-3
+		flush-first--tablet-wide-3"
+		>
+
+		<li class="stats-list__item">
+			<svg class="icon"><use xlink:href="/assets/img/sprite.svg#stat--webview"></use></svg>
+			<span class="number">16,802</span>
+			<span class="sans secondary">Live views</span>
+		</li>
+		<li class="stats-list__item">
+			<svg class="icon"><use xlink:href="/assets/img/sprite.svg#stat--shares"></use></svg>
+			<span class="number">70,501</span>
+			<span class="sans secondary">Live reach</span>
+		</li>
+		<li class="stats-list__item">
+			<svg class="icon"><use xlink:href="/assets/img/sprite.svg#stat--bike"></use></svg>
+			<span class="number">974</span>
+			<span class="sans secondary">Teas delivered</span>
+		</li>
+	</ul>
+</div>
+```
+
+*/
+
+$block: '.stats';
+
+.stat-icon-wrapper {
+	svg {
+		display: block;
+		@include push--auto;
+		width: 140px;
+	}
+}
+
+#{$block}-list {
+
+	&__item {
+		font-family: inherit;
+		text-align: center;
+
+		svg {
+			display: block;
+			@include push--auto;
+			max-width: 8rem;
+		}
+
+		.number {
+			display: block;
+			position: relative;
+			margin-top: rem(-30px);
+			font: {
+				weight: $w--bold;
+				size: $h--xxx-large;
+			}
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+}
+
+
+.is-active {
+
+	.code--inner-1,
+	.code--inner-2 {
+		animation: line-in 700ms $ease--in-out-quint both;
+		animation-delay: 1500ms;
+	}
+
+	.bike--outline {
+		animation: line-out 2000ms $ease--in-out-quint both;
+		animation-delay: 0;
+	}
+
+	.email--yellow {
+		animation: scale-left 630ms $ease--in-out-quint both;
+		animation-delay: 1000ms;
+	}
+
+	.email--outline-bit {
+		animation: line-in 1000ms $ease--in-out-quint both;
+		animation-delay: 1000ms;
+	}
+
+	.increase--inner-1 {
+		animation: line-in 500ms $ease--in-out-quint both;
+		animation-delay: 1200ms;
+	}
+
+	.search--yellow {
+		animation: rotate-in 830ms $ease--in-out-quint both, stats--fade 800ms $ease--in-out-quint both;
+		animation-delay: 510ms 800ms;
+	}
+
+	.shares--dots-2 {
+		animation: pop-in 550ms $ease--in-out-quint both, stats--fade 550ms $ease--in-out-quint both;
+		animation-delay: 820ms 820ms;
+	}
+
+	.shares--outline-2 {
+		animation: line-in 400ms $ease--in-out-quint both;
+		animation-delay: 1600ms;
+	}
+
+	.webview--inner-2 {
+		animation: line-in 700ms $ease--in-out-quint both;
+		animation-delay: 1200ms;
+	}
+
+	.code--yellow,
+	.increase--yellow,
+	.webview--yellow {
+		animation: scaleX-left 1000ms $ease--in-out-quint both;
+		animation-delay: 620ms;
+	}
+
+	.code--inner-2,
+	.increase--inner-2 {
+		animation: line-in 700ms $ease--in-out-quint both;
+		animation-delay: 1600ms;
+	}
+
+	.code--inner-3,
+	.increase--inner-3,
+	.pageview--inner-3,
+	.shares--inner-3,
+	.webview--inner-3 {
+		animation: line-in 500ms $ease--in-out-quint both;
+		animation-delay: 1700ms;
+	}
+
+	.code--outline,
+	.email--outline,
+	.increase--outline,
+	.pageview--outline,
+	.search--outline,
+	.star--line,
+	.star--outline,
+	.webview--outline {
+		animation: line-in 2000ms $ease--in-out-quint both;
+		animation-delay: 0;
+	}
+
+	.code--line,
+	.increase--line,
+	.pageview--line,
+	.search--line,
+	.webview--line {
+		animation: line-in 500ms $ease--in-out-quint both;
+		animation-delay: 1100ms;
+	}
+
+	.code--dots-1,
+	.code--dots-2,
+	.increase--dots-1,
+	.webview--dots-1 {
+		animation: pop-in 150ms $ease--in-out-quint both;
+		animation-delay: 800ms;
+	}
+
+	.code--dots-2,
+	.increase--dots-2,
+	.increase--dots-3,
+	.webview--dots-2,
+	.webview--dots-3 {
+		animation: pop-in 150ms $ease--in-out-quint both;
+		animation-delay: 850ms;
+	}
+
+	.bike--yellow,
+	.code--dots-3,
+	.increase--dots-3,
+	.webview--dots-3 {
+		animation: pop-in 150ms $ease--in-out-quint both;
+		animation-delay: 900ms;
+	}
+
+	.bike--yellow,
+	.star--yellow {
+		animation: pop-in 500ms $ease--in-out-quint both;
+		animation-delay: 1500ms;
+	}
+
+	.bike--line,
+	.email--line,
+	.star--line {
+		animation: line-in 300ms $ease--in-out-quint both;
+		animation-delay: 1800ms;
+	}
+
+	.pageview--yellow,
+	.shares--yellow {
+		animation: scaleX-left 700ms $ease--in-out-quint both;
+		animation-delay: 900ms;
+	}
+
+	.pageview--yellow-triangle,
+	.shares--yellow-triangle {
+		animation: scale-left 700ms $ease--in-out-quint both, stats--fade 320ms $ease--in-out-quint both;
+		animation-delay: 620ms 1620ms;
+	}
+
+	.pageview--inner-1,
+	.shares--inner-1 {
+		animation: line-in 600ms $ease--in-out-quint both;
+		animation-delay: 1500ms;
+	}
+
+	.pageview--inner-2,
+	.shares--inner-2 {
+		animation: line-in 600ms $ease--in-out-quint both;
+		animation-delay: 1600ms;
+	}
+
+	.pageview--outline-2,
+	.search--outline-2 {
+		animation: line-in 300ms $ease--in-out-quint both;
+		animation-delay: 630ms;
+	}
+
+	.shares--dots-1,
+	.shares--dots-2,
+	.social--dot {
+		animation: pop-in 550ms $ease--in-out-quint both, stats--fade 550ms $ease--in-out-quint both;
+		animation-delay: 0 0;
+	}
+
+	.shares--outline,
+	.social--outline {
+		animation: line-in 1600ms $ease--in-out-quint both;
+		animation-delay: 0;
+	}
+
+	.shares--line,
+	.social--line,
+	.webview--inner-1 {
+		animation: line-in 500ms $ease--in-out-quint both;
+		animation-delay: 1600ms;
+	}
+}
+
+
+
+.code--outline {
+	stroke-dasharray:165;
+	stroke-dashoffset:165;
+}
+
+.bike--outline {
+	stroke-opacity:1;
+	stroke:#eef4fa;
+	stroke-width:10px;
+}
+
+.email--outline {
+	stroke-dasharray:174;
+	stroke-dashoffset:174;
+}
+
+.email--outline-bit {
+	stroke-dasharray:66;
+	stroke-dashoffset:66;
+}
+
+.pageview--line {
+	stroke-dasharray:12;
+	stroke-dashoffset:12;
+}
+
+.search--yellow {
+	transform-origin:0 30%;
+	transform: scale(0)
+}
+
+.shares--outline-2 {
+	stroke-dasharray:44;
+	stroke-dashoffset:44;
+}
+
+.star--yellow {
+	fill-rule:evenodd;
+	clip-rule:evenodd;
+	fill:#fe0;
+	transform-origin:50% 50%;
+	transform: scale(0)
+}
+
+.star--line,
+.star--outline {
+	fill-rule:evenodd;
+	clip-rule:evenodd;
+	fill:none;
+	stroke:#222;
+	stroke-width:4;
+	stroke-linecap:round;
+	stroke-linejoin:round;
+	stroke-miterlimit:10;
+	stroke-dasharray:171;
+	stroke-dashoffset:171;
+}
+
+.star--line {
+	stroke-width:2;
+	stroke-dasharray:23;
+	stroke-dashoffset:-23;
+}
+
+.webview--inner-2 {
+	stroke-dasharray:49 51;
+	stroke-dashoffset:50;
+}
+
+.code--yellow,
+.email--yellow,
+.increase--yellow,
+.pageview--yellow,
+.shares--yellow,
+.webview--yellow {
+	transform-origin:0 50%;
+	transform: scale(0)
+}
+
+.code--inner-1,
+.code--inner-2,
+.increase--inner-2,
+.pageview--outline-2,
+.search--outline-2 {
+	stroke-dasharray:32;
+	stroke-dashoffset:32;
+}
+
+.code--inner-3,
+.increase--inner-3,
+.pageview--inner-3,
+.search--line,
+.shares--inner-3,
+.webview--inner-3 {
+	stroke-dasharray:21;
+	stroke-dashoffset:21;
+}
+
+.code--line,
+.increase--line,
+.webview--line {
+	stroke-dasharray:27;
+	stroke-dashoffset:-27;
+}
+
+.code--dots-1,
+.code--dots-2,
+.bike--yellow,
+.code--dots-3,
+.increase--dots-1,
+.increase--dots-2,
+.increase--dots-3,
+.shares--dots-1,
+.shares--dots-2,
+.social--dot,
+.webview--dots-1,
+.webview--dots-2,
+.webview--dots-3 {
+	transform-origin:50% 50%;
+	transform: scale(0)
+}
+
+.bike--line,
+.email--line {
+	stroke-dasharray:23;
+	stroke-dashoffset:-23;
+}
+
+.increase--inner-1,
+.webview--inner-1 {
+	stroke-dasharray:68;
+	stroke-dashoffset:-68;
+}
+
+.increase--outline,
+.webview--outline {
+	stroke-dasharray:234;
+	stroke-dashoffset:234;
+}
+
+.pageview--yellow-triangle,
+.shares--yellow-triangle {
+	transform-origin:0 0;
+	transform: scale(0)
+}
+
+.pageview--inner-1,
+.shares--inner-1 {
+	stroke-dasharray:17;
+	stroke-dashoffset:17;
+}
+
+.pageview--inner-2,
+.shares--inner-2 {
+	stroke-dasharray:55 57;
+	stroke-dashoffset:56;
+}
+
+.pageview--outline,
+.search--outline {
+	stroke-dasharray:150;
+	stroke-dashoffset:150;
+}
+
+.shares--outline {
+	stroke-dasharray:125;
+	stroke-dashoffset:125;
+}
+
+.social--outline {
+	stroke-dasharray:249;
+	stroke-dashoffset:249;
+}
+
+.shares--line,
+.social--line {
+	stroke-dasharray:14;
+	stroke-dashoffset:14;
+}
+
+
+@keyframes line-out {
+	to {
+		stroke-width: 0
+	}
+}
+
+@keyframes rotate-in {
+	0% {
+		transform: scale(.6) rotate(-20deg)
+	}
+
+	to {
+		transform: scale(1) rotate(0deg)
+	}
+}
+
+@keyframes scale-left {
+	0% {
+		transform: scale(0)
+	}
+
+	to {
+		transform: scale(1)
+	}
+}
+
+@keyframes scaleX-left {
+	0% {
+		transform: scaleX(0) skew(-70deg)
+	}
+
+	to {
+		transform: scaleX(1) skew(0deg)
+	}
+}
+
+@keyframes stats--fade {
+	0% {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes line-in {
+	to {
+		stroke-dashoffset: 0
+	}
+}
+
+@keyframes pop-in {
+	0% {
+		transform: scale(0)
+	}
+
+	to {
+		transform: scale(1)
+	}
+}

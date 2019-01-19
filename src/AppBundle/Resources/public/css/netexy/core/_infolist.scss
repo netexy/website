@@ -1,0 +1,55 @@
+/* Progress
+   ========================================================================== */
+
+.tech-char {
+    ul {
+      padding: 0;
+      li {
+        display: flex;
+        .img-box {
+          width: 100%;
+          max-width: 48px;
+          height: auto;
+          display: block;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          
+          @include mq('phablet') {
+            min-width: 75px;
+          }          
+          
+        }
+        p {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: 0;
+          color: $c--white;
+          padding: 0 40px 0 27px;
+          font-size: 18px;
+          &.subtitle {
+            padding: 0 0 10px 27px;
+            color: $c--akcent;
+            text-transform: uppercase;
+            font-size: 22px;
+            line-height: (25/18);
+          }
+        }
+      }
+    }
+  
+  &__img {
+    width: 750px;
+    height: 697px;
+    display: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  @include mq('tablet-wide') {
+    display: block   
+  }      
+    
+  }
+}

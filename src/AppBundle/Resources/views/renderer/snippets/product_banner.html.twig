@@ -1,0 +1,65 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if partner.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set inlineStyle = '' %}
+{% if block.bg_color|default() %}
+    {% set inlineStyle = inlineStyle ~ 'background-color: ' ~ block.bg_color ~ ';' %}
+{% endif %}
+{% if block.text_color|default() %}
+    {% set inlineStyle = inlineStyle ~ 'color: ' ~ block.text_color ~ ';' %}
+{% endif %}
+
+{% if block.media|default()|length %}
+    {% set media = sulu_resolve_media(block.media[0], context.request.locale) %}
+{% elseif block.mediaId|length %}
+    {% set media = sulu_resolve_media(block.mediaId, context.request.locale) %}
+{% endif %}
+
+{% set gridSize = gridSize|default(12) %}
+
+<div class="col-xs-12 col-sm-{{ gridSize }} col-md-{{ gridSize }} col-lg-{{ gridSize }} bord-xs-b {% if gridSize != 12 %} bord-sm-in bord-md-in bord-lg-in {% endif %} {{ customClass }}"
+     uk-grid role="img" aria-label="{{ block.title }}" itemscope="" itemtype="http://schema.org/Product">
+    <div class="uk-text-center">
+        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+            {% if media|default() %}
+                {% if block.url|length %}
+                    {% set url = "/"~context.request.locale ~
+                        block.url %}
+                    <a href="{{ url }}" title="{{ block.title }}">
+                        <picture>
+                            {% if 12 == gridSize %}
+                                <source srcset="{{ media.thumbnails['1440x580'] }}" media="(min-width: 1024px)">
+                            {% else %}
+                                <source srcset="{{ media.thumbnails['768x447'] }}" media="(min-width: 1024px)">
+                            {% endif %}
+
+                            <img class="uk-transition-scale-up uk-transition-opaque"
+                                 src="{{ media.thumbnails['600x343'] }}" alt="{{ block.title }}">
+                        </picture>
+                    </a>
+                {% else %}
+                    <picture>
+                        <source src="{{ media.thumbnails['1440x580'] }}" media="(min-width: 1024px)"/>
+
+                        <img class="uk-transition-scale-up uk-transition-opaque" src="{{ media.thumbnails['600x343'] }}"
+                             alt="{{ block.title }}">
+                    </picture>
+                {% endif %}
+            {% endif %}
+            {% if block.title|trim|length %}
+                <div class="uk-position-center">
+                    <div class="uk-transition-slide-top-small header-block">
+                        <h2 class="uk-margin-remove product-tout-title" itemprop="name">{{ block.title }}</h2>
+                    </div>
+                    <div class="uk-transition-slide-bottom-small subheader-block">
+                        <h4 class="uk-margin-remove product-headline">{{ block.description|raw }}</h4>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+.idea
+.DS_Store 
+thumbs.db
+.sass-cache
+node_modules
+

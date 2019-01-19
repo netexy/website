@@ -1,0 +1,43 @@
+.error-404 {
+	position: relative;
+	height: 100%;
+}
+
+.error-message {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	background: $c--akcent;
+
+	.message-overlay {
+		z-index: 1;
+		position: relative;
+		margin: 8rem auto;
+		padding: 2rem;
+		width: 80%;
+		max-width: 50rem;
+		font-family: inherit;
+		text-align: center;
+		background: $c--white;
+		box-shadow: 0 0 0 .4rem rgba(mix($c--akcent, $c--black, 95%), .9);
+		border-radius: 1rem;
+
+		@include mq('tablet-small') {
+			top: 50%;
+			margin: auto;
+			max-width: 60vw;
+			padding: 4rem;
+			box-shadow: 0 0 0 1rem rgba(mix($c--akcent, $c--black, 95%), .9);
+			border-radius: 2rem;
+			transform: translateY(-50%);
+		}
+
+		@include mq('desktop') {
+			width: 50vw;
+		}
+
+		@include mq('desktop-wide') {
+			width: 33.333333333vw;
+		}
+	}
+}

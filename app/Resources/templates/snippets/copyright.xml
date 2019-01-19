@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>copyright</key>
+
+    <meta>
+        <title lang="en">Copyright</title>
+        <title lang="uk">Копірайт</title>
+    </meta>
+
+    <!--<areas>-->
+
+        <!--<area key="copyright">-->
+            <!--<meta>-->
+                <!--<title lang="en">Copyright</title>-->
+                <!--<title lang="uk">Копірайт</title>-->
+            <!--</meta>-->
+        <!--</area>-->
+    <!--</areas>-->
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="owner" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Copyright Owner</title>
+                <title lang="uk">Власник Контенту</title>
+            </meta>
+        </property>
+
+        <property name="year_established" type="text_line">
+            <meta>
+                <title lang="en">Year of Establishment</title>
+                <title lang="uk">Дата заснування</title>
+            </meta>
+        </property>
+    </properties>
+</template>

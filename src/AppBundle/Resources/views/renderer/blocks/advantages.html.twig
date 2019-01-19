@@ -1,0 +1,82 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+
+<div class="row center-xs ">
+    <div class="col-xs-12 pad-lg-y {{ customClass }}">
+        <div class="row">
+            {#{% if block.display_heading|default(true) %}#}
+                {#{% set heading = {#}
+                    {#'title': block.title|default(),#}
+                    {#'heading_level': 2,#}
+                {#} %}#}
+                {#{{ helpers.loadBlock('heading', {block: heading}) }}#}
+            {#{% endif %}#}
+        </div>
+        <div class="row center-xs pad-xs-r card__row">
+            {% for i in 1..3 %}
+                {% set title = "title_" ~ i %}
+                {% set text = "text_" ~ i %}
+                {% set icon = "material_icon_" ~ i %}
+
+                {% if attribute(block, title)|length %}
+
+                    <article class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mar-xs-b">
+                        <div class="a--subtle a--block block-grid--align-item card__item pad-xs-x z-depth-2">
+
+                            <div class="card__icon stat-icon-wrapper js-in-view is-active">
+                                <i class="material-icons c--akcent">{{ attribute(block, icon) }}</i>
+                            </div>
+
+                            <h2 class="col-xs-12 flush h4 center layout-text--default mar-xs-t">
+                              <span class="border">{{ attribute(block, title) }}</span>
+                            </h2>
+
+                            <p class="sans tertiary">
+                                {{ attribute(block, text)|raw }}
+                            </p>
+                            {#<div class="col-xs-12 block-grid--align-bottom center">#}
+                              {#<a href="#!" class="button button--teal">#}
+                                {#Детальніше#}
+                              {#</a>#}
+                            {#</div>#}
+                        </div>
+                    </article>
+
+                    {% endif %}
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{#{% if block.media|length %}#}
+    {#<div class="container-bg {{ customClass }}">#}
+        {#{% if block.display_heading|default(true) %}#}
+            {#{% set heading = {#}
+                {#'title': block.title|default(),#}
+                {#'heading_level': 2,#}
+            {#} %}#}
+            {#{{ helpers.loadBlock('heading', {block: heading}) }}#}
+        {#{% endif %}#}
+        {#<div class="row">#}
+            {#<div class="col-xs-12">#}
+                {#<div class="banner">#}
+                    {#{% set media = sulu_resolve_media(block.media[0], context.request.locale) %}#}
+                    {#{% if block.url|length %}#}
+                        {#<a href="{{ block.url }}" target="_blank">#}
+                            {#<img src="{{ media.thumbnails['1200x630'] }}" alt="{{ block.title }}" style="width: 100%;">#}
+                        {#</a>#}
+                    {#{% else %}#}
+                        {#<img src="{{ media.thumbnails['1200x630'] }}" alt="{{ block.title }}" style="width: 100%;">#}
+                    {#{% endif %}#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+{#{% endif %}#}

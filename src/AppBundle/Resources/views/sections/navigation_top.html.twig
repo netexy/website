@@ -1,0 +1,260 @@
+{% set sectionName = sectionName|default('navigation_top') %}
+
+{# necessary for sections #}
+{% set content = context.content|default([]) %}
+
+{#{% set _content = array_split_by_double_underscore(content) %}#}
+{% set block = array_split_by_double_underscore(content)[sectionName]|default([]) %}
+{% set enabled = block and not block.disabled|default(false) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{%- if enabled %}
+    {% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+
+    {% set contact = config.navigation_contact|default() %}
+    {% set logo = config.logo|default() %}
+    {% set logo_wide = config.logo_wide|default() %}
+    {% set address = config.footer_address|default() %}
+
+    {% set ln_title = block.ln_title|default(content.title) %}
+    {% set ln_url = '/' %}
+
+    {% set isArticle = context.pages|default()|length %}
+    {% if isArticle %}
+        {#{{ dump(context.view.type) }}#}
+
+        {% set parent_node = parent_node|default([]) %}
+        {% set parent_node = block.parent_node|default(config.articles_parent_node|default()) %}
+        {% set ln_title = parent_node.title|default('news'|trans) %}
+        {% set ln_url = parent_node.url|default('/') %}
+
+        {% if '/video/' in context.app.request.requestUri %}
+            {% set video_parent_node = config.video_parent_node|default() %}
+            {% set ln_title = video_parent_node.title|default('video'|trans) %}
+            {#{% set ln_url = video_pare
+            nt_node.url|default('/') %}#}
+        {% endif %}
+    {% endif %}
+
+    {% if logo|length and logo[0]|length %}
+      {% set image = sulu_resolve_media(logo[0], context.request.locale) %}
+      {% set imageMeta = image.fileVersion.defaultMeta %}
+      <style>
+        #globalnav .link-brand {
+          background-size: 42px 42px;
+          background-repeat: no-repeat;
+          background-image: url("{{ image.thumbnails['192x192'] }}");
+          background-position: center center;
+          width: 16px
+        }
+
+        #globalnav.no-svg .link-brand {
+          background-image: url("{{ image.thumbnails['192x192'] }}");
+        }
+
+        @media only screen and (max-width: 767px) {
+          #globalnav .link-brand {
+            background-size: 44px 44px;
+            background-repeat: no-repeat;
+            background-image: url("{{ image.thumbnails['192x192'] }}");
+          }
+
+          #globalnav.no-svg .link-brand {
+            background-image: url("{{ image.thumbnails['192x192'] }}");
+          }
+        }
+
+        .current-brand #globalnav .link-brand {
+          opacity: .65
+        }
+        </style>
+      {% endif %}
+
+        {% if logo_wide|length and logo_wide[0]|length %}
+          {% set image = sulu_resolve_media(logo_wide[0], context.request.locale) %}
+          {% set imageMeta = image.fileVersion.defaultMeta %}
+          <style>
+            #globalnav .list .link-brand {
+              background-size: 134px 32px;
+              background-repeat: no-repeat;
+              background-image: url("{{ image.thumbnails['x80'] }}");
+              background-position: center center;
+              width: 134px
+            }
+
+            #globalnav.no-svg .list .link-brand {
+              background-image: url("{{ image.thumbnails['x80'] }}");
+            }
+
+            @media only screen and (max-width: 767px) {
+              #globalnav .list .link-brand {
+                background-size: 147px 35px;
+                background-repeat: no-repeat;
+                background-image: url("{{ image.thumbnails['x80'] }}");
+              }
+
+              #globalnav.no-svg .list .link-brand {
+                background-image: url("{{ image.thumbnails['x80'] }}");
+              }
+            }
+
+            .current-brand #globalnav .list .link-brand {
+              opacity: .88
+            }        
+
+        </style>
+      {% endif %}
+
+    <input type="checkbox" id="menustate" class="menustate">
+    <nav id="globalnav" class="js no-touch animate-in {{ customClass }}" role="navigation">
+        <div class="content">
+            <ul class="header">
+                <li class="item menuicon">
+                    <label class="menuicon-label" for="menustate" aria-hidden="true">
+                <span class="menuicon-bread menuicon-bread-top">
+                    <span class="menuicon-bread-crust menuicon-bread-crust-top"></span>
+                </span>
+                        <span class="menuicon-bread menuicon-bread-bottom">
+                    <span class="menuicon-bread-crust menuicon-bread-crust-bottom"></span>
+                </span>
+                    </label>
+                    <a href="#!" class="menuanchor menuanchor-open" id="menuanchor-open">
+                        <span class="menuanchor-label">{{ 'open_menu'|trans }}</span>
+                    </a>
+                    <a href="#!" class="menuanchor menuanchor-close" id="menuanchor-close">
+                        <span class="menuanchor-label">{{ 'close_menu'|trans }}</span>
+                    </a>
+                </li>
+                <li class="item brand">
+                    <a class="link link-brand" href="{{ ln_url }}" data-analytics-title="brand home" id="firstfocus-text-small">
+                    {% if logo_wide|length and logo_wide[0]|length %}
+                        {% set image = sulu_resolve_media(logo_wide[0], context.request.locale) %}
+                        {% set imageMeta = image.fileVersion.defaultMeta %}
+                        <span class="link-text">{{ imageMeta.title }}</span>
+                        {% endif %}
+                    </a>
+                </li>       
+            </ul>
+            <ul class="list">
+              <li class="item brand">
+              {% if logo|length and logo[0]|length %}
+                  {% set image = sulu_resolve_media(logo[0], context.request.locale) %}
+                  {% set imageMeta = image.fileVersion.defaultMeta %}
+                  <a class="link link-brand" href="/" data-analytics-title="brand home" id="firstfocus">
+                          <span class="link-text">{{ imageMeta.title }}</span>
+                      </a>
+                  {% endif %}
+              </li>              
+            {% for item in sulu_navigation_root_flat('main') %}
+                {% set active = '' %}
+                
+                {% if uuid|default('') %}
+                    {% for crumb in sulu_breadcrumb(uuid) %}
+                        {% if crumb.uuid == item.uuid %}
+                            {% set active = ' class="active"' %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+                    {% if itemUrl is not empty %}
+                        <li class="item item-menu">
+                            <a title="{{ item.title }}" class="link" href="{{ itemUrl }}" {{ active|raw }}>
+                                <span>{{ item.title }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+    <div id="curtain" class="curtain"></div>
+    <div id="placeholder" class="nav-placeholder"></div>
+    <div id="viewport-emitter">&nbsp;</div>
+
+    {% if ln_title|length %}
+        <input type="checkbox" id="ln-menustate" class="ln-menustate">
+        <div id="ln-sticky-placeholder" class="css-sticky"></div>
+        <nav id="localnav" class="localnav-scrim js no-touch css-sticky animate-in" role="navigation">
+            <div class="ln-wrapper">
+                <div class="ln-background"></div>
+                <div class="ln-content">
+                    <div class="ln-title">
+                        <a href="{{ sulu_content_path('/') }}">
+                        {#{% if logo_wide|length %}#}  
+                            {#{% set image = sulu_resolve_media(logo_wide[0], context.request.locale) %}#}
+                            {#{% set imageMeta = image.fileVersion.defaultMeta %}#}
+                            {#<img src="{{ image.thumbnails['x80'] }}" alt="" height="44px">#}
+                        {#{% elseif ln_title|length %}#}
+                            {#{{ ln_title }}#}
+                        {#{% endif %}#}
+                        {{ ln_title }}  
+                        </a>                       
+                    </div>
+                    <div class="ln-menu">
+                        <a href="#!" class="ln-menucta-anchor ln-menucta-anchor-open" id="ln-menustate-open">
+                            <span class="ln-menucta-anchor-label">{{ 'open_menu'|trans }}</span>
+                        </a>
+                        <a href="#!" class="ln-menucta-anchor ln-menucta-anchor-close" id="ln-menustate-close">
+                            <span class="ln-menucta-anchor-label">{{ 'close_menu'|trans }}</span>
+                        </a>
+                        <div class="ln-menu-tray">
+                            <ul class="ln-menu-items">
+                                {% if contact|length %}
+                                    {% for phone in contact[0].phones %}
+                                        {% set cleanPhone = phone.phone|replace({' ':'', '-':'', '/':''}) %}
+                                        {% set normalizedPhone = phone.phone|replace({'-':' ', '/':' '}) %}
+                                        {% set phoneParts = normalizedPhone|split(' ') %}
+                                        <li class="ln-menu-item">
+                                            <a href="tel:{{ cleanPhone }}"
+                                               class="ln-menu-link">
+                                                {% if phoneParts|length > 1 %}
+                                                    <span class="binct-phone-number-{{ loop.index }} tel-body tel_{{ loop.index }}">
+                                                    {#{{ phoneParts[0] }}#}
+                                                        {#{{ phoneParts[1:]|join(' ') }}#}
+                                                        {{ phoneParts[0:]|join(' ') }}
+                                                    </span>
+                                                {% else %}
+                                                    {{ normalizedPhone }}
+                                                {% endif %}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}  
+                                {% if contact|length %}
+                                        <li class="ln-menu-item mail-info">
+                                            <a href="mailto:{{ contact[0].mainEmail }}"
+                                               class="ln-menu-link">
+                                            {{ contact[0].mainEmail }}
+                                            </a>
+                                        </li>
+                                {% endif %} 
+                            </ul>
+                        </div>
+                        <div class="ln-actions ln-actions-center">
+
+                            <div class="ln-actions ln-actions-center">
+                                <div class="ln-action ln-action-menucta" aria-hidden="true">
+                                    <label for="ln-menustate" class="ln-menucta ln-action-button">
+                                        <span class="ln-menucta-chevron"></span><i class="sm material-icons">contacts</i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <label id="ln-curtain" for="ln-menustate"></label>
+        <div id="ln-viewport-emitter">&nbsp;</div>
+    {% endif %}
+{% endif -%}
+
+
+{#{{ dump(context.templateName) }}#}

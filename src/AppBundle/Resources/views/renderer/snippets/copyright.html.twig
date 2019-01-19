@@ -1,0 +1,7 @@
+&copy;
+ <span class="text-strong">{{ block.owner }}</span>
+{% if block.year_established is not empty %}
+    {{ block.year_established }}-{{ 'now'|date('Y') }}
+{% else %}
+    {{ 'now'|date('Y') }}
+{% endif %}

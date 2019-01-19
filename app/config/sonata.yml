@@ -1,0 +1,17 @@
+#sonata_block:
+#    default_contexts: [cms]
+#    blocks:
+#        # Enable the SonataAdminBundle block
+#        sonata.admin.block.admin_list:
+#            contexts:   [admin]
+#        # Your other blocks
+#        sonata.admin.block.search_result:
+#            contexts:   [admin]
+#        sonata.admin.block.stats:
+#            contexts:   [admin]
+#
+#sonata_doctrine_phpcr_admin:
+#    document_tree:
+#        routing_defaults: [locale]
+#        repository_name: default
+#        sortable_by: position

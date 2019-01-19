@@ -1,0 +1,70 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="media">
+        <types>
+            <type name="media">
+                <meta>
+                    <title lang="en">Media (not clickable)</title>
+                    <title lang="uk">Медіа (не клікабельні)</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <property name="medias" type="media_selection">
+                        <meta>
+                            <title lang="en">Images</title>
+                            <title lang="uk">Зображення</title>
+                        </meta>
+                    </property>
+
+                    <property name="grid_columns_in_row" type="single_select">
+                        <meta>
+                            <title lang="en">Columns in Row</title>
+                            <title lang="uk">Колонок у рядку</title>
+                        </meta>
+
+                        <params>
+                            <param name="default_value" value="2"/>
+                            <param name="values" type="collection">
+                                <param name="1">
+                                    <meta>
+                                        <title lang="en">1</title>
+                                        <title lang="uk">1</title>
+                                    </meta>
+                                </param>
+
+                                <param name="2">
+                                    <meta>
+                                        <title lang="en">2</title>
+                                        <title lang="uk">2</title>
+                                    </meta>
+                                </param>
+
+                                <param name="3">
+                                    <meta>
+                                        <title lang="en">3</title>
+                                        <title lang="uk">3</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

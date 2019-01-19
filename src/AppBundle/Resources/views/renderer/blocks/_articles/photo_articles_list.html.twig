@@ -1,0 +1,63 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+
+<div property="articles" class=" {{ customClass }}">
+    <div class="row">
+        {% if block.display_heading|default(true) %}
+            {% set heading = {
+                'title': block.title|default(),
+                'heading_level': 2,
+            } %}
+            {{ helpers.loadBlock('heading', {block: heading}) }}
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start article -->
+            <div class="container-bg">
+                <div class="layout-width--70">
+                    {% for article in block.articles %}
+                        {% include '@App/includes/photo_article_preview.html.twig' with  {article: article,
+                            entityId: blockId ~ '_' ~ loop.index0} %}
+                    {% endfor %}
+
+                    {% set page = view.articles.page %}
+                    {% set disablePaging = page == 1 and not view.articles.hasNextPage %}
+
+                    {% if not disablePaging %}
+                        <div class="pad-xs">
+                            <ul class="pagination pagination-flex pad-xs mar-xs-y">
+                                {% if page-1 >= 1 %}
+                                    <li class="waves-effect">
+                                        <a href="{{ sulu_content_path(content.url) }}?p={{ page-1 }}"><i
+                                                    class="material-icons">chevron_left</i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <a href="#"><i class="material-icons">chevron_left</i></a>
+                                    </li>
+                                {% endif %}
+                                {% if view.articles.hasNextPage %}
+                                    <li class="waves-effect">
+                                        <a href="{{ sulu_content_path(content.url) }}?p={{ page+1 }}"><i
+                                                    class="material-icons">chevron_right</i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="disabled">
+                                        <a href="#"><i class="material-icons">chevron_right</i></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

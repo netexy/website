@@ -1,0 +1,56 @@
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set ui_text_color_dark_theme = config.ui_text_color_dark_theme|default('#FFF') %}
+{% set ui_block_background_color_dark_theme = config.ui_block_background_color_dark_theme|default('#16182d') %}
+{% set ui_background_color_dark_theme = config.ui_background_color_dark_theme|default('#0b0d1c') %}
+
+<style>
+    /* DARK-THEME 
+
+    body {
+        color: {{ ui_text_color_dark_theme }};
+    }
+
+    .body-bg {
+        background-color: {{ ui_background_color_dark_theme }};
+    }
+  
+    .block-bg {
+        background-color: {{ ui_block_background_color_dark_theme }}; 
+    }
+
+    .body-bg h1,
+    .body-bg h2,
+    .body-bg h3,
+    .body-bg h4,
+    .body-bg h5,
+    .body-bg h6 {
+        color: {{ ui_text_color_dark_theme }};
+    }
+
+    .body-bg .product-headline {
+        color: {{ ui_background_color_dark_theme }};
+    }
+
+    .preview--link .preview__link,
+    .preview--link .preview__link:focus,
+    .preview--link .preview__link:hover {
+        color: {{ ui_text_color_dark_theme }};
+    }
+
+    input,
+    textarea,
+    keygen,
+    select,
+    button {
+        color: {{ ui_text_color_dark_theme }};
+    }
+*/
+</style>
+
+

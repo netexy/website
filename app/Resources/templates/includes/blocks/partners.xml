@@ -1,0 +1,81 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="partners">
+        <types>
+            <type name="partners">
+                <meta>
+                    <title lang="en">Partners</title>
+                    <title lang="uk">Партнери</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <!--<property name="heading_level" type="single_select">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Heading Level</title>-->
+                            <!--<title lang="uk">Рівень заголовку</title>-->
+                        <!--</meta>-->
+                        <!--<params>-->
+                            <!--<param name="default_value" value="1"/>-->
+                            <!--<param name="values" type="collection">-->
+                                <!--<param name="1">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">1</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="2">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">2</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="3">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">3</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="4">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">4</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                            <!--</param>-->
+                        <!--</params>-->
+                    <!--</property>-->
+
+                    <!-- Snippets are pieces of content that can be included in different pages. -->
+                    <!-- Each snippet has a type that specifies the properties of the snippet. -->
+                    <!-- That type is very similar to a page template. For an example, see: -->
+                    <!-- app/Resources/templates/snippets/partner.xml -->
+
+                    <!-- Snippets can be created and edited in the "Snippets" section of the admin UI. -->
+                    <!-- In a "snippet" content type, the content manager can select individual snippets that should be included in the page. -->
+                    <property name="partners" type="snippet">
+                        <meta>
+                            <title lang="en">Partners</title>
+                            <title lang="uk">Партнери</title>
+                        </meta>
+
+                        <params>
+                            <!-- We restrict the selection to snippets of type "partner" -->
+                            <param name="snippetType" value="partner"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

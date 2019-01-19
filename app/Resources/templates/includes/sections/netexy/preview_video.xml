@@ -1,0 +1,72 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="preview_video">
+        <meta>
+            <title lang="en">Video For Preview</title>
+            <title lang="uk">Відео Для Попереднього Перегляду</title>
+        </meta>
+
+        <properties>
+            <property name="preview_video__video_link" type="url">
+                <meta>
+                    <title lang="en">Youtube Video Link</title>
+                    <title lang="uk">Посилання на відео Youtube</title>
+                </meta>
+            </property>
+
+            <!--<property name="header__date_disabled" type="checkbox">-->
+                <!--<meta>-->
+                    <!--<title lang="en">Disable Date</title>-->
+                    <!--<title lang="uk">Відключити Дату</title>-->
+                <!--</meta>-->
+                <!--<params>-->
+                    <!--<param name="type" value="toggler"/>-->
+                <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__author_disabled" type="checkbox">-->
+                <!--<meta>-->
+                    <!--<title lang="en">Disable Author</title>-->
+                    <!--<title lang="uk">Відключити Автора</title>-->
+                <!--</meta>-->
+                <!--<params>-->
+                    <!--<param name="type" value="toggler"/>-->
+                <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__logo_disabled" type="checkbox">-->
+            <!--<meta>-->
+            <!--<title lang="en">Disable Logo</title>-->
+            <!--<title lang="uk">Відключити Логотип</title>-->
+            <!--</meta>-->
+            <!--<params>-->
+            <!--<param name="type" value="toggler"/>-->
+            <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__media" type="media_selection">-->
+            <!--<meta>-->
+            <!--<title lang="en">Image</title>-->
+            <!--<title lang="uk">Зображення</title>-->
+            <!--</meta>-->
+
+            <!--<params>-->
+            <!--<param name="type" value="image"/>-->
+            <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__inverse_media" type="media_selection">-->
+            <!--<meta>-->
+            <!--<title lang="en">Inverse Image</title>-->
+            <!--<title lang="uk">Інверсне Зображення</title>-->
+            <!--</meta>-->
+
+            <!--<params>-->
+            <!--<param name="type" value="image"/>-->
+            <!--</params>-->
+            <!--</property>-->
+        </properties>
+    </section>
+</properties>

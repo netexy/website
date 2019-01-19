@@ -1,0 +1,27 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.twig_extensions.date:
+        class: Twig_Extensions_Extension_Date
+        tags:
+            - { name: twig.extension }
+
+    # Overrides
+    sulu_document_manager.node_name_slugifier:
+        class: AppBundle\Util\Slugifier\NodeNameSlugifier
+        arguments:
+            - '@sulu_document_manager.slugifier'
+
+    # This is our custom Twig extension.
+    # You can find more information about this extension in the documentation:
+    # http://symfony.com/doc/current/templating/twig_extension.html
+    app.twig.website:
+        class: AppBundle\Twig\WebsiteTwigExtension
+        tags:
+            - { name: twig.extension }
+            
+    serializer.mapping.cache.apcu: 
+        class: Doctrine\Common\Cache\ApcuCache

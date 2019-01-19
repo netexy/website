@@ -1,0 +1,114 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if block.banners|length %}
+    <div class="row">
+        <div class="col-xs-12 pad-xs pad-lg-z pad-lg-y {{ customClass }}">
+            {% if block.display_heading|default(true) %}
+                {% set heading = {
+                    'title': block.title|default(),
+                    'heading_level': 2,
+                } %}
+                {{ helpers.loadBlock('heading', {block: heading}) }}
+            {% endif %}
+            <div class="container-bg">
+                <div id="banner-block-{{ blockId }}" class="row center-xs">
+                    {% for banner in block.banners %}
+                    {% set entityId = blockId ~ '_' ~ loop.index0 %}
+                    {% set media = sulu_resolve_media(banner.mediaId, context.request.locale) %}
+                    {% set url = "/"~context.request.locale ~
+                        banner.url %}
+
+                    {# grid size #}
+                    {% set gridSize = 12 %} 
+                    {% if loop.last and block.banners|length % view.banners.presentAs|default(1) == 1 %}
+                        {% set gridSize = 12 %} 
+                    {% elseif loop.index >= block.banners|length - 1 and block.banners|length % view.banners.presentAs|default(1) == 2 %}
+                        {% set gridSize = 6 %} 
+                    {% else %}
+                        {% set gridSize = gridSize / view.banners.presentAs|default(1) %}
+                    {% endif %}
+                    {% if view.banners.presentAs == 3 and loop.index %}
+                        {% set gridSize = 6 %}
+                    {% endif %}
+                    {% if view.banners.presentAs == 3 and loop.index % 5 == 0 %}
+                        {% set gridSize = 12 %}
+                    {% endif %}
+                    {% if view.banners.presentAs == 3 and loop.index % 6 == 0 %}
+                        {% set gridSize = 12 %}
+                    {% endif %} 
+
+                    <style>
+                        {% if media %}
+                        .banner-img-{{ entityId }} {
+                            background-image: url('{{ media.thumbnails['600x343'] }}');
+                        }
+
+                        .banner-half-img-{{ entityId }} {
+                            background-image: url('{{ media.thumbnails['710x400'] }}');
+                        }
+
+                        @media screen and (min-width: 768px) {
+                            .banner-img-{{ entityId }} {
+                                background-image: url('{{ media.thumbnails['930x375'] }}');
+                            }
+                        }
+
+                        @media screen and (min-width: 1024px) {
+                            .banner-img-{{ entityId }} {
+                            {% if gridSize == 12 %} background-image: url('{{ media.thumbnails['1440x580'] }}');
+                            {% else %}{#background-image: url('{{ media.thumbnails['600x343'] }}');#} background-image: url('{{ media.thumbnails['710x400'] }}');
+                            {% endif %}
+                            }
+                        }
+
+                        {% endif %}
+                    </style>             
+                    {% if gridSize == 12 %}             
+                          <article
+                                   class="col-xs-12 col-sm-{{ gridSize }} col-md-{{ gridSize }} col-lg-{{ gridSize }}   bord-xs-b">            
+                            <div class="banner-frame-a">
+                              <div class="banner-frame">
+                                <div class="banner-frame-x">
+                                  <div class="banner-frame-xx">
+                                    <div class="col-xs-12 banner-bg banner-img-{{ entityId }}"> 
+                                            <a class="work work--full work--white js-in-view is-active" data-offset="50"
+                                               href="{{ url }}"
+                                               style="background-color:transparent;">
+                            {% else %}
+                            <article
+                                    class="col-xs-12 col-xs-12 col-sm-{{ gridSize }} col-md-{{ gridSize }} col-lg-{{ gridSize }} bord-xs-b bord-sm-in bord-md-in bord-lg-in">
+                                    <div class="banner-frame-a">
+                                      <div class="banner-frame">
+                                        <div class="banner-frame-x">
+                                          <div class="banner-frame-xx">
+                                            <div class="col-xs-12 banner-bg  banner-half-img-{{ entityId }}">                              
+                                              <a class="work work--half work--white js-in-view is-active" data-offset="50"
+                                                 href="{{ url }}"
+                                                 style="background-color:transparent;">
+                                                  {% endif %}
+
+                                                  <div class="work__inner">
+                                                      <div class="work__client">{{ banner.description|raw }}</div>
+                                                      <h1 class="h2 work__heading">{{ banner.title }}</h1>
+                                                      <p class="work__cta">{{ banner.moreText }}</p>
+                                                  </div>
+                                              </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>                              
+                            </article>
+                            {% endfor %}
+                            <!-- end banners -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

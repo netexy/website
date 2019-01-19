@@ -1,0 +1,406 @@
+/*---
+
+Staff list:
+
+```
+<div class="block-grid flush-first--2 block-grid--gutter-large block-grid--align block-grid--profiles">
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+	<article class="profile profile--preview">
+		<a class="a--block a--subtle" href="#0">
+			<div class="profile__img">
+				<div class="placeholder placeholder--square">
+					<img src="https://placehold.it/600x600" alt="">
+				</div>
+			</div>
+			<div class="profile__copy">
+				<h1 class="copy profile__name">Alex Willcocks</h1>
+				<p class="secondary profile__title">Director</p>
+			</div>
+		</a>
+	</article>
+
+</div>
+```
+
+Profile page:
+
+```
+<div class="profile profile--header">
+	<div class="profile__img">
+		<div class="placeholder placeholder--rounded placeholder--square">
+			<img src="https://placehold.it/600x600" alt="">
+		</div>
+		<div class="profile__icon">
+			<img src="/assets/img/icons/glasses.svg" alt="">
+		</div>
+	</div>
+	<div class="push profile__copy">
+		<h1 class="h1 profile__name">Alex Willcocks</h1>
+		<p class="secondary profile__title">Director</p>
+	</div>
+</div>
+```
+
+Team list:
+
+```
+<section class="center">
+	<h2 class="h2 center"><span class="border">The Cool Kids</span></h2>
+
+	<div class="container__inner">
+		<div class="block-grid block-grid--gutter-large block-grid--align">
+			<a class="a--block" href="#0">
+
+				<div class="profile--team">
+					<div class="placeholder placeholder--rounded placeholder--square">
+						<img src="https://placehold.it/600x600" alt="">
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+			<a class="a--block" href="#0">
+
+				<div class="profile profile--team">
+					<div class="profile__img">
+						<div class="placeholder placeholder--rounded placeholder--square">
+							<img src="https://placehold.it/600x600" alt="">
+						</div>
+					</div>
+				</div>
+
+			</a>
+		</div>
+	</div>
+
+	<a href="#0" class="push button">View full team</a>
+</section>
+```
+
+*/
+
+$block: '.profile';
+
+#{$block} {
+
+	&__copy {
+		font-family: inherit;
+		text-align: center;
+	}
+
+	&__name,
+	&__title {
+		line-height: $lh--small;
+	}
+
+	&__img {
+		position: relative;
+
+		img {
+			object-fit: cover;
+		}
+	}
+
+	&__panel {
+		@include push--auto;
+		position: relative;
+		padding: $spacing-unit--x-large;
+		background-color: $c--akcent;
+
+		@include mq('tablet-small') {
+			padding: $spacing-unit--x-large;
+		}
+
+		@include mq('tablet-wide') {
+			padding: $spacing-unit--xx-large;
+		}
+
+		@include mq('desktop') {
+			max-width: 70%;
+		}
+
+		@include mq(em(768px), $property: 'height') {
+			@include mq('desktop-wide') {
+				padding: ($spacing-unit--xx-large + $spacing-unit--small);
+			}
+		}
+
+		.profile__reason {
+			@include mq('tablet-small', max) {
+				margin-top: $spacing-unit--x-large / 2;
+				text-align: center;
+			}
+			@include mq('tablet-small') {
+				margin-left: (10rem + $spacing-unit--x-large);
+			}
+			@include mq('tablet-wide') {
+				margin-left: (12rem + $spacing-unit--x-large);
+			}
+
+			@include mq(em(768px), $property: 'height') {
+				@include mq('desktop-wide') {
+					margin-left: 14rem + ($spacing-unit--x-large);
+				}
+			}
+		}
+	}
+
+	&__icon {
+
+		@include mq('tablet-small', max) {
+			@include push--auto;
+			height: 10rem;
+			width: 10rem;
+		}
+
+		@include mq('tablet-small') {
+			position: absolute;
+			top: 50%; left: $spacing-unit--x-large;
+			height: 10rem;
+			width: 10rem;
+			transform: translateY(-50%);
+		}
+
+		@include mq('tablet-wide') {
+			left: $spacing-unit--xx-large;
+			height: 12rem;
+			width: 12rem;
+		}
+
+		@include mq(em(768px), $property: 'height') {
+			@include mq('desktop-wide') {
+				left: ($spacing-unit--xx-large + $spacing-unit--small);
+				height: 14rem;
+				width: 14rem;
+			}
+		}
+	}
+
+	&--preview {
+
+		.a--block {
+			color: $c--white;
+		}
+
+		#{$block}__img,
+		#{$block}__copy {
+			position: absolute;
+			left: 0;
+			width: 100%;
+		}
+
+		#{$block}__img {
+			top: 0;
+		}
+
+		#{$block}__copy {
+			@include hardware;
+			bottom: 0;
+			padding: rem(12px) rem(6px) rem(12px) rem(12px);
+			text-align: left;
+			background: linear-gradient(to bottom, rgba($c--black,0) 0%,rgba($c--black,.06) 100%);
+			transition: bottom .1s $ease--in-out-quint;
+
+			@include mq('phone') {
+				padding: rem(20px) rem(10px) rem(20px) rem(20px);
+			}
+
+			@include mq('tablet-small') {
+				padding: rem(20px) rem(10px) rem(20px) rem(20px);
+				bottom: rem(-16px);
+			}
+
+			@include mq('tablet-wide') {
+				padding: rem(30px) rem(15px) rem(30px) rem(30px);
+				bottom: rem(-16px);
+			}
+		}
+
+		#{$block}__name {
+			@include hardware;
+			line-height: 1;
+			letter-spacing: ls('heading');
+			color: $c--white;
+		}
+
+		#{$block}__title {
+			@include hardware;
+			font-size: $p--small;
+			font-weight: $w--light;
+			line-height: 1;
+			color: $c--white;
+			transition: opacity .1s $ease--in-out-quint;
+
+			@include mq('tablet-small') {
+				margin-top: rem(5px);
+				opacity: 0;
+			}
+
+			@include mq('desktop') {
+				font-size: $p;
+			}
+		}
+
+		@include mq('tablet-small') {
+			.a--block {
+				&:hover,
+				&:focus {
+					#{$block}__copy {
+						bottom: 0;
+						transition: bottom .15s $ease--in-out-quint;
+					}
+
+					#{$block}__title {
+						opacity: 1;
+						transition: opacity .15s $ease--in-out-quint;
+					}
+
+					// &::before {
+					// 	bottom: 0;
+					// 	opacity: 1;
+					// }
+				}
+			}
+		}
+	}
+
+	&--header {
+		#{$block}__img {
+			@include push--auto;
+			max-width: rem(300px);
+		}
+	}
+
+	&--team {
+		// TODO: hover state
+		width: rem(120px);
+
+		@include mq('tablet') {
+			width: rem(160px);
+		}
+	}
+}

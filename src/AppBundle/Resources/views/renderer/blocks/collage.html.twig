@@ -1,0 +1,394 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+
+<div class="row">
+    <div class="col-xs-12 pad-xs-b">
+        <div id="main" class="container-bg collage-{{ blockId }} {{ customClass }}">
+            {#<div class="collage-{{ blockId }} {{ customClass }}">#}
+            {% if block.display_heading|default(true) %}
+                {% set heading = {
+                    'title': block.title|default(),
+                    'heading_level': 2,
+                } %}
+                {{ helpers.loadBlock('heading', {block: heading}) }}
+            {% endif %}
+            <div class="row center-xs">
+                <div class="col-xs-12">
+                    <div class="all-staff">
+
+                        {#<div class="grid-row grid-row--large-center">#}
+                        {% for _block in block.rows %}
+                            {# grid size #}
+                            {% set gridSize = 12 %} {# default size #}
+                            {% if loop.last and block.rows|length % block.grid_columns_in_row|default(1) == 1 %}
+                                {% set gridSize = 12 %} {# size of last element #}
+                            {% elseif loop.index >= block.rows|length - 1 and block.rows|length % block.grid_columns_in_row|default
+                                (1) ==
+                                2 %}
+                                {% set gridSize = 6 %} {# size of last 2 elements if 3 in row #}
+                            {% else %}
+                                {% set gridSize = gridSize / block.grid_columns_in_row|default(1) %}
+                            {% endif %}
+                            {# /end grid size #}
+
+                            {% include '@App/renderer/snippets/collage_row.html.twig' with  {
+                                block: _block,
+                                entityId: blockId ~ '_' ~ loop.index0,
+                                gridSize: gridSize
+                            } %}
+                        {% endfor %}
+                        {#</div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<div class="container-bg {{ customClass }}">#}
+
+    {#<div class="all-staff">#}
+
+        {#<div class="grid-row grid-row--large-center">#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/pippa-holman">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/team/id-2.jpg" alt="Валерія Крохмальна" data-src="https://netexy.if.ua/img/team/id-2.jpg" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Валерія<span class="hidden visible-inline--phablet"> Крохмальна</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Керівник відділу персоналу</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/alex-sim">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/simmo.jpg?mtime=20171031164000" alt="Alex Sim" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/simmo.jpg?mtime=20171031164000" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Alex<span class="hidden visible-inline--phablet"> Sim</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Digital Marketing Executive</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/will-blackmore">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/team/id-1.jpg" alt="Олег Лєпєнін" data-src="https://netexy.if.ua/img/team/id-1.jpg" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Олег<span class="hidden visible-inline--phablet"> Лєпєнін</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">засновник компанії</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/hayley-standridge">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/stanners.jpg?mtime=20171031164001" alt="Hayley Standridge" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/stanners.jpg?mtime=20171031164001" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Hayley<span class="hidden visible-inline--phablet"> Standridge</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Digital Marketing Executive</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/tom-scott">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/scott.jpg?mtime=20171031163956" alt="Tom Scott" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/scott.jpg?mtime=20171031163956" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Tom<span class="hidden visible-inline--phablet"> Scott</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Digital Advertising Manager</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+        {#</div>#}
+
+        {#<div class="grid-row grid-row--four">#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/jamie-sykes">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/sykes.jpg?mtime=20171031164002" alt="Jamie Sykes" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/sykes.jpg?mtime=20171031164002" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Jamie<span class="hidden visible-inline--phablet"> Sykes</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Developer</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/julie-wrightson">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/julie-square.jpg?mtime=20180404141140" alt="Julie Wrightson" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/julie-square.jpg?mtime=20180404141140" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Julie<span class="hidden visible-inline--phablet"> Wrightson</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Accounts Manager</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/james-atha">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/jaffa.png?mtime=20171113132317" alt="James Atha" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/jaffa.png?mtime=20171113132317" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">James<span class="hidden visible-inline--phablet"> Atha</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Designer</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/kate-moxon">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/kate.jpg?mtime=20171031163951" alt="Kate Moxon" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/kate.jpg?mtime=20171031163951" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Kate<span class="hidden visible-inline--phablet"> Moxon</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Digital Marketing Manager</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+        {#</div>#}
+
+
+        {#<div class="grid-row grid-row--large-right">#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/tom-schofield">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/tom.jpg?mtime=20171031164003" alt="Tom Schofield" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/tom.jpg?mtime=20171031164003" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Tom<span class="hidden visible-inline--phablet"> Schofield</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Creative director</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/amy-richards">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/amy-square.jpg?mtime=20180404141138" alt="Amy Richards" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/amy-square.jpg?mtime=20180404141138" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Amy<span class="hidden visible-inline--phablet"> Richards</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Marketing Operations Manager</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/chris-willerton">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/chris.jpg?mtime=20171031163939" alt="Chris Willerton" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/chris.jpg?mtime=20171031163939" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Chris<span class="hidden visible-inline--phablet"> Willerton</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Technical Director</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/fred-lorenzo">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/fred.jpg?mtime=20171120164324" alt="Fred Lorenzo" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_400x400_crop_center-center_90/fred.jpg?mtime=20171120164324" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Fred<span class="hidden visible-inline--phablet"> Lorenzo</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Head of E-Marketing</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+
+            {#<div class="item">#}
+                {#<article class="profile profile--preview">#}
+                    {#<a class="a--block a--subtle" href="/about/heidi-garthwaite">#}
+                        {#<div class="profile__img">#}
+
+
+
+
+                            {#<div class="placeholder placeholder--square ">#}
+
+                                {#<img class="js-lazy is-active" src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_750x750_crop_center-center_90/heidi.jpg?mtime=20171031163947" alt="Heidi Garthwaite" data-src="https://s3-eu-west-1.amazonaws.com/engage-site-cms/craft/uploads/Staff/_750x750_crop_center-center_90/heidi.jpg?mtime=20171031163947" data-srcset="[]">#}
+
+                            {#</div>#}
+                        {#</div>#}
+
+                        {#<div class="profile__copy">#}
+                            {#<h1 class="h4 profile__name">Heidi<span class="hidden visible-inline--phablet"> Garthwaite</span></h1>#}
+                            {#<p class="hidden visible--tablet-small small profile__title">Studio Manager</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                {#</article>#}
+            {#</div>#}
+        {#</div>#}
+
+    {#</div>#}
+
+{#</div>#}
+
+

@@ -1,0 +1,24 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+        <block name="main_content" default-type="html_code" minOccurs="0">
+
+            <types>
+                <!-- articles -->
+                <xi:include href="../../../../includes/blocks/articles/netexy/articles_list.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                <xi:include href="../../../../includes/blocks/articles/netexy/video_articles_list.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                <xi:include href="../../../../includes/blocks/articles/netexy/photo_articles_list.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <!--<xi:include href="../../../../includes/blocks/articles/hydropark/articles_list.xml"-->
+                            <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+                <!--<xi:include href="../../../../includes/blocks/articles/hydropark/video_articles_list.xml"-->
+                            <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+                <!--<xi:include href="../../../../includes/blocks/articles/hydropark/photo_articles_list.xml"-->
+                            <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+            </types>
+        </block>
+</properties>

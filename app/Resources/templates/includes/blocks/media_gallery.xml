@@ -1,0 +1,34 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="media_gallery">
+        <types>
+            <type name="media_gallery">
+                <meta>
+                    <title lang="en">Media Gallery (test)</title>
+                    <title lang="uk">Медіа галерея (test)</title>
+                </meta>
+
+                <properties>
+                    <property name="medias" type="media_selection">
+                        <meta>
+                            <title lang="en">Media</title>
+                            <title lang="uk">Медіа</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="image"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

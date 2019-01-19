@@ -1,0 +1,82 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="header">
+        <meta>
+            <title lang="en">Article Heading</title>
+            <title lang="uk">Заголовок Статті</title>
+        </meta>
+
+        <properties>
+            <property name="header__disabled" type="checkbox">
+                <meta>
+                    <title lang="en">Disable</title>
+                    <title lang="uk">Відключити</title>
+                </meta>
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+
+            <property name="header__date_disabled" type="checkbox">
+                <meta>
+                    <title lang="en">Disable Date</title>
+                    <title lang="uk">Відключити Дату</title>
+                </meta>
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+
+            <property name="header__author_disabled" type="checkbox">
+                <meta>
+                    <title lang="en">Disable Author</title>
+                    <title lang="uk">Відключити Автора</title>
+                </meta>
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+
+            <!--<property name="header__logo_disabled" type="checkbox">-->
+                <!--<meta>-->
+                    <!--<title lang="en">Disable Logo</title>-->
+                    <!--<title lang="uk">Відключити Логотип</title>-->
+                <!--</meta>-->
+                <!--<params>-->
+                    <!--<param name="type" value="toggler"/>-->
+                <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__media" type="media_selection">-->
+                <!--<meta>-->
+                    <!--<title lang="en">Image</title>-->
+                    <!--<title lang="uk">Зображення</title>-->
+                <!--</meta>-->
+
+                <!--<params>-->
+                    <!--<param name="type" value="image"/>-->
+                <!--</params>-->
+            <!--</property>-->
+
+            <!--<property name="header__inverse_media" type="media_selection">-->
+                <!--<meta>-->
+                    <!--<title lang="en">Inverse Image</title>-->
+                    <!--<title lang="uk">Інверсне Зображення</title>-->
+                <!--</meta>-->
+
+                <!--<params>-->
+                    <!--<param name="type" value="image"/>-->
+                <!--</params>-->
+            <!--</property>-->
+
+            <property name="header__custom_class" type="text_line">
+                <meta>
+                    <title lang="en">Custom CSS Class</title>
+                    <title lang="uk">CSS Клас</title>
+                </meta>
+            </property>
+        </properties>
+    </section>
+</properties>

@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for a "contact" snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
+    <key>collage_row</key>
+
+    <meta>
+        <title lang="en">Collage Row</title>
+        <title lang="uk">Рядок Колажу</title>
+    </meta>
+
+    <!--<areas>-->
+        <!--<area key="navigation_contact">-->
+            <!--<meta>-->
+                <!--<title lang="en">Navigation Contact</title>-->
+                <!--<title lang="uk">Контакт навігації</title>-->
+            <!--</meta>-->
+        <!--</area>-->
+    <!--</areas>-->
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="items" type="media_selection" mandatory="true">
+            <meta>
+                <title lang="en">Images</title>
+                <title lang="uk">Зображення</title>
+                <info_text lang="en">
+                    5 images, or 4 if there is no enlarged image
+                </info_text>
+                <info_text lang="uk">
+                    5 зображень, або 4 якщо всі зображення в рядку однакові
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="enlarge_image" type="single_select" mandatory="true">
+            <meta>
+                <title lang="en">Enlarge Image</title>
+                <title lang="uk">Збільшити Зображення</title>
+            </meta>
+            <params>
+                <param name="default_value" value="center"/>
+                <param name="values" type="collection">
+                    <param name="left">
+                        <meta>
+                            <title lang="en">Left</title>
+                            <title lang="uk">Зліва</title>
+                        </meta>
+                    </param>
+
+                    <param name="center">
+                        <meta>
+                            <title lang="en">Center</title>
+                            <title lang="uk">По Центру</title>
+                        </meta>
+                    </param>
+
+                    <param name="right">
+                        <meta>
+                            <title lang="en">Right</title>
+                            <title lang="uk">Зправа</title>
+                        </meta>
+                    </param>
+
+                    <param name="none">
+                        <meta>
+                            <title lang="en">No Image Enlarged</title>
+                            <title lang="uk">Всі Однакові</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+
+    </properties>
+</template>

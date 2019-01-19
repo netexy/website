@@ -1,0 +1,26 @@
+{% set sectionName = sectionName|default('main_content') %}
+
+{# necessary for sections #}
+{% set content = context.content|default([]) %}
+{% set view = context.view|default([]) %}
+
+{#{% set _content = array_split_by_double_underscore(content) %}#}
+{% set block = array_split_by_double_underscore(content)[sectionName]|default([]) %}
+{% set enabled = block and not block.disabled|default(false) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{%- if enabled -%}
+    {#<main id="main">#}
+        {# We use a block renderer for rendering our block content types. #}
+        {# This a very quick solution for for including the different block components. #}
+        {# The renderer can be found under views/renderer/block-rernderer.html.twig #}
+        {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+            'blocks' : content.main_content|default([]),
+            'views' : view.main_content|default([])
+        } %}
+    {#</main>#}
+{%- endif -%}

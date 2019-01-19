@@ -1,0 +1,9 @@
+.js-lazy {
+	opacity: 0;
+	will-change: opacity;
+	transition: $transition--opacity;
+
+	&.is-active {
+		opacity: 1;
+	}
+}

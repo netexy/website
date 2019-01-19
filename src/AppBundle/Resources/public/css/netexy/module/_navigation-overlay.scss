@@ -1,0 +1,223 @@
+.navigation-overlay {
+	@include hardware;
+	display: none;
+	visibility: hidden;
+	position: fixed;
+	top: 0; right: 0;
+	z-index: z('navigation-overlay');
+	width: 100%;
+	height: 100%;
+	transition: visibility $transition--duration-long + $transition--duration linear;
+
+	&.is-active { display: block; }
+	&.is-visible { visibility: visible; }
+
+	&__container {
+		position: relative;
+		height: 100%;
+		box-shadow: none;
+		background: none;
+
+		> section,
+		> nav {
+			position: relative;
+			z-index: 0;
+			height: 100%;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+			transition: transform $transition--duration-long $ease--in-cubic;
+			transition-delay: $transition--duration;
+
+			.is-visible & {
+				transform: translateY(0%);
+				transition-timing-function: $ease--out-cubic;
+				transition-delay: 0;
+			}
+
+			@include mq('tablet') {
+				float: left;
+			}
+
+			div {
+				@include soft--ends($spacing-unit--large);
+				position: relative;
+
+				@include mq('tablet') {
+					opacity: 0;
+					transition: opacity $transition--duration-long $ease--smooth-fade,
+						transform $transition--duration-long $ease--in-cubic;
+
+					.is-visible & {
+						opacity: 1;
+						transform: translateY(0%);
+						transition-delay: $transition--duration;
+						transition-duration: $transition--duration-long * 2;
+						transition-timing-function: $ease--smooth-fade, $ease--in-expo;
+					}
+				}
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: $spacing-unit;
+		font-family: inherit;
+		font-weight: $w--bold;
+		line-height: $lh--small;
+		font-size: $p--x-small;
+		text-transform: uppercase;
+	}
+
+	$blog--width: 57.64%;
+	$navigation--width: 100% - $blog--width;
+
+	&__nav {
+		background: $c--black;
+		color: $c--white;
+		font-family: inherit;
+		font-weight: $w--bold;
+		text-align: center;
+		transform: translateY(-100%);
+
+		@include mq('tablet') {
+			width: $navigation--width;
+		}
+
+		div {
+			display: inline-block;
+
+			@include mq('tablet') {
+				text-align: left;
+				transform: translateY(-50%);
+			}
+		}
+
+		h1 {
+			color: $c--grey-2;
+		}
+
+		li {
+			font-size: rem(30px);
+			line-height: 1.05em;
+
+			@include mq('tablet') {
+				font-size: rem(40px);
+			}
+		}
+
+		a {
+			@include soft--ends($spacing-unit--x-small);
+			display: block;
+			color: $c--white;
+
+			&.is-active,
+			&:hover {
+				color: $c--akcent;
+			}
+		}
+	}
+
+	&__list {
+		margin-top: 0;
+	}
+
+	&__blog {
+
+		@include mq('tablet', max) {
+			display: none;
+		}
+
+		@include mq('tablet') {
+			width: $blog--width;
+			background: $c--akcent;
+			color: $c--black;
+			transform: translateY(100%);
+
+			div {
+				padding: 0 20% 0 12%;
+				transform: translateY(50%);
+			}
+
+			article {
+				@include soft--ends;
+				position: relative;
+
+				&::after {
+					@include pseudo;
+					bottom: 0; left: 0;
+					width: 10%;
+					height: rem(3px);
+					background: $c--black;
+				}
+
+				&:first-of-type {
+					padding-top: $spacing-unit--small;
+				}
+
+				&:last-of-type {
+					padding-bottom: $spacing-unit--x-large;
+
+					&::after {
+						display: none;
+					}
+				}
+
+				a {
+					color: $c--black;
+
+					.no-touchevents &:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			p {
+				margin: 0;
+				color: #9E8000;
+			}
+		}
+	}
+
+	&__close {
+		@include soft--ends($spacing-unit--small);
+		position: absolute;
+		top: 0; right: 0; left: 0;
+		z-index: 1;
+		text-align: right;
+		font-family: inherit;
+		font-weight: $w--bold;
+		color: $c--akcent;
+		cursor: pointer;
+		opacity: 0;
+		transition: opacity $transition--duration $ease--smooth-fade;
+
+		.is-visible & {
+			opacity: 1;
+			transition-delay: $transition--duration-long;
+		}
+
+		@include mq('tablet-small') {
+			@include soft--ends;
+		}
+
+		@include mq('tablet') {
+			color: $c--black;
+		}
+
+		@include mq('desktop') {
+			@include soft--ends($spacing-unit--large);
+
+			.is-static & {
+				top: $spacing-unit--large;
+			}
+		}
+
+		.site-header__nav-item {
+
+			.is-visible & {
+				visibility: visible;
+				display: block;
+			}
+		}
+	}
+}

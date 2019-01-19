@@ -1,0 +1,39 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="photo_articles_list_netexy">
+        <types>
+            <type name="photo_articles_list_netexy">
+                <meta>
+                    <title lang="en">Articles List (Photos)</title>
+                    <title lang="uk">Список Статей (Фотозвіти)</title>
+                </meta>
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+                    <property name="articles" type="smart_content" mandatory="true">
+                        <meta>
+                            <title lang="en">Articles</title>
+                            <title lang="uk">Статті</title>
+                        </meta>
+
+                        <params>
+                            <param name="provider" value="articles"/>
+                            <param name="types" value="photo"/>
+                            <!--<param name="structureTypes" value="photo"/>-->
+                            <param name="max_per_page" value="12"/>
+
+                            <!--<param name="properties" type="collection">-->
+                                <!--<param name="description" value="excerpt.description"/>-->
+                            <!--</param>-->
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

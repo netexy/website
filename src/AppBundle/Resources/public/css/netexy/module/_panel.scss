@@ -1,0 +1,123 @@
+/*---
+
+Padded coloured panels to highlight copy.
+
+```
+<div class="panel">
+	<h2 class="h4">Interest and variety guaranteed!</h2>
+	<p class="copy">We work with a broad range of high profile clients in a variety of sectors, so whether you’re grabbing a brew for a Yorkshire Tea brainstorm or getting to grips with a brief from the BBC, we’ll definitely keep you busy.</p>
+</div>
+
+<div class="panel panel--light">
+	<h2 class="h4">You’re likely to stick around...</h2>
+	<p class="copy">A constantly changing environment makes it hard to settle in and do your best work. Fortunately we have one of the best staff and client retention records in the industry, part of the reason we were voted the <a href="/blog/engage-named-1-elite-digital-agency-by-the-drum">Drum’s #1 Elite Digital Agency</a> #justsayin’.</p>
+</div>
+
+<div class="panel panel--yellow">
+	<h2 class="h4">You’re likely to stick around...</h2>
+	<p class="copy">A constantly changing environment makes it hard to settle in and do your best work. Fortunately we have one of the best staff and client retention records in the industry, part of the reason we were voted the <a href="/blog/engage-named-1-elite-digital-agency-by-the-drum">Drum’s #1 Elite Digital Agency</a> #justsayin’.</p>
+</div>
+
+<div class="panel panel--white">
+	<h2 class="h4">You’re likely to stick around...</h2>
+	<p class="copy">A constantly changing environment makes it hard to settle in and do your best work. Fortunately we have one of the best staff and client retention records in the industry, part of the reason we were voted the <a href="/blog/engage-named-1-elite-digital-agency-by-the-drum">Drum’s #1 Elite Digital Agency</a> #justsayin’.</p>
+</div>
+
+<div class="panel panel--compact panel--red">
+	<p class="copy sans center">Follow our journey as we aim to raise £8,000 for charity through exercise. <a href="#0">The&nbsp;Engage&nbsp;Elympics&nbsp;→</a></p>
+</div>
+```
+
+Vertical alignment:
+
+```
+<div class="panel panel--align" style="min-height: 20rem">
+	<h2 class="h4">You’re likely to stick around...</h2>
+	<p class="copy">A constantly changing environment makes it hard to settle in and do your best work. Fortunately we have one of the best staff and client retention records in the industry, part of the reason we were voted the <a href="/blog/engage-named-1-elite-digital-agency-by-the-drum">Drum’s #1 Elite Digital Agency</a> #justsayin’.</p>
+</div>
+```
+
+Job listing example:
+
+```
+<div class="container__inner">
+	<div class="panel panel--light panel--compact">
+		<h2 class="h4">PHP Web Developer</h2>
+		<p class="copy">We’re looking for a passionate PHP Web Developer to join the team. Someone who is always striving to solve problems in the most elegant way possible and who is eager to keep on top of all the emerging&nbsp;technologies.</p>
+		<a href="#0" class="push push--copy button">Apply now</a>
+	</div>
+</div>
+```
+
+*/
+
+$block: '.panel';
+
+#{$block} {
+	padding: $spacing-unit--large;
+	background: $c--grey-x-light;
+
+	> a {
+		position: relative;
+		display: inline-block;
+		color: inherit;
+		font-weight: $w--normal;
+		color: inherit;
+		border-bottom: 2px solid;
+
+		// &:after {
+		// 	@include pseudo;
+		// 	right: -.1em; bottom: .35em; left: -.1em;
+		// 	height: .5em;
+		// 	opacity: .3;
+		// 	transition: opacity .2s $ease--out-quad, height .2s $ease--out-quad, bottom .2s $ease--out-quad;
+		// }
+
+		// &:hover {
+		// 	&:after {
+		// 		bottom: .3em;
+		// 		height: .1em;
+		// 		opacity: .75;
+		// 	}
+		// }
+	}
+
+	&--align {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&--red,
+	&--yellow {
+	}
+
+	&--yellow {
+		background: $c--akcent;
+	}
+
+	&--white {
+		background: $c--white;
+	}
+
+	&--red {
+		background: $c--red-csr;
+		color: $c--white;
+	}
+
+	&--light {
+		background: $c--grey-xx-light;
+	}
+
+	@include mq('tablet') {
+		padding: $spacing-unit--x-large;
+	}
+
+	@include mq('desktop') {
+		padding: $spacing-unit--xx-large;
+	}
+
+	&--compact {
+		padding: $spacing-unit;
+	}
+}

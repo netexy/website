@@ -1,0 +1,65 @@
+{% extends 'AppBundle::master.html.twig' %}
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% block style %}
+    {{ parent() }}
+    {#<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.css">#}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('bundles/suluframework/css/framework.css') }}">
+{# temporary workaround #}
+    {% if app.request.get('send') == 'true' %}
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/suluframework/vendor/noty/noty.css') }}">
+    {% endif %}
+    {% include '@App/includes/theme.html.twig' %}
+{% endblock %}
+
+{% block top_javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    {# As you can see we work with includes and reuseable components. #}
+    {# This helps you to keep your files as short as possible. #}
+    {# This div is needed for the live preview you can find further information on our live preview under: #}
+    {# http://docs.sulu.io/en/latest/cookbook/live-preview.html #}
+    {{ helpers.loadSection('main_content', _context) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {# Modernizer helps at detecting the functionality supported by different browsers. #}
+    <script src="{{ asset('bundles/suluframework/js/modernizr.min.js') }}"></script>
+
+    {# temporary workaround #}
+    {% if app.request.get('send') == 'true' %}
+        <script src="{{ asset('bundles/suluframework/vendor/noty/noty.min.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('bundles/suluframework/js/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('bundles/suluframework/js/slider.js') }}"></script>
+    <script src="{{ asset('bundles/suluframework/js/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('bundles/suluframework/js/uikit.min.js') }}"></script>
+    <script src="{{ asset('bundles/suluframework/js/forms-dist.js') }}"></script>
+    <script src="{{ asset('bundles/suluframework/js/init.js') }}"></script>
+    <script src="{{ asset('bundles/suluframework/js/nav.js') }}"></script>
+
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>#}
+
+    <script>
+        {# reload youtube videos on slider switch #}
+        $('#content').on('click', '.arrow,.pagination', function(e) {
+            var iframes = $('.video-container iframe');
+            if (iframes != null) {
+                for (var i = 0; i < iframes.length; i++) {
+                    iframes[i].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+                    // iframes[i].src = iframes[i].src; //causes a reload so it stops playing, music, video, etc.
+                }
+            }
+        });
+        $('[property=text] > *').css('width', 'auto');
+
+    </script>
+{% endblock %}

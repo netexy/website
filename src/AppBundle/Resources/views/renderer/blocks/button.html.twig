@@ -1,0 +1,10 @@
+
+<div class="row">
+    <div class="col-xs-12 center pad-xs">
+        <a href="{{ block.url }}" class="button {{ block.custom_class|default(customClass|default()) }} button--{{ block.button_type|default('future') }}">
+            {% if block.text|length %}
+                {{ block.text }}
+            {% endif %}
+        </a>
+    </div>
+</div>

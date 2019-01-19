@@ -1,0 +1,101 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="blocks">
+        <meta>
+            <title lang="en">Content Blocks</title>
+            <title lang="uk">Блоки Контенту</title>
+        </meta>
+
+        <properties>
+            <block name="main_content" default-type="html_code" minOccurs="0">
+                <meta>
+                    <title lang="uk">Контент</title>
+                    <title lang="en">Content</title>
+                </meta>
+
+                <types>
+                    <!-- structural blocks -->
+                    <!--<xi:include href="../../../includes/blocks/breadcrumbs.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+                    <xi:include href="../../../includes/blocks/sitemap.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- articles -->
+                    <xi:include href="../../../includes/blocks/netexy/articles_list.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/netexy/video_articles_list.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <!--<xi:include href="../../../includes/blocks/author.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+
+                    <!-- todo: remove -->
+                    <xi:include href="../../../includes/blocks/pages_list.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- sliders, galleries -->
+                    <xi:include href="../../../includes/blocks/teaser_slider.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/image_slider.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/image_gallery.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- media -->
+                    <xi:include href="../../../includes/blocks/media.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/youtube_video.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- collages -->
+                    <xi:include href="../../../includes/blocks/collage.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/team.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- markup & typography -->
+                    <xi:include href="../../../includes/blocks/text.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/html_code.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/html_code_innerhtml.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/heading.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- form -->
+                    <xi:include href="../../../includes/blocks/form.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- banners & promo -->
+                    <xi:include href="../../../includes/blocks/banner.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/banners_teasers.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/promo_partners.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/promo_tabs_area.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <xi:include href="../../../includes/blocks/promo_counters.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    <!--<xi:include href="../../../includes/blocks/product_banners.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+                    <xi:include href="../../../includes/blocks/product_banners_teasers.xml"
+                                xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    <!-- widgets -->
+                    <!--<xi:include href="../../../includes/blocks/contact.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+
+                    <!-- debug blocks -->
+                    <!--<xi:include href="../../../includes/blocks/demo_block.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+
+                    <!--<xi:include href="../../../includes/blocks/snippets.xml"-->
+                                <!--xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>-->
+                </types>
+            </block>
+        </properties>
+    </section>
+</properties>

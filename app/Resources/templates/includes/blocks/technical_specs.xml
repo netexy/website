@@ -1,0 +1,260 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="technical_specs">
+        <types>
+            <type name="technical_specs">
+                <meta>
+                    <title lang="en">Technical Characteristics</title>
+                    <title lang="uk">Технічні Характеристики</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <!-- todo: help text (how to fill) -->
+
+                    <!--<property name="grid_columns_in_row" type="single_select">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Columns in Row</title>-->
+                            <!--<title lang="uk">Колонок у рядку</title>-->
+                        <!--</meta>-->
+
+                        <!--<params>-->
+                            <!--<param name="default_value" value="2"/>-->
+                            <!--<param name="values" type="collection">-->
+                                <!--<param name="1">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">1</title>-->
+                                        <!--<title lang="uk">1</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+
+                                <!--<param name="2">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">2</title>-->
+                                        <!--<title lang="uk">2</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+
+                                <!--<param name="3">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">3</title>-->
+                                        <!--<title lang="uk">3</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+
+                                <!--<param name="0">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">No Grid</title>-->
+                                        <!--<title lang="uk">Без Сітки</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                            <!--</param>-->
+                        <!--</params>-->
+                    <!--</property>-->
+
+                    <property name="title_1" type="text_line">
+                        <meta>
+                            <title lang="en">Title 1</title>
+                            <title lang="uk">Назва 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_1" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 1</title>
+                            <title lang="uk">Текст 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_1" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 1</title>
+                            <title lang="uk">Зображення 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_2" type="text_line">
+                        <meta>
+                            <title lang="en">Title 2</title>
+                            <title lang="uk">Назва 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_2" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 2</title>
+                            <title lang="uk">Текст 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_2" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 2</title>
+                            <title lang="uk">Зображення 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_3" type="text_line">
+                        <meta>
+                            <title lang="en">Title 3</title>
+                            <title lang="uk">Назва 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_3" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 3</title>
+                            <title lang="uk">Текст 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_3" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 3</title>
+                            <title lang="uk">Зображення 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_4" type="text_line">
+                        <meta>
+                            <title lang="en">Title 4</title>
+                            <title lang="uk">Назва 4</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_4" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 4</title>
+                            <title lang="uk">Текст 4</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_4" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 4</title>
+                            <title lang="uk">Зображення 4</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_5" type="text_line">
+                        <meta>
+                            <title lang="en">Title 5</title>
+                            <title lang="uk">Назва 5</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_5" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 5</title>
+                            <title lang="uk">Текст 5</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_5" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 5</title>
+                            <title lang="uk">Зображення 5</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_6" type="text_line">
+                        <meta>
+                            <title lang="en">Title 6</title>
+                            <title lang="uk">Назва 6</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_6" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 6</title>
+                            <title lang="uk">Текст 6</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_6" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 6</title>
+                            <title lang="uk">Зображення 6</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_7" type="text_line">
+                        <meta>
+                            <title lang="en">Title 7</title>
+                            <title lang="uk">Назва 7</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_7" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 7</title>
+                            <title lang="uk">Текст 7</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_7" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 7</title>
+                            <title lang="uk">Зображення 7</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_8" type="text_line">
+                        <meta>
+                            <title lang="en">Title 8</title>
+                            <title lang="uk">Назва 8</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_8" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 8</title>
+                            <title lang="uk">Текст 8</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_8" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 8</title>
+                            <title lang="uk">Зображення 8</title>
+                        </meta>
+                    </property>
+
+                    <property name="title_9" type="text_line">
+                        <meta>
+                            <title lang="en">Title 9</title>
+                            <title lang="uk">Назва 9</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_9" type="text_editor">
+                        <meta>
+                            <title lang="en">Text 9</title>
+                            <title lang="uk">Текст 9</title>
+                        </meta>
+                    </property>
+
+                    <property name="image_9" type="media_selection">
+                        <meta>
+                            <title lang="en">Image 9</title>
+                            <title lang="uk">Зображення 9</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

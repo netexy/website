@@ -1,0 +1,25 @@
+{% set previewImages = sulu_content_load(article.content.uuid).content.preview_image__media|default() %}
+{% if 0 == previewImages|length %}
+    {% set previewImages = article.excerpt.images %}
+{% endif %}
+
+<div class="report report--link">
+    {#<a class="report__link" href="{{ sulu_content_path(article.routePath, article.targetWebspace) }}">#}
+    <a class="report__link" href="{{ sulu_content_path(article.routePath) }}">
+        <div class="report__img block-bg">
+            <div class="placeholder placeholder--square">
+                {% if previewImages|length %}
+                    <img class="js-lazy is-active" src="{{ previewImages[0].thumbnails['375x375'] }}" alt="{{ article.title }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="report__main">
+            <h2 class="flush h4 report__heading">{{ article.title }}</h2>
+        </div>
+        {#<div class="report__main">#}
+            {#<time class="secondary preview__date" datetime="{{ article.published.date|date("c") }}">#}
+                {#<h2 class="flush h4 report__heading">{{ article.published.date|localizeddate('long', 'none', 'uk') }}</h2>#}
+            {#</time>#}
+        {#</div>#}
+    </a>
+</div>

@@ -1,0 +1,36 @@
+svg:
+    path: /media/{id}/download/{slug}\.svg?v={version}
+    defaults:
+        _controller: "@AppBundle:Svg:svg"
+
+sulu_media:
+    resource: "@SuluMediaBundle/Resources/config/routing_website.yml"
+
+sulu_search:
+    type: portal
+    resource: "@SuluSearchBundle/Resources/config/routing_website.xml"
+
+sulu_website:
+    resource: "@SuluWebsiteBundle/Resources/config/routing_website.yml"
+
+
+#svg:
+#    path: /uploads/svg/{id}-{version}.svg
+#    defaults:
+#        _controller: "@AppBundle:Svg:svg"
+
+_portal_errors:
+    resource: "@SuluWebsiteBundle/Resources/config/routing_error.yml"
+    type: portal
+
+#_wdt:
+#    defaults:
+#        _requestAnalyzer: false
+#    resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
+#    prefix:   /_wdt
+#
+#_profiler:
+#    defaults:
+#        _requestAnalyzer: false
+#    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+#    prefix:   /_profiler

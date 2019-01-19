@@ -1,0 +1,18 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if block.title|length %}
+    {#<div class="container-bg {{ customClass }}">#}
+    <div class="row center-xs">
+        <div class="pad-xs-y heading" style="background: inherit;">
+            <h{{ block.heading_level|default(1) }}
+                    class="h{{ block.heading_level|default(1) }} center layout-text--default pad-xs-x {{ customClass }}">{{ block.title }}
+            </h{{ block.heading_level|default(1) }}>
+        </div>
+    </div>
+    {#</div>#}
+{% endif %}

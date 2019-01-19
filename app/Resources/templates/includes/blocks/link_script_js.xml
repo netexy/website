@@ -1,0 +1,23 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="link_script_js">
+        <types>
+            <type name="link_script_js">
+                <meta>
+                    <title lang="en">JS External Script</title>
+                    <title lang="uk">JS файл</title>
+                </meta>
+
+                <properties>
+                    <property name="src" type="text_line" mandatory="true">
+                        <meta>
+                            <title lang="en">SRC</title>
+                            <title lang="uk">SRC</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

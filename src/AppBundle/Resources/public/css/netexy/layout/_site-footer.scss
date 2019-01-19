@@ -1,0 +1,231 @@
+.site-footer {
+  @extend .push--section;
+  position: relative;
+  overflow: hidden;
+  background-color: $c--black;
+  line-height: 2;
+  text-align: center;
+  margin-top: 0;
+
+  &,
+  a {
+    color: $c--white;
+    font-weight: $w--light;
+  }
+
+  a {
+    @include hardware;
+    display: inline-block;
+    position: relative;
+    transition: color .4s $ease--out-quint;
+
+    &::before {
+      @include pseudo;
+      right: rem(1px); bottom: rem(2px); left: rem(1px);
+      height: rem(2px);
+      background-color: $c--coral;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      transition: transform .4s $ease--out-quint;
+    }
+
+    &:hover,
+    &:focus {
+      color: $c--coral;
+      text-decoration: none;
+      will-change: color;
+      transition: color 0 .4s $ease--out-quint;
+
+      &::before {
+        transform: scaleX(1);
+        transform-origin: 0 50%;
+        transition: transform 0 .4s $ease--out-quint;
+      }
+    }
+  }
+
+  &::before {
+    @include hardware;
+    @include pseudo;
+    top: 53%; left: 64%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, 0) rotateY(0deg) rotate(40deg);
+    transform-origin: 50% 0;
+    transition: transform 3s $ease--in-quint;
+    background: linear-gradient(to left, #202020, #202020 50%, #171717 50%, #171717 100%);
+    z-index: 1;
+  }
+
+  .icon {
+    display: block;
+  }
+
+  &__inner {
+    @include soft--ends($spacing-unit--x-large);
+    position: relative;
+    z-index: 2;
+  }
+
+  &__section {
+    &--primary {}
+
+    &--secondary {
+      margin-top: rem(75px);
+    }
+  }
+
+  &__address {
+    line-height: 1.8;
+  }
+
+  &__contact {
+    margin-top: $spacing-unit;
+  }
+
+  &__social {
+    margin-top: $spacing-unit;
+    font-size: rem(26px);
+    line-height: 1;
+
+    li {
+      display: inline-block;
+      margin-left: rem(15px);
+      vertical-align: top;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__tagline {
+    span {
+      @include push--auto;
+      @include responsive-ratio(2002, 889, true);
+      display: block;
+      position: relative;
+      max-width: rem(182px);
+    }
+
+    .icon {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__logos {
+    margin-bottom: $spacing-unit;
+
+    li {
+      display: inline-block;
+      margin-left: $spacing-unit--small;
+      vertical-align: top;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .partner-logo {
+      display: block;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &--rar {
+        @include responsive-ratio(123, 66, true);
+        width: rem(62px);
+      }
+
+      &--google-partner {
+        @include responsive-ratio(191, 66, true);
+        width: rem(96px);
+      }
+    }
+  }
+
+  &__legal {
+    margin-top: $spacing-unit--large;
+    color: rgba($c--white, .38);
+    font-size: $p--small;
+
+    li {
+      display: inline-block;
+      margin-left: $spacing-unit--x-small;
+      vertical-align: top;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include mq(tablet) {
+    font-size: $p--x-large;
+    text-align: left;
+
+    &::before {
+      top: 50%; left: 66%;
+    }
+
+    &__inner {
+      @include soft--ends(rem(100px));
+      display: flex;
+    }
+
+    &__section {
+      width: 50%;
+      flex-shrink: 0;
+
+      &--primary {}
+
+      &--secondary {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        text-align: right;
+      }
+    }
+
+    &__contact {
+      margin-top: rem(35px);
+    }
+
+    &__social {
+      margin-top: $spacing-unit--x-large;
+    }
+
+    &__tagline {
+      flex-grow: 1;
+
+      span {
+        margin-right: 0;
+      }
+    }
+
+    &__legal {
+      margin-top: rem(15px);
+      font-size: $p;
+    }
+  }
+
+  @include mq(desktop) {
+    &__inner {
+      @include soft--ends(rem(200px));
+    }
+  }
+}

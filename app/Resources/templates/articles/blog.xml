@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>blog</key>
+
+    <view>@AppBundle/Resources/views/articles/blog</view>
+    <controller>SuluArticleBundle:WebsiteArticle:index</controller>
+    <cacheLifetime>144000</cacheLifetime>
+
+    <meta>
+        <title lang="en">Blog</title>
+        <title lang="de">Blog</title>
+    </meta>
+
+    <tag name="sulu_article.type" type="blog"/>
+
+    <properties>
+        <!-- This section typically appears in every template. Here you can configure the title and URL of a page. -->
+        <xi:include href="../includes/sections/_common/article_highlight.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <xi:include href="../includes/sections/default/preview_image.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <xi:include href="../includes/sections/default/header.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <xi:include href="../includes/sections/default/navigation_top.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+
+        <xi:include href="../includes/sections/default/main_content.xml" xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <xi:include href="../includes/sections/default/footer.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+    </properties>
+</template>

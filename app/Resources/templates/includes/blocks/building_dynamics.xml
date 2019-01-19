@@ -1,0 +1,146 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="building_dynamics">
+        <types>
+            <type name="building_dynamics">
+                <meta>
+                    <title lang="en">Building Dynamics</title>
+                    <title lang="uk">Динаміка Будівництва</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_1" type="text_line">
+                        <meta>
+                            <title lang="en">Text 1</title>
+                            <title lang="uk">Текст 1</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_2" type="text_line">
+                        <meta>
+                            <title lang="en">Text 2</title>
+                            <title lang="uk">Текст 2</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_3" type="text_line">
+                        <meta>
+                            <title lang="en">Text 3</title>
+                            <title lang="uk">Текст 3</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_4" type="text_line">
+                        <meta>
+                            <title lang="en">Text 4</title>
+                            <title lang="uk">Текст 4</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_5" type="text_line">
+                        <meta>
+                            <title lang="en">Text 5</title>
+                            <title lang="uk">Текст 5</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_6" type="text_line">
+                        <meta>
+                            <title lang="en">Text 6</title>
+                            <title lang="uk">Текст 6</title>
+                        </meta>
+                    </property>
+
+                    <property name="active_elements" type="single_select" mandatory="true">
+                        <meta>
+                            <title lang="en">Active Elements</title>
+                            <title lang="uk">Активні Елементи</title>
+                        </meta>
+                        <params>
+                            <param name="default_value" value="3"/>
+                            <param name="values" type="collection">
+                                <param name="0">
+                                    <meta>
+                                        <title lang="en">0</title>
+                                        <title lang="uk">0</title>
+                                    </meta>
+                                </param>
+
+                                <param name="1">
+                                    <meta>
+                                        <title lang="en">1</title>
+                                        <title lang="uk">1</title>
+                                    </meta>
+                                </param>
+
+                                <param name="2">
+                                    <meta>
+                                        <title lang="en">2</title>
+                                        <title lang="uk">2</title>
+                                    </meta>
+                                </param>
+
+                                <param name="3">
+                                    <meta>
+                                        <title lang="en">3</title>
+                                        <title lang="uk">3</title>
+                                    </meta>
+                                </param>
+
+                                <param name="4">
+                                    <meta>
+                                        <title lang="en">4</title>
+                                        <title lang="uk">4</title>
+                                    </meta>
+                                </param>
+
+                                <param name="5">
+                                    <meta>
+                                        <title lang="en">5</title>
+                                        <title lang="uk">5</title>
+                                    </meta>
+                                </param>
+
+                                <param name="6">
+                                    <meta>
+                                        <title lang="en">6</title>
+                                        <title lang="uk">6</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="more_link" type="single_internal_link">
+                        <meta>
+                            <title lang="en">Link to &quot;More&quot; page</title>
+                            <title lang="uk">Лінк на сторінку &quot;Далі&quot;</title>
+                        </meta>
+                    </property>
+
+                    <property name="more_text" type="text_line">
+                        <meta>
+                            <title lang="en">Текст кнопки &quot;Далі&quot;</title>
+                            <title lang="uk">&quot;More&quot; button text</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

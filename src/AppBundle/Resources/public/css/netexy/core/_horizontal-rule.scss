@@ -1,0 +1,30 @@
+/*---
+
+A thematic break between paragraph-level elements:
+
+```
+<hr>
+```
+
+Alternate `light` style:
+
+```
+<hr class="hr--light">
+```
+
+*/
+
+$hr-height: 1px;
+
+hr,
+.hr {
+  height: $hr-height;
+  background-color: $c--black;
+  border: none;
+}
+
+.hr {
+  &--light {
+    background-color: $c--grey-light;
+  }
+}

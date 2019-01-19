@@ -1,0 +1,56 @@
+{% macro loadSection(name, context) %}
+    {# load section #}
+    {% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+    {% set templateNamespace = config.template_namespace|default('default') %}
+
+    {% set sectionName = name %}
+    {% set sequence = [
+        'AppBundle:sections:' ~ templateNamespace ~ '/' ~ sectionName ~ '.html.twig',
+        'AppBundle:sections:' ~ sectionName ~ '.html.twig',
+    ] %}
+
+    {% include sequence %}
+    {#{% include sequence ignore missing %}#}
+{% endmacro %}
+
+{% macro loadBlock(name, _with, context) %}
+    {# load section #}
+    {% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+    {% set templateNamespace = config.template_namespace|default('default') %}
+
+    {% set blockName = name %}
+    {% set sequence = [
+        '@App/renderer/blocks/' ~ templateNamespace ~ '/' ~ blockName ~ '.html.twig',
+        '@App/renderer/blocks/' ~ templateNamespace ~ '/_override/' ~ blockName ~ '.html.twig',
+        '@App/renderer/blocks/' ~ blockName ~ '.html.twig',
+    ] %}
+    {% set _with = _with|merge({context: context}) %}
+    {% if _with|length %}
+        {% include sequence with _with %}
+    {% else %}
+        {% include sequence %}
+    {% endif %}
+
+    {#{% include sequence ignore missing %}#}
+{% endmacro %}
+
+{% macro loadSnippet(name, _with, context) %}
+    {# load section #}
+    {% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+    {% set templateNamespace = config.template_namespace|default('default') %}
+
+    {% set snippetName = name %}
+    {% set sequence = [
+        '@App/renderer/snippets/' ~ templateNamespace ~ '/' ~ snippetName ~ '.html.twig',
+        '@App/renderer/snippets/' ~ templateNamespace ~ '/_override/' ~ snippetName ~ '.html.twig',
+        '@App/renderer/snippets/' ~ snippetName ~ '.html.twig',
+    ] %}
+    {% set _with = _with|merge({context: context}) %}
+    {% if _with|length %}
+        {% include sequence with _with %}
+    {% else %}
+        {% include sequence %}
+    {% endif %}
+
+    {#{% include sequence ignore missing %}#}
+{% endmacro %}

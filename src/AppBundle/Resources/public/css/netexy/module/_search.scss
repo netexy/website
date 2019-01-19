@@ -1,0 +1,45 @@
+.blog-search {
+	@include push--auto;
+	position: relative;
+	width: rem(190px);
+	will-change: width;
+	transition: width .2s $ease--in-quad;
+
+	&__input {
+		padding: $spacing-unit--xx-small $spacing-unit--large $spacing-unit--xx-small $spacing-unit--x-small;
+		font-size: $p--large;
+		font-weight: $w--normal;
+		color: $c--black;
+		border: none;
+		border-bottom: 1px solid $c--grey-light;
+
+		@include input-placeholder {
+			color: $c--grey;
+		}
+	}
+
+	&__button {
+		overflow: hidden;
+		position: absolute;
+		top: 50%; right: $spacing-unit--x-small;
+		height: rem(15px);
+		font-family: $stack--heading;
+		font-size: $p--large;
+		transform: translateY(-50%);
+		max-width: rem(24px);
+		will-change: width;
+		transition: width .2s $ease--in-quad;
+
+		&:hover {
+			max-width: none;
+		}
+	}
+
+	
+	&:hover,
+	&.is-active,
+	&.is-active input:active,
+	&.is-active input:focus {
+		width: 70%;
+	}
+}

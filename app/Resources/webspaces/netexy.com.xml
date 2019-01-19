@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webspace xmlns="http://schemas.sulu.io/webspace/webspace"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/webspace/webspace http://schemas.sulu.io/webspace/webspace-1.1.xsd">
+
+    <!-- This is the configuration of your webspace. -->
+    <!-- For further information, have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/webspaces.html -->
+    <name>Netexy</name>
+    <key>core-ntx</key>
+
+    <localizations>
+        <localization language="uk" default="true"/>
+        <localization language="en"/>
+    </localizations>
+
+    <default-templates>
+        <default-template type="page">default</default-template>
+        <default-template type="home">homepage</default-template>
+    </default-templates>
+
+    <templates>
+        <template type="error">AppBundle::error.html.twig</template>
+        <template type="error-404">AppBundle::error.html.twig</template>
+    </templates>
+
+    <navigation>
+        <contexts>
+            <context key="main">
+                <meta>
+                    <title lang="uk">Головне меню</title>
+                    <title lang="en">Mainnavigation</title>
+                </meta>
+            </context>
+            <context key="footer">
+                <meta>
+                    <title lang="uk">Нижнє меню</title>
+                    <title lang="en">Footernavigation</title>
+                </meta>
+            </context>
+        </contexts>
+    </navigation>
+
+    <portals>
+        <portal>
+            <name>netexy.com</name>
+            <key>core-ntx</key>
+            <environments>
+                <environment type="prod">
+                    <urls>
+                        <url language="uk">netexy.com</url>
+                        <url>netexy.com/{localization}</url>
+                    </urls>
+                </environment>
+                <environment type="stage">
+                    <urls>
+                        <url language="uk">netexy.com</url>
+                        <url>netexy.com/{localization}</url>
+                    </urls>
+                </environment>
+                <environment type="test">
+                    <urls>
+                        <url language="uk">netexy.com</url>
+                        <url>netexy.com/{localization}</url>
+                    </urls>
+                </environment>
+                <environment type="dev">
+                    <urls>
+                        <url language="uk">netexy.com</url>
+                        <url>netexy.com/{localization}</url>
+                    </urls>
+                </environment>
+            </environments>
+        </portal>
+    </portals>
+</webspace>

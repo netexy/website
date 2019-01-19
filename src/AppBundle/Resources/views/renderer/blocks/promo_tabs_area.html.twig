@@ -1,0 +1,82 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set bgColor = block.background_color|default() ? block.background_color : '' %}
+
+{% set bgMedia = block.background_image|default()|length ? sulu_resolve_media(block.background_image[0], context.request.locale) : [] %}
+{% set bgImageSM = asset(bgMedia.thumbnails['600x343']|default()) %}
+{% set bgImageLG = asset(bgMedia.thumbnails['1280x658']|default()) %}
+
+{% if block.tabs|length %}
+    <style>
+        .promo-tabs-{{ blockId }} {
+            background-color: {{ bgColor }};
+            {% if bgImageLG|length > 2 %}
+                background-image: url({{ bgImageLG }});
+            {% endif %}
+        }
+
+        @media screen and (min-width: 768px) {
+            .promo-tabs-{{ blockId }} {
+                background-color: {{ bgColor }};
+                {% if bgImageSM|length > 2 %}
+                    background-image: url({{ bgImageSM }});
+                {% endif %}
+            }
+        }
+    </style>
+
+    <div class="promo-tabs-{{ blockId }} {{ customClass }}">
+        {% if block.display_heading|default(true) %}
+            {% set heading = {
+                'title': block.title|default(),
+                'heading_level': 2,
+            } %}
+            {{ helpers.loadBlock('heading', {block: heading}) }}
+        {% endif %}
+        <div class="row center-xs">
+            {% for _block in block.tabs %}
+                {# grid size #}
+                {% set gridSize = 12 %} {# default size #}
+                {% if loop.last and block.tabs|length % block.grid_columns_in_row|default(1) == 1 %}
+                    {% set gridSize = 12 %} {# size of last element #}
+                {% elseif loop.index >= block.tabs|length - 1 and block.tabs|length % block.grid_columns_in_row|default(1) == 2 %}
+                    {% set gridSize = 6 %} {# size of last 2 elements if 3 in row #}
+                {% else %}
+                    {% set gridSize = gridSize / block.grid_columns_in_row|default(1) %}
+                {% endif %}
+                {# /end grid size #}
+
+                {% set entityId = blockId ~ '_' ~ loop.index0 %}
+                {% set elementId = 'promo_' ~ entityId %}
+
+                {% include '@App/renderer/snippets/promo_tab.html.twig' with  {
+                    isFirst: loop.index == 1,
+                    block: _block,
+                    entityId: entityId,
+                    elementId: elementId,
+                    gridSize: gridSize
+                } %}
+            {% endfor %}
+
+            <div class="col-xs-12">
+                <ul class="tabs">
+                    {% for _block in block.tabs %}
+                        {% set entityId = blockId ~ '_' ~ loop.index0 %}
+                        {% set elementId = 'promo_' ~ entityId %}
+
+                        <li class="tab col-xs">
+                            <a {% if 1 == loop.index %}class="active"{% endif %}
+                               href="#{{ elementId }}">{{ _block.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,111 @@
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+{% set theme = config.theme|default() %}
+
+{#{% set ui_text_color = config.ui_text_color|default() %}#}
+{#{% set ui_text_color_dark_theme = config.ui_text_color_dark_theme|default() %}#}
+{#{% set ui_background_color = config.ui_background_color|default() %}#}
+{#{% set ui_background_color_dark_theme = config.ui_background_color_dark_theme|default() %}#}
+{#{% set ui_block_background_color = config.ui_block_background_color|default() %}#}
+{#{% set ui_block_background_color_dark_theme = config.ui_block_background_color_dark_theme|default() %}#}
+
+{% if 'dark' == theme %}
+    {% include '@App/includes/theme/dark.html.twig' %}
+{% else %}
+    {% include '@App/includes/theme/light.html.twig' %}
+{% endif %}
+
+<style>
+    .pos-rel {
+        position: relative !important;
+    }
+
+    .bg-inherit {
+        background-color: inherit;
+    }
+
+    .form-errors {
+        color: #dd2525;
+    }
+
+    .sitemap-heading, .sitemap-elem {
+        display: block;
+    }
+
+    .ln-wrapper .noty_bar {
+        position: absolute;
+        top: 54px;
+        width: 90%;
+        left: 5%;
+        background-color: #00afd8;
+        color: #fff;
+        margin: 0px;
+
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12),
+        0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    }
+
+    /*.ln-wrapper .noty_bar {*/
+    /*position: absolute;*/
+    /*top: 54px;*/
+    /*!*width: 90%;*!*/
+    /*!*left: 5%;*!*/
+    /*width: 98%;*/
+    /*left: 1%;*/
+
+    /*background-color: #00afd8;*/
+    /*color: #fff;*/
+    /*margin: 0px;*/
+
+    /*box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),*/
+    /*0 1px 10px 0 rgba(0,0,0,0.12),*/
+    /*0 2px 4px -1px rgba(0,0,0,0.3);*/
+    /*}*/
+
+    .ln-wrapper .noty_theme__sunset.noty_bar .noty_body {
+        padding: .77rem;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    @media only screen and (min-width: 1025px) {
+        .ln-wrapper .noty_bar {
+            width: 30%;
+            left: 35%;
+        }
+    }
+
+</style>
+
+<style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .video-container iframe, .video-container object, .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<style>
+    .display-block {
+        display: block;
+    }
+</style>
+

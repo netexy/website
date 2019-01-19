@@ -1,0 +1,73 @@
+/*---
+
+Placeholder is useful for reserving a set space/size on a page, so the content flow doesn't change as images load in.
+
+Defaults to 16:9, with `square`, `landscape` (4:3) and `portrait` (3:4) modifiers available.
+
+```
+<div style="max-width: 35em">
+	<div class="placeholder">
+		<img src="//placehold.it/1600x900" alt="">
+	</div>
+</div>
+```
+
+*/
+
+.placeholder {
+	@include responsive-ratio(16, 9);
+	position: relative;
+	width: 100%;
+	background-color: $c--grey-x-light;
+	will-change: opacity;
+
+	> * {
+		position: absolute;
+		top: 0;	left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	> img {
+		height: auto;
+	}
+
+	&--rounded {
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&--collage {
+		padding-top: 120%;
+
+		@include mq('phone-wide') {
+			padding-top: 55%;
+		}
+
+		@include mq('tablet') {
+			@include responsive-ratio(15,7);
+		}
+	}
+
+	&--square {
+		@include responsive-ratio(1, 1);
+	}
+
+	&--landscape {
+		@include responsive-ratio(4, 3);
+	}
+
+	&--portrait {
+		@include responsive-ratio(3, 4);
+	}
+
+	&--client {
+		img {
+			position: absolute;
+			top: 50%; left: 10%; right: 10%;
+			max-width: 80%;
+
+			transform: translateY(-50%);
+		}
+	}
+}

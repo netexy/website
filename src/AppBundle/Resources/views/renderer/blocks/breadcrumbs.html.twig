@@ -1,0 +1,103 @@
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set isArticle = context.pages|default()|length %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set uuid = context.uuid|default('') %}
+
+{% set parent_node = block.parent_node|default(config.articles_parent_node|default()) %}
+{% set parent_node = parent_node|default(uuid) %}
+
+<style>
+    /*.breadcrumbs ul>li {*/
+        /*display: inline-block;*/
+        /*margin: 10px;*/
+    /*}*/
+
+    .breadcrumbs li a::after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+        border-bottom: 50px solid transparent;
+        border-left: 30px solid hsla(34,85%,35%,1);
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 100%;
+        z-index: 2;
+    }
+
+    .breadcrumbs {
+        list-style: none;
+        overflow: hidden;
+        font: 18px Sans-Serif;
+    }
+    .breadcrumbs li {
+        float: left;
+    }
+    .breadcrumbs li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0 10px 65px;
+        background: brown; /* fallback color */
+        background: hsla(34,85%,35%,1);
+        position: relative;
+        display: block;
+        float: left;
+    }
+    .breadcrumbs li span {
+        color: black;
+        text-decoration: none;
+        padding: 10px 0 10px 65px;
+        /*background: brown; !* fallback color *!*/
+        /*background: hsla(34,85%,35%,1);*/
+        position: relative;
+        display: block;
+        float: left;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12 pad-xs">
+        <nav class="nav breadcrumbs {{ customClass }}">
+            <div class="nav-right cf">
+                <ul class="nav-elem nav-elem--items">
+                    {% if parent_node %}
+                        {% for item in sulu_breadcrumb(parent_node) %}
+                            {% set last = loop.last ? 'last' : '' %}
+                            {% if last and not isArticle %}
+                                <li class="last">
+                                    <span>
+                                        {{ item.title }}
+                                    </span>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ item.url }}" title="{{ item.title }}">
+                                        {{ item.title }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if isArticle %}
+                            {#<span>#}
+                                {#<li class="last">#}
+                                    {#{{ context.title }}#}
+                                {#</li>#}
+                            {#</span>#}
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                <a id="js-nav-button" class="nav-elem nav-elem--button">
+                    <i class="ion-navicon"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>

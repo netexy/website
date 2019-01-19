@@ -1,0 +1,49 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+{% set templateNamespace = config.template_namespace|default('default') %}
+
+{% if blocks|length %}
+    {% for block in blocks %}
+        {# Here we render the single blocks according to its type. #}
+        {% set views = views|default([]) %}
+        {% set currentView = views[loop.index0]|default() %}
+
+        {# a little trick #}
+        {% set templateFullname = block.type|replace({'__':'/'}) %}
+
+        {% set templateName = templateFullname|split('/')|last %}
+        {% set templatePath = templateFullname|split('/')|slice(1,-1)|join('/') %}
+
+        {# Special behavior for article lists for different webspaces #}
+        {% if 'photo_articles_list' in templateName %}
+            {% set templateName = 'photo_articles_list' %}
+            {% set templatePath = '_articles/' ~ templatePath %}
+        {% elseif 'video_articles_list' in templateName %}
+            {% set templateName = 'video_articles_list' %}
+            {% set templatePath = '_articles/' ~ templatePath %}
+        {% elseif 'articles_list' in templateName %}
+            {% set templateName = 'articles_list' %}
+            {% set templatePath = '_articles/' ~ templatePath %}
+        {% elseif 'pages_list' in templateName %}
+            {% set templatePath = '_articles/' ~ templatePath %}
+        {% endif %}
+        {# /end Special behavior for article lists for different webspaces #}
+
+        {% set inheritedTemplate = null %}
+        {% set defaultTemplate = 'AppBundle:renderer:blocks/' ~ templatePath ~ '/' ~ templateName ~ '.html.twig' %}
+
+
+        {% if templateNamespace %}
+            {% set inheritedTemplate = ('AppBundle:renderer:blocks/' ~ templatePath ~ '/' ~ templateNamespace ~ '/_override/' ~ templateName ~ '.html.twig')|replace({'//':'/'}) %}
+        {% endif %}
+
+        {% include ([inheritedTemplate, defaultTemplate]) with {
+            'block' : block,
+            'propertyName': propertyName,
+            'view': currentView,
+            'blockId': loop.index0
+        } %}
+    {% endfor %}
+{% endif %}

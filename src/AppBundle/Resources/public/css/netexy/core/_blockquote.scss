@@ -1,0 +1,51 @@
+/*---
+
+Extended quotations, with support for citation:
+
+```
+<blockquote class="copy blockquote">
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+	<cite class="blockquote__meta">Author name here, Role/department</cite>
+</blockquote>
+```
+
+```
+<blockquote class="copy blockquote blockquote--centre">
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+	<cite class="blockquote__meta">Author name here, Role/department</cite>
+</blockquote>
+```
+
+*/
+
+.blockquote {
+  max-width: 45em;
+  position: relative;
+  font-family: inherit;
+
+  p {
+    font-size: 1.1em;
+  }
+
+  cite {
+    display: inline-block;
+    font-size: 18/21 * 1em;
+    font-family: inherit;
+    margin-top: $rel-spacing-unit--small;
+  }
+
+  &--centre {
+    @include push--auto;
+    text-align: center;
+  }
+
+  &--client {
+    .client__img {
+      @include push--auto;
+      margin-top: rem(20px);
+      max-width: rem(140px);
+    }
+  }
+}

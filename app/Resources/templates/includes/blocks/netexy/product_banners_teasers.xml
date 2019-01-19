@@ -1,0 +1,53 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="product_banners_teasers">
+        <types>
+            <type name="product_banners_teasers">
+                <meta>
+                    <title lang="en">Product Banners (Teasers)</title>
+                    <title lang="uk">Банери Продуктів (Тізери)</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <property name="banners" type="teaser_selection">
+                        <meta>
+                            <title lang="en">Products</title>
+                            <title lang="uk">Продукти</title>
+                        </meta>
+                        <!--<params>-->
+                            <!--<param name="present_as" type="collection">-->
+                                <!--<param name="three-columns">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">3 Columns</title>-->
+                                        <!--<title lang="uk">3 Колонки</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="five-columns">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">5 Columns</title>-->
+                                        <!--<title lang="uk">5 Колонок</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                            <!--</param>-->
+                        <!--</params>-->
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

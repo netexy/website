@@ -1,0 +1,11 @@
+imports:
+    - { resource: security.yml }
+    - { resource: ../config.yml }
+
+# SuluAdmin Configuration
+sulu_admin:
+    name: "%sulu_admin.name%"
+    email: "%sulu_admin.email%"
+sulu_media:
+    adobe_creative_key: c5c053b70e9b4221925318e5eaef05a8
+    

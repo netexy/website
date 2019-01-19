@@ -1,0 +1,47 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+<div class="row center-xs ">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-9 pad-xs pad-lg-y {{ customClass }}">
+        <div class="row center-xs">
+            {% if block.display_heading|default(true) %}
+                {% set heading = {
+                    'title': block.title|default(),
+                    'heading_level': 2,
+                } %}
+                {{ helpers.loadBlock('heading', {block: heading}) }}
+            {% endif %}
+        </div>
+
+        <div class="row tech-char">
+            <div class="col-xs-12 pad-xs-b">
+                <ul class="row">
+                    {% for i in 1..9 %}
+                        {% set title = "title_" ~ i %}
+                        {% set text = "text_" ~ i %}
+                        {% set image = "image_" ~ i %}
+
+                        {% if attribute(block, title)|length %}
+                            <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 pad-xs-y">
+                                {% if attribute(block, image)|length %}
+                                    <div class="img-box"
+                                            {% set media = sulu_resolve_media(attribute(block, image)[0], context.request.locale) %}
+                                         style="background-image: url('{{ context.app.request.schemeAndHttpHost ~ media.thumbnails['x80'] }}');"></div>
+                                {% endif %}
+                                <div class="text">
+                                    <p class="subtitle">{{ attribute(block, title) }}</p>
+                                    <p>{{ attribute(block, text)|raw }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

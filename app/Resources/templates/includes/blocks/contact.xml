@@ -1,0 +1,30 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="contact">
+        <types>
+            <type name="contact">
+                <meta>
+                    <title lang="en">Contact (test)</title>
+                    <title lang="uk">Контакт (test)</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <property name="contact" type="contact" mandatory="true">
+                        <meta>
+                            <title lang="en">Contact</title>
+                            <title lang="uk">Контакт</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

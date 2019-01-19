@@ -1,0 +1,70 @@
+/*---
+
+```
+<div style="max-width: 12rem">
+	<div class="placeholder placeholder--landscape">
+		<a class="cta" href="#0">
+			<span class="cta__inner">
+				<span class="border cta__copy">View work</span>
+			</span>
+		</a>
+	</div>
+</div>
+```
+
+*/
+
+$block: '.cta';
+
+#{$block} {
+	font-family: inherit;
+	text-align: center;
+	background-color: $c--body;
+	contain: paint;
+
+	@include mq('phablet') {
+		font-size: $p--large;
+	}
+
+	&__inner {
+		display: block;
+		position: relative;
+		top: 50%;
+		margin-top: hn(1em);
+		line-height: 1;
+	}
+
+	&__copy {
+		transition: $transition--transform;
+		will-change: transform, visibility, opacity;
+
+		&::after {
+			bottom: n($spacing-unit);
+			width: 100%;
+			height: rem(4px);
+			visibility: hidden;
+			opacity: 0;
+			transition: $transition--transform, $transition--fade-out;
+		}
+	}
+
+	&,
+	&:hover,
+	&:focus {
+		color: $c--white;
+	}
+
+	&:hover,
+	&:focus {
+		#{$block}__copy {
+			transform: translateY(5/14 * -1em);
+
+			&::after {
+				visibility: visible;
+				opacity: 1;
+				transform: translateY(n($spacing-unit));
+				transition: $transition--transform, $transition--fade-in;
+			}
+		}
+	}
+}

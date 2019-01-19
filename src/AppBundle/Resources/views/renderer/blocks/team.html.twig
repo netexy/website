@@ -1,0 +1,48 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+<div class="row">
+    <div class="col-xs-12 pad-xs-b">
+        <div id="main" class="container-bg team-{{ blockId }} {{ customClass }}">
+            {% if block.display_heading|default(true) %}
+                {% set heading = {
+                    'title': block.title|default(),
+                    'heading_level': 2,
+                } %}
+                {{ helpers.loadBlock('heading', {block: heading}) }}
+            {% endif %}
+
+            <div class="row center-xs">
+                <div class="col-xs-12">
+                    <div class="all-staff">
+                        {% for _block in block.rows %}
+                            {# grid size #}
+                            {% set gridSize = 12 %} {# default size #}
+                            {% if loop.last and block.rows|length % block.grid_columns_in_row|default(1) == 1 %}
+                                {% set gridSize = 12 %} {# size of last element #}
+                            {% elseif loop.index >= block.rows|length - 1 and block.rows|length % block.grid_columns_in_row|default
+                                (1) ==
+                                2 %}
+                                {% set gridSize = 6 %} {# size of last 2 elements if 3 in row #}
+                            {% else %}
+                                {% set gridSize = gridSize / block.grid_columns_in_row|default(1) %}
+                            {% endif %}
+                            {# /end grid size #}
+
+                            {% include '@App/renderer/snippets/team_row.html.twig' with  {
+                                block: _block,
+                                entityId: blockId ~ '_' ~ loop.index0,
+                                gridSize: gridSize
+                            } %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

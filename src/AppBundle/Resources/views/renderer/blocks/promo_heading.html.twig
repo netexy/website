@@ -1,0 +1,39 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if block.title|length %}
+    {#<div class="container-bg {{ customClass }}">#}
+    {#<div class="pad-xs-y">#}
+    {#<h{{ block.heading_level|default(1) }} class="h{{ block.heading_level|default(1) }} center layout-text--default pad-xs-x {{ customClass }}">#}
+    {#<span class="border">{{ block.title }}</span>#}
+    {#</h{{ block.heading_level|default(1) }}>#}
+    {#</div>#}
+    {#</div>#}
+
+    {#<div class="row center-xs">#}
+    {#<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-9 pad-xs pad-lg-y">#}
+
+    <div class="row center-xs">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-9 pad-xs pad-lg-y {{ customClass }}">
+            <div class="pad-xs-y">
+            {#<span class="border-l">#}
+            <h{{ block.heading_level|default(1) }} class="h{{ block.heading_level|default(1) }} layout-text--default">
+                {# HydroPark <span class="w--light">DeLuxe</span> #}
+                {{ block.title }}
+            </h{{ block.heading_level|default(1) }}>
+                {% if block.description|default() %}
+                    <p class="p text-sp">
+                    {{ block.description }}
+                </p>
+                {% endif %}
+            {#</span>#}
+            </div>
+        </div>
+    </div>
+    {#</div>#}
+    {#</div>#}
+{% endif %}

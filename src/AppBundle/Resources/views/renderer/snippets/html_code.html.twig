@@ -1,0 +1,16 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if block.content|length %}
+    {% if customClass|length %}
+        <div class="{{ customClass }}">
+            {{ block.content|raw }}
+        </div>
+    {% else %}
+        {{ block.content|raw }}
+    {% endif %}
+{% endif %}

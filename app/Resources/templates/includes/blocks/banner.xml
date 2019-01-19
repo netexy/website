@@ -1,0 +1,93 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="banner">
+        <types>
+            <type name="banner">
+                <meta>
+                    <title lang="en">Banner (single)</title>
+                    <title lang="uk">Банер (один)</title>
+                </meta>
+
+                <!-- todo: adaptive sizes. -->
+
+                <!-- todo: target -->
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <!--<property name="size" type="single_select" mandatory="true">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Size</title>-->
+                            <!--<title lang="uk">Розмір</title>-->
+                        <!--</meta>-->
+                        <!--<params>-->
+                            <!--<param name="values" type="collection">-->
+                                <!--<param name="full">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">Full-width</title>-->
+                                        <!--<title lang="uk">Повний</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="half">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">Half-width</title>-->
+                                        <!--<title lang="uk">Половина розміру</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                            <!--</param>-->
+                        <!--</params>-->
+                    <!--</property>-->
+
+                    <property name="media" type="media_selection" mandatory="true">
+                        <meta>
+                            <title lang="en">Image</title>
+                            <title lang="uk">Зображення</title>
+                        </meta>
+                    </property>
+
+                    <!-- url (to button or to banner if button is absent)-->
+                    <property name="url" type="url" mandatory="true">
+                        <meta>
+                            <title lang="en">URL</title>
+                            <title lang="uk">URL</title>
+
+                        </meta>
+                    </property>
+
+                    <property name="markers" type="snippet">
+                        <meta>
+                            <title lang="en">Markers</title>
+                            <title lang="uk">Маркери</title>
+                        </meta>
+                        <params>
+                            <param name="snippetType" value="marker"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+
+                    <property name="disable" type="checkbox">
+                        <meta>
+                            <title lang="en">Disable</title>
+                            <title lang="uk">Відключити</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

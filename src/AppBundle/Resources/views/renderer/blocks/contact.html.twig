@@ -1,0 +1,10 @@
+{% set templateName = template|split('__')|last() %}
+
+{{ dump(block)  }}
+{{ dump('This is default contact block')  }}
+
+{#{% if 'homepage' == templateName %}#}
+    {#{{ dump('This is homepage contact')  }}#}
+{#{% else %}#}
+    {#{{ dump('This ordinary contact')  }}#}
+{#{% endif %}#}

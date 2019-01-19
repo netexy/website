@@ -1,0 +1,36 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="youtube_video">
+        <types>
+            <type name="youtube_video">
+                <meta>
+                    <title lang="en">Youtube Video</title>
+                    <title lang="uk">Відео Youtube</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <property name="link" type="url">
+                        <meta>
+                            <title lang="en">Youtube Video Link</title>
+                            <title lang="uk">Посилання на відео Youtube</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

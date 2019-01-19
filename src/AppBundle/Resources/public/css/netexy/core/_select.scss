@@ -1,0 +1,259 @@
+
+.dropdown-content {
+  background-color: $c--white;
+  margin: 0;
+  display: none;
+  min-width: 100px;
+  overflow-y: auto;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.dropdown-content:focus {
+  outline: 0;
+}
+
+.dropdown-content li {
+  clear: both;
+  color: $c--grey-dark;
+  cursor: pointer;
+  min-height: 50px;
+  line-height: 1.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content li:hover, .dropdown-content li.active {
+  background-color: $c--grey-xx-light;
+}
+
+.dropdown-content li:focus {
+  outline: none;
+  background-color: $c--grey-light;
+}
+
+.dropdown-content li.divider {
+  min-height: 0;
+  height: 1px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  font-size: 16px;
+  font-family: $stack--sans;
+  text-decoration: none;
+  color: $c--teal;
+  display: block;
+  line-height: 22px;
+  padding: 14px 16px;
+}
+
+.dropdown-content li > span > label {
+  top: 1px;
+  left: 0;
+  height: 18px;
+}
+
+.dropdown-content li > a > i {
+  height: inherit;
+  line-height: inherit;
+  float: left;
+  margin: 0 24px 0 0;
+  width: 24px;
+}
+
+.input-field.col .dropdown-content [type="checkbox"] + label {
+  top: 1px;
+  left: 0;
+  height: 18px;
+  -webkit-transform: none;
+          transform: none;
+}
+
+/* Select Field
+   ========================================================================== */
+
+select { display: none; }
+select.browser-default { display: block; }
+
+select {
+  background-color: rgba(255, 255, 255, 0.90);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  height: 3rem;
+}
+
+.select-label {
+  position: absolute;
+}
+
+.select-wrapper {
+  &.valid .helper-text[data-success],
+  &.invalid ~ .helper-text[data-error] {
+    @extend %hidden-text;
+  }
+
+  &.valid {
+    & > input.select-dropdown {
+      @extend %valid-input-style;
+    }
+
+    & ~ .helper-text:after {
+      @extend %custom-success-message;
+    }
+  }
+
+  &.invalid {
+    & > input.select-dropdown,
+    & > input.select-dropdown:focus {
+      @extend %invalid-input-style;
+    }
+
+    & ~ .helper-text:after {
+      @extend %custom-error-message;
+    }
+  }
+
+  &.valid + label,
+  &.invalid + label {
+    width: 100%;
+    pointer-events: none;
+  }
+
+  & + label:after {
+    @extend %input-after-style;
+  }
+
+  position: relative;
+
+  input.select-dropdown {
+    &:focus {
+      border-bottom: 1px solid $c--teal;
+    }
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $c--stone-light;
+    outline: none;
+    height: 3rem;
+    line-height: 3rem;
+    width: 100%;
+    font-size: $p;
+    font-family: $stack--sans;
+    margin: 0 0 8px 0;
+    padding: 0;
+    display: block;
+    user-select:none;
+    z-index: 1;
+  }
+
+  .caret {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 0;
+    fill: mix($c--teal-light, $c--white, 25%);
+  }
+
+  & + label {
+    position: absolute;
+    top: -26px;
+    font-size: .8rem;
+    font-family: $stack--sans;
+  }
+}
+
+// Disabled styles
+select:disabled {
+  color: rgba(0,0,0, .42);
+}
+
+.select-wrapper.disabled {
+  + label {
+    color: rgba(0,0,0, .42);
+  }
+  .caret {
+    fill: rgba(0,0,0, .42);
+  }
+}
+
+.select-wrapper input.select-dropdown:disabled {
+  color: rgba(0,0,0, .42);
+  cursor: default;
+  user-select: none;
+}
+
+.select-wrapper i {
+  color: rgba(0,0,0,.3);
+}
+
+.select-dropdown li.disabled,
+.select-dropdown li.disabled > span,
+.select-dropdown li.optgroup {
+  color: rgba(0,0,0,.3);
+  background-color: transparent;
+}
+
+.select-dropdown.dropdown-content {
+  li {
+    &:hover {
+      background-color: rgba(0,0,0,.08);
+    }
+
+    &.selected {
+      background-color: rgba(0,0,0,.03);
+    }
+
+    &:focus {
+      background-color: rgba(0,0,0,.08);
+    }
+  }
+}
+
+// Prefix Icons
+.prefix ~ .select-wrapper {
+  margin-left: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem);
+}
+
+.prefix ~ label { margin-left: 3rem; }
+
+// Icons
+.select-dropdown li {
+  img {
+    height: $spacing-unit--x-large - 10;
+    width: $spacing-unit--x-large - 10;
+    margin: 5px 15px;
+    float: right;
+  }
+}
+
+// Optgroup styles
+.select-dropdown li.optgroup {
+  border-top: 1px solid $c--grey-xx-light;
+
+  &.selected > span {
+    color: rgba(0, 0, 0, .7);
+  }
+
+  & > span {
+    color: rgba(0, 0, 0, .4);
+  }
+
+  & ~ li.optgroup-option {
+    padding-left: 1rem;
+  }
+}
+
+
+

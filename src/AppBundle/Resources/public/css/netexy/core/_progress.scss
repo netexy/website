@@ -1,0 +1,82 @@
+/* Progress
+   ========================================================================== */
+
+
+.progress {
+ 
+  .building-dynamic {
+    padding-bottom: 60px;
+    .top-part {
+      flex-wrap: wrap;
+      display: flex;
+      padding: 67px 0 0 0;
+      justify-content: space-between;
+      h2 {
+        display: inline-block;
+        margin-right: 50px;
+        margin-bottom: auto;
+      }
+      a {
+        display: inline-block;
+        padding: 22px 0 22px 96px;
+        color: white;
+        background-repeat: no-repeat;
+        background-position: 45px 20px;
+      }
+    }
+    ul {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      li {
+        position: relative;
+        list-style: none;
+        padding: 95px 0 0 0;
+        margin: 0;
+        width: 16.6%;
+        min-width: 195px;
+        .line {
+          position: absolute;
+          top: 75px;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background-color: $c--teal;
+          &::after {
+            position: absolute;
+            left: 50%;
+            top: -8px;
+            transform: translateX(-50%);
+            display: block;
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: $c--teal;
+            border-radius: 100%;
+
+          }
+        }
+        &.active {
+          .line {
+            background-color: $c--akcent;
+            &::after {
+              background-color: $c--akcent;
+            }
+          }
+        }
+        p {
+          padding: 0 15px;
+          color: $c--white;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+}
+
+
+

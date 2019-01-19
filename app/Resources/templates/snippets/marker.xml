@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for a "contact" snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
+    <key>marker</key>
+
+    <meta>
+        <title lang="en">Marker</title>
+        <title lang="uk">Маркер</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="display_title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Displayed Title</title>
+                <title lang="uk">Назва, що відображається</title>
+            </meta>
+        </property>
+
+        <property name="offset_left" type="text_line">
+            <meta>
+                <title lang="en">Offset Left (percents)</title>
+                <title lang="uk">Відступ Зліва (відсотки)</title>
+            </meta>
+        </property>
+
+        <property name="offset_top" type="text_line">
+            <meta>
+                <title lang="en">Offset Top (percents)</title>
+                <title lang="uk">Відступ Зверху (відсотки)</title>
+            </meta>
+        </property>
+
+        <property name="custom_class" type="text_line">
+            <meta>
+                <title lang="en">Custom CSS Class</title>
+                <title lang="uk">CSS Клас</title>
+            </meta>
+        </property>
+    </properties>
+</template>

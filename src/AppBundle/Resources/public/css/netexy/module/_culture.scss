@@ -1,0 +1,399 @@
+/*---
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+		<div class="block-grid block-grid--phablet-2 block-grid--tablet-wide-3 block-grid--desktop-4">
+
+			<article class="culture">
+				<div class="culture__copy">
+					<p class="copy">We've just smashed through the £6,000 barrier for the <a href="https://t.co/1qowOTCImW" target="_blank" rel="nofollow">https://t.co/1qowOTCImW</a>. We are pushing ourselves during double January!</p>
+				</div>
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="http://www.gravatar.com/avatar/3ccbe9a132616664a69a77d448304e26?d=mm&s=100" alt="">
+								</div>
+							</div>
+							@engagetweet
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">5 days ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--twitter"></use></svg>
+			</article>
+
+			<article class="culture culture--img">
+				<div class="culture__copy">
+					<p class="copy">What are we doing today? "The same thing we do every day Pinky, try to take over the world..."</p>
+				</div>
+				<img class="culture__img" src="http://pbs.twimg.com/media/C4zSWBmWcAESc-m.jpg" alt="">
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="http://www.gravatar.com/avatar/3ccbe9a132616664a69a77d448304e26?d=mm&s=100" alt="">
+								</div>
+							</div>
+							@engagetweet
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">5 days ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--twitter"></use></svg>
+			</article>
+
+			<article class="culture culture--blog">
+				<a class="a--block a--subtle" href="#0">
+					<div class="culture__copy">
+						<h1 class="h6">A year with Atom</h1>
+					</div>
+					<img class="culture__img" src="https://engage-site-cms.s3.amazonaws.com/production/engage-interactive/cms/processed/1fa9d29febf2fca852f0fb35fecea0c6.jpg" alt="">
+				</a>
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/301aa0ffd60c4961821073a002070b1c.jpg" alt="">
+								</div>
+							</div>
+							Alex Willcocks
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">2 weeks ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--blog"></use></svg>
+			</article>
+
+			<article class="culture culture--blog">
+				<a class="a--block a--subtle" href="#0">
+					<div class="culture__copy">
+						<h1 class="h6">How to keep vector illustrations crisp & HD ready for animation in After Effects CC</h1>
+					</div>
+					<img class="culture__img" src="https://engage-site-cms.s3.amazonaws.com/production/engage-interactive/cms/processed/1703c6b49e9f141c43dbef1922edf8e5.gif" alt="">
+				</a>
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/213356c6d764cbf5b5dd6ec7f05a2b90.png" alt="">
+								</div>
+							</div>
+							Adam Buchanan
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">1 month ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--blog"></use></svg>
+			</article>
+
+			<article class="culture culture--img">
+				<a class="a--block a--subtle" href="#0">
+					<img class="culture__img" src="https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/14596867_1885607408341987_2207158408941928448_n.jpg" alt="">
+				</a>
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="http://www.gravatar.com/avatar/3ccbe9a132616664a69a77d448304e26?d=mm&s=100" alt="">
+								</div>
+							</div>
+							@engageinteractive
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">5 days ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--instagram"></use></svg>
+			</article>
+
+			<article class="culture culture--img culture--video">
+				<video
+					class="culture__img"
+					src="https://scontent.cdninstagram.com/t50.2886-16/17075431_1217159898380949_1437253141375483904_n.mp4"
+					type="video/mp4"
+					preload="none"
+					autoplay
+					loop
+					muted
+				></video>
+				<input class="hidden culture__icon-toggle--play" type="checkbox" id="play-1" tabindex="0">
+				<label class="culture__icon culture__icon--play" for="play-1"><span class="vh">Pause</span></label>
+				<input class="hidden culture__icon-toggle--sound" type="checkbox" id="mute-1" tabindex="0">
+				<label class="culture__icon culture__icon--sound" for="mute-1"><span class="vh">Mute</span></label>
+				<div class="culture__details">
+					<div class="culture__user">
+						<a class="a--subtle" href="#0">
+							<div class="culture__avatar">
+								<div class="placeholder placeholder--square placeholder--rounded">
+									<img src="http://www.gravatar.com/avatar/3ccbe9a132616664a69a77d448304e26?d=mm&s=100" alt="">
+								</div>
+							</div>
+							@engageinteractive
+						</a>
+					</div>
+					<a class="a--subtle culture__date" href="#0">5 days ago</a>
+				</div>
+				<svg class="icon culture__icon"><use xlink:href="/assets/img/sprite.svg#social--instagram"></use></svg>
+			</article>
+
+			<article class="culture culture--yellow">
+				<div class="culture__img">
+					<img src="/assets/img/icons/beer.svg" alt="">
+				</div>
+			</article>
+
+			<article class="culture culture--yellow culture--icons">
+				<div class="culture__img">
+					<img src="/assets/img/icons/beer.svg" alt="">
+					<img src="/assets/img/icons/bulb.svg" alt="">
+					<img src="/assets/img/icons/markup.svg" alt="">
+				</div>
+			</article>
+
+		</div>
+	</div>
+</div>
+```
+
+*/
+
+$block: '.culture';
+
+#{$block} {
+	$padding: $spacing-unit;
+	@include responsive-ratio(1, 1, true);
+	position: relative;
+	overflow: hidden;
+	background-color: $c--grey-xx-light;
+
+	&__img,
+	&__copy {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		#{$block}--blog & {
+			height: 50%;
+		}
+	}
+
+	&__img {
+		object-fit: cover;
+		z-index: 1;
+	}
+
+	&__copy {
+		padding: $padding;
+		z-index: 2;
+
+		#{$block}--img & {
+			background-color: rgba($c--black, 2/3);
+			color: $c--white;
+			visibility: hidden;
+			opacity: 0;
+			transition: $transition--fade-out;
+			will-change: opacity;
+		}
+
+		#{$block}--img:hover & {
+			visibility: visible;
+			opacity: 1;
+			transition: $transition--fade-in;
+		}
+
+		#{$block}--blog & {
+			top: 50%;
+		}
+	}
+
+	$avatar: rem(32px);
+
+	&__details {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		padding: $spacing-unit--small $padding;
+		font-family: inherit;
+		font-size: $p--small;
+		line-height: h($avatar);
+		background-color: rgba($c--black, 2/3);
+		color: $c--white;
+		transition: $transition--transform, $transition--fade-out;
+		z-index: 4;
+		visibility: hidden;
+
+		a:hover,
+		a:focus {
+			color: darker($c--white);
+		}
+
+		#{$block}:hover & {
+			transition: $transition--transform, $transition--fade-in;
+			transform: translateY(-100%);
+			visibility: visible;
+		}
+	}
+
+		&__user {
+			display: block;
+		}
+
+			&__avatar {
+				width: $avatar;
+				float: left;
+				margin-right: $spacing-unit--x-small;
+			}
+
+		&__date {
+			font-size: .8em;
+		}
+
+	&__icon {
+		position: absolute;
+		bottom: $padding;
+		right: $padding;
+		font-size: $h--medium;
+		opacity: 2/3 * 1;
+		z-index: 3;
+		transition: $transition--opacity;
+
+		#{$block}--img & {
+			color: $c--white;
+		}
+
+		&--play,
+		&--sound {
+			display: block;
+			cursor: pointer;
+			user-select: none;
+			opacity: 0;
+			will-change: transform, opacity;
+			transition: $transition--transform, $transition--opacity;
+		}
+
+		&--play {
+			$scale: .2;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+
+			&::before,
+			&::after {
+				@include pseudo;
+			}
+
+			&::before {
+				top: 40%;
+				left: 40%;
+				width: $scale * 100%;
+				height: $scale * 100%;
+				border-radius: 50%;
+				background-color: rgba($c--black, 2/3);
+			}
+
+			&::after {
+				$scale--icon: 3/8;
+				$offset: 13%; // http://javier.xyz/visual-center/
+				top: 50%;
+				left: 50%;
+				width: $scale--icon * $scale * 100%;
+				height: $scale--icon * $scale * 100%;
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M28.125 16.563L4.437 29.751c-.313.125-.5.125-.688.063-.25-.125-.313-.375-.313-.688V2.876c0-.313.063-.563.313-.688.188-.063.375-.063.688.063l23.688 13.188c.313.188.438.375.438.563s-.125.375-.438.563z'/%3E%3C/svg%3E%0A");
+				transform: translate(-50% + $offset, -50%);
+			}
+
+			&:active {
+				transform: scale(1.2);
+			}
+
+			#{$block}__icon-toggle--play:checked + & {
+				opacity: 1;
+			}
+		}
+
+		&--sound {
+			top: $padding;
+			bottom: 0;
+			width: 1em;
+			height: 1em;
+			overflow: hidden;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M25.25 5.438h-.063l-.563-.625h-.063c-.313-.25-.813-.25-1.125.063l-1.063 1.063c-.25.313-.25.813 0 1.125l.625.625v-.063.063c4.625 4.563 4.625 12.063.063 16.688v-.063l-.625.625c-.25.375-.25.875.063 1.188l1.063 1.063c.313.25.813.25 1.125 0l.625-.625h-.063c5.813-5.813 5.813-15.313 0-21.125zm-3.062 4.25v-.063L21.563 9c-.375-.25-.813-.25-1.125.063h-.063v.063l-1 1-.063.063c-.25.313-.25.75 0 1.063l.625.625H20c2.25 2.313 2.25 5.938 0 8.25l-.563.563-.063.063c-.25.313-.25.813.063 1.125l1.125 1.125c.313.25.75.25 1.063 0l.625-.625c3.438-3.563 3.438-9.188-.063-12.688zm-5.313-2.063c-.125 0-.25 0-.313.063l-6.563 3.813-2.5 1.438H2.874c-.25 0-.5.188-.5.5v6.563c0 .313.25.5.5.5h4.625l9 5.188c.125.063.25.125.375.125.375 0 .688-.313.688-.625v-17c-.063-.313-.313-.563-.688-.563z'/%3E%3C/svg%3E%0A");
+
+			&:active {
+				transform: scale(1.2);
+			}
+
+			#{$block}--video:hover & {
+				opacity: 2/3 * 1;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			#{$block}__icon-toggle--sound:checked + & {
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M19.313 11.25v.063l.625.563.063.063c1.375 1.375 1.938 3.313 1.563 5.125l2.563 2.563c1.375-3.313.75-7.25-1.938-9.938l-.625-.625c-.375-.25-.813-.25-1.125.063h-.063l-1 1-.063.063c-.25.313-.25.75 0 1.063zm5.937-5.812h-.063l-.563-.625h-.063c-.313-.25-.813-.25-1.125.063l-1.063 1.125c-.25.313-.25.75 0 1.063l.625.625c3.563 3.563 4.375 8.875 2.438 13.25l2.313 2.313c3.125-5.688 2.313-13-2.5-17.813zM17.563 8.25c-.063-.375-.313-.625-.688-.625-.125 0-.25.063-.313.125l-2.75 1.563 3.75 3.75V8.25zM7.5 12.938H2.875c-.25 0-.5.25-.5.5v6.625c0 .25.25.5.5.5H7.5l9 5.188c.125.063.25.063.375.063.375 0 .688-.25.688-.625V22.063l-9.5-9.438zm19.938 12.25L6.75 4.5c-.313-.313-.813-.313-1.125 0v.063L4.5 5.688c-.313.313-.313.813 0 1.125l20.688 20.688c.313.313.813.313 1.125 0l1.125-1.125v-.063c.313-.313.313-.813 0-1.125z'/%3E%3C/svg%3E%0A");
+			}
+		}
+	}
+
+	&--yellow {
+		background-color: $c--akcent;
+	}
+
+	&--icons {
+		@keyframes switch {
+			0% {
+				transform: translateY(0);
+			}
+
+			33.332% {
+				transform: translateY(0);
+			}
+
+			33.333% {
+				transform: translateY(-100%);
+			}
+
+			66.665% {
+				transform: translateY(-100%);
+			}
+
+			66.666% {
+				transform: translateY(-200%);
+			}
+
+			99.999% {
+				transform: translateY(-200%);
+			}
+		}
+
+
+		#{$block}__img {
+			animation: switch 3s linear infinite;
+		}
+	}
+
+	@include mq('tablet-wide') {
+		$avatar: rem(36px);
+
+		&__details {
+			font-size: $p;
+			line-height: h($avatar);
+		}
+
+			&__avatar {
+				width: $avatar;
+			}
+	}
+}

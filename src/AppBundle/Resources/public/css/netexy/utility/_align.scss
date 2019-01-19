@@ -1,0 +1,12 @@
+.align {
+	display: flex;
+	height: 100%;
+
+	&--middle {
+		align-items: center;
+	}
+
+	&--center {
+		text-align: center;
+	}
+}

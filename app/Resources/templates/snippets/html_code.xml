@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for a "snippet_html_code" type snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
+    <key>html_code</key>
+
+    <meta>
+        <title lang="en">HTML-block</title>
+        <title lang="uk">HTML-блок</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Block caption</title>
+                <title lang="uk">Назва блоку</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+            <!--<tag name="sulu.search.field" role="description"/>-->
+        </property>
+
+        <property name="content" type="text_area">
+            <meta>
+                <title lang="en">HTML content</title>
+                <title lang="uk">HTML наповнення</title>
+            </meta>
+        </property>
+    </properties>
+</template>

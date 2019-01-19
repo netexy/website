@@ -1,0 +1,84 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+<div class="row center-xs">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-9 {{ customClass }}">
+        <div class="layout-padding--medium">
+            <div rel="gallery" class="pad-xs" typeof="block">
+                {% if block.display_heading|default(true) %}
+                    {% set heading = {
+                        'title': block.title|default(),
+                        'heading_level': 2,
+                    } %}
+                    {{ helpers.loadBlock('heading', {block: heading}) }}
+                {% endif %}
+                <div class="row center-xs">
+                    <div class="col-xs-12">
+                        <div uk-grid uk-lightbox="animation: slide">
+                            <div class="row center-xs {% if 0 == block.grid_columns_in_row|default(1) %}inline-children--block text-align--center display-block{% endif %}">
+                                {% if block.images|length %}
+                                {% for media in block.images %}
+                                {% set entityId = blockId ~ '_' ~ loop.index0 %}
+                                {% set image = sulu_resolve_media(media, context.request.locale) %}
+                                {% set imageMeta = image.fileVersion|default() ? image.fileVersion.defaultMeta : [] %}
+
+                                {# grid size #}
+                                {% set gridSize = 12 %} {# default size #}
+                                {% if 0 == block.grid_columns_in_row|default(1) %}
+                                    {% set gridSize = 0 %}
+                                {% elseif loop.last and block.images|length % block.grid_columns_in_row|default(1) == 1 %}
+                                    {% set gridSize = 12 %} {# size of last element #}
+                                {% elseif loop.index >= block.images|length - 1 and block.images|length % block.grid_columns_in_row|default(1) == 2 %}
+                                    {% set gridSize = 6 %} {# size of last 2 elements if 3 in row #}
+                                {% else %}
+                                    {% set gridSize = gridSize / block.grid_columns_in_row|default(1) %}
+                                {% endif %}
+                                {# /end grid size #}
+
+                                {% if 12 == gridSize %}
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bord-xs">
+                                    {% elseif 6 == gridSize %}
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 bord-xs">
+                                        {% elseif 4 == gridSize %}
+                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 bord-xs">
+                                            {% elseif 0 == gridSize %}
+                                            <div class="inline-children--block">
+                                                {% else %}
+                                                <div class="col-xs-{{ gridSize }} col-sm-{{ gridSize }} col-md-{{ gridSize }} col-lg-{{ gridSize }} col-xl-{{ gridSize }} bord-xs">
+                                                    {% endif %}
+                                                    <a href="{{ (app.request.schemeAndHttpHost ~ media.thumbnails['1200x'])|split('?')[0] }}"
+                                                       caption="{{ imageMeta.title }}">
+                                                        <picture>
+                                                            <source srcset="{{ app.request.schemeAndHttpHost ~
+                                                            media.thumbnails['1200x630'] }}"
+                                                                    media="(min-width: 1024px)">
+                                                            <img class="uk-transition-scale-up uk-transition-opaque"
+                                                                 src="{{ app.request.schemeAndHttpHost ~ media
+                                                                 .thumbnails['500x375'] }}"
+                                                                 alt="{{ block.title }}" style="width: 100%;">
+                                                        </picture>
+
+                                                    </a>
+                                                </div>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

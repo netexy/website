@@ -1,0 +1,24 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set uid = blockId ~ '_' ~ entityId %}
+
+<style>
+    .counter-color-{{ uid }} {
+        color: {{ block.icon_color }};
+        background-color: {{ block.bg_color }};
+    }
+</style>
+
+<div class="col-xs-6 col-sm-6 mar-xs-b pad-xs-x uk-text-center" style="color: {{ block.text_color }}">
+    <div class="counter-font-top">{{ block.title }}</div>
+    <div class="counter-block counter-color-{{ uid }}">
+        <noindex><i class="center material-icons lg">{{ block.icon }}</i></noindex>
+        <div class="counter-style">{{ block.count }}</div>
+    </div>
+    <div class="counter-font-bottom">{{ block.subtitle }}</div>
+</div>

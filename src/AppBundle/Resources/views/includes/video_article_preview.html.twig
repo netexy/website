@@ -1,0 +1,27 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set link = sulu_content_load(article.content.uuid).content.preview_video__video_link|default() %}
+
+<div class="pad-xs preview--link">
+    {#<a class="preview__link" href="{{ sulu_content_path(article.routePath, article.targetWebspace) }}">#}
+    <a class="preview__link" href="{{ sulu_content_path(article.routePath) }}">
+        <div class="preview__main">
+            {#<time class="secondary preview__date" datetime="2018-03-28T09:00:00+01:00">#}
+            <time class="secondary preview__date" datetime="{{ article.published.date|date("c") }}">
+                {{ article.published.date|localizeddate('long', 'none', 'uk') }}
+            </time>
+            <h2 class="flush h4 preview__heading">{{ article.title }}</h2>
+            <p class="copy preview__copy">
+            {% if link|length %}
+                {#<div class="video-container">#}
+                    {{ helpers.loadBlock('youtube_video', {block: { link: link }, blockId: blockId}) }}
+                {#</div>#}
+            {% endif %}
+            {% if article.excerpt.description|length %}
+                <div class="description">
+                    {{ article.excerpt.description|raw }}
+                </div>
+            {% endif %}
+            </p>
+        </div>
+    </a>
+</div>

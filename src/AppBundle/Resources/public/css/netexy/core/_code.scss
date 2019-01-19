@@ -1,0 +1,22 @@
+code,
+pre {
+  display: inline-block;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-family: 'PT Mono', monospace;
+  font-size: $p;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5;
+  background-color: $c--grey-x-light;
+  color: $c--grey-dark;
+}
+
+code {
+  padding: $spacing-unit--x-small;
+}
+
+pre {
+  display: block;
+  padding: $spacing-unit--small;
+}

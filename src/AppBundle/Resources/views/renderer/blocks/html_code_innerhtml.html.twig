@@ -1,0 +1,13 @@
+{% if block.content|default('') %}
+    {{ block.content|raw }}
+{% endif %}
+
+{% if block.snippet_data|length %}
+    {% for snippet in block.snippet_data %}
+        <!-- snippet "{{ snippet.title|default('<unnamed snippet>') }}" begin -->
+        {% if snippet.content|default('') %}
+            {{ snippet.content|raw }}
+        {% endif %}
+        <!-- snippet "{{ snippet.title|default('<unnamed snippet>') }}" end -->
+    {% endfor %}
+{% endif %}

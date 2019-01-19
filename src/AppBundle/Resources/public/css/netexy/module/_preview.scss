@@ -1,0 +1,484 @@
+/*---
+
+```
+<div class="preview preview--link preview--first">
+	<a class="preview__link" href="#0">
+		<div class="preview__img">
+			<div class="placeholder placeholder--rounded placeholder--square">
+				<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/301aa0ffd60c4961821073a002070b1c.jpg" alt="">
+			</div>
+		</div>
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="h4 preview__heading">There's a new Alex in town!</h1>
+			<p class="copy preview__copy">This week sees us welcome a new face to the Engage marketing team, Mr Alex Sim!</p>
+		</div>
+	</a>
+</div>
+
+<div class="preview preview--link">
+	<a class="preview__link" href="#0">
+		<div class="preview__img">
+			<div class="placeholder placeholder--rounded placeholder--square">
+				<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/301aa0ffd60c4961821073a002070b1c.jpg" alt="">
+			</div>
+		</div>
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="h4 preview__heading">There's a new Alex in town!</h1>
+			<p class="copy preview__copy">This week sees us welcome a new face to the Engage marketing team, Mr Alex Sim!</p>
+		</div>
+	</a>
+</div>
+
+<div class="preview preview--link preview--last">
+	<a class="preview__link" href="#0">
+		<div class="preview__img">
+			<div class="placeholder placeholder--rounded placeholder--square">
+				<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/301aa0ffd60c4961821073a002070b1c.jpg" alt="">
+			</div>
+		</div>
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="h4 preview__heading">There's a new Alex in town!</h1>
+			<p class="copy preview__copy">This week sees us welcome a new face to the Engage marketing team, Mr Alex Sim!</p>
+		</div>
+	</a>
+</div>
+```
+
+```
+<div class="preview preview--link preview--archive">
+	<a class="preview__link" href="#0">
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="flush h4 preview__heading">There's a new Alex in town!</h1>
+		</div>
+	</a>
+</div>
+
+<div class="preview preview--link preview--archive">
+	<a class="preview__link" href="#0">
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="flush h4 preview__heading">There's a new Alex in town!</h1>
+		</div>
+	</a>
+</div>
+
+<div class="preview preview--link preview--archive">
+	<a class="preview__link" href="#0">
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="flush h4 preview__heading">There's a new Alex in town!</h1>
+		</div>
+	</a>
+</div>
+```
+
+```
+<div class="preview preview--link preview--archive preview--center">
+	<a class="preview__link" href="#0">
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="flush h4 preview__heading">There's a new Alex in town!</h1>
+		</div>
+	</a>
+</div>
+
+<div class="preview preview--link preview--archive preview--center">
+	<a class="preview__link" href="#0">
+		<div class="preview__main">
+			<p class="secondary preview__date">14th February 2017</p>
+			<h1 class="flush h4 preview__heading">There's a new Alex in town!</h1>
+		</div>
+	</a>
+</div>
+```
+
+Blog author:
+
+```
+<div class="preview preview--author">
+	<div class="preview__link">
+		<div class="preview__img">
+			<div class="placeholder placeholder--rounded placeholder--square">
+				<img src="https://engage-site-cms.s3.amazonaws.com/production/utility/users/301aa0ffd60c4961821073a002070b1c.jpg" alt="">
+			</div>
+		</div>
+		<div class="preview__main">
+			<p class="copy"><a href="#0">Alex</a> is co-founder of Engage. With an awarded background in design and development he now concentrates the majority of his time on moulding the future picture of Engage's development, paying particular attention to the intricate balance of culture and growth.</p>
+		</div>
+	</div>
+</div>
+```
+
+*/
+
+$block: '.preview';
+
+#{$block} {
+  $height: rem(180px);
+  @include soft--ends($spacing-unit--x-large);
+  position: relative;
+
+  &::before,
+  &::after {
+    @include pseudo;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $c--grey-x-light;
+  }
+
+  &::before {
+    top: 0;
+
+    #{$block} + & {
+      display: none;
+    }
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &__img {
+    @include push--auto;
+    width: $height;
+  }
+
+  &__main {
+    margin-top: $spacing-unit--small;
+    text-align: center;
+
+    > small {
+      display: block;
+      margin-top: $spacing-unit--small / 2;
+      font-family: inherit;
+      font-size: $p;
+      font-style: normal;
+      color: mix($c--black, $c--grey);
+    }
+  }
+
+  &__date {
+    color: mix($c--blue-link, $c--white, 25%);
+    font-size: $p--small;
+    font-weight: $w--semibold;
+    transition: color .2s $ease--smooth-fade;
+  }
+
+  &__heading {
+    margin-top: 0;
+    transition: color .2s $ease--smooth-fade;
+  }
+
+  &__copy {
+    margin-top: $rel-spacing-unit--small;
+    font-weight: $w--normal-txt;
+  }
+
+  &--link {
+    #{$block}__link {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+
+      #{$block}__heading {
+        color: mix($c--akcent, $c--white, 80%);
+      }
+
+      &:hover,
+      &:focus {
+        #{$block}__heading {
+          color: $c--akcent;
+        }
+      }
+
+      .block-bg {
+        border-color: rgba(255, 255, 255, .22);
+        transition: color .2s $ease--smooth-fade;
+      }
+
+      &:hover,
+      &:focus {
+        .block-bg {
+          border-color: mix($c--blue-link, $c--white, 55%);
+        }
+      }
+
+      &:hover,
+      &:focus {
+        #{$block}__date {
+          color: mix($c--blue-link, $c--white, 55%);
+        }
+      }
+    }
+  }
+
+  &--archive {
+    @include hard--ends;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    #{$block}__main {
+      margin-top: 0;
+    }
+
+    & + & {
+      margin-top: $spacing-unit;
+
+      @include mq('tablet') {
+        margin-top: $spacing-unit--large;
+      }
+    }
+  }
+
+  &--center {
+    #{$block}__main {
+      text-align: center;
+    }
+  }
+
+  &--author {
+    #{$block}__main {
+      p.copy {
+        font-size: $p;
+      }
+    }
+  }
+
+  @include mq('tablet') {
+    padding-left: rem($height) + $spacing-unit;
+
+    &__img {
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-right: $spacing-unit;
+      transform: translateY(-50%);
+    }
+
+    &__main {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    &--archive {
+      @include hard--ends;
+    }
+
+    &--center {
+      padding-left: 0;
+    }
+
+    &--author {
+      $height: rem(110px);
+      @include soft--ends($spacing-unit--xx-large);
+      padding-left: rem($height) + $spacing-unit;
+
+      #{$block} {
+        &__main {
+          min-height: $lh * 3em;
+        }
+
+        &__img {
+          width: $height;
+        }
+      }
+    }
+  }
+
+  &--first {
+    padding-top: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--last {
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+
+
+$block: '.report';
+
+#{$block} {
+  $height: rem(256px);
+  @include soft--ends($spacing-unit--x-large);
+  position: relative;
+
+    margin-bottom: .77rem;
+    height: 100%;
+    border-radius: 3px;
+
+    border: .025rem solid rgba(255, 255, 255, 0.15);
+    background: radial-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.11));
+    background-size: 200%;
+  
+
+  &::before {
+    top: 0;
+
+    #{$block} + & {
+      display: none;
+    }
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &__img {
+    @include push--auto;
+    width: $height;
+  }
+
+  &__main {
+    margin-top: $spacing-unit--small;
+    text-align: center;
+
+    > small {
+      display: block;
+      margin-top: $spacing-unit--small / 2;
+      font-family: inherit;
+      font-size: $p;
+      font-style: normal;
+      color: mix($c--black, $c--grey);
+    }
+  }
+
+  &__date {
+    color: mix($c--blue-link, $c--white, 25%);
+    font-size: $p--small;
+    font-weight: $w--semibold;
+    transition: color .2s $ease--smooth-fade;
+  }
+
+  &__heading {
+    margin-top: 0;
+    transition: color .2s $ease--smooth-fade;
+  }
+
+  &--link {
+    #{$block}__link {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+
+      #{$block}__heading {
+        color: mix($c--akcent, $c--white, 80%);
+      }
+
+      &:hover,
+      &:focus {
+        #{$block}__heading {
+          color: $c--akcent;
+        }
+      }
+
+      .block-bg {
+        border-color: rgba(255, 255, 255, .22);
+        transition: color .2s $ease--smooth-fade;
+      }
+
+      &:hover,
+      &:focus {
+        .block-bg {
+          border-color: mix($c--blue-link, $c--white, 55%);
+        }
+      }
+
+      &:hover,
+      &:focus {
+        #{$block}__date {
+          color: mix($c--blue-link, $c--white, 55%);
+        }
+      }
+    }
+  }
+
+  &--archive {
+    @include hard--ends;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    #{$block}__main {
+      margin-top: 0;
+    }
+
+    & + & {
+      margin-top: $spacing-unit;
+    }
+  }
+
+  &--center {
+    #{$block}__main {
+      text-align: center;
+    }
+  }
+
+  &--author {
+    #{$block}__main {
+      p.copy {
+        font-size: $p;
+      }
+    }
+  }
+
+
+
+  &--first {
+    padding-top: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--last {
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}

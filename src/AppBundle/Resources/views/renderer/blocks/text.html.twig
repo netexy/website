@@ -1,0 +1,25 @@
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+<div class="container-bg {{ customClass }}" rel="{{ propertyName }}" typeof="block">
+    <div class="row">
+        <div class="col-xs-12 pad-xs">
+            {#<div class="layout-push--large">#}
+                <div class="layout-width--85">
+                    <div style="{{ block.background ? 'background-color: ' ~ block.background : '' }}"
+                         property="background">
+                        <div property="text" class="text">
+                            {% if block.text|default('') %}
+                                {{ block.text|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {#</div>#}
+        </div>
+    </div>
+</div>

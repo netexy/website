@@ -1,0 +1,35 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="html_code">
+        <types>
+            <type name="meta_tag">
+                <meta>
+                    <title lang="en">Meta Tag</title>
+                    <title lang="uk">Мета-тег</title>
+                </meta>
+
+                <properties>
+                    <property name="attribute_value" type="text_line" mandatory="true">
+                        <meta>
+                            <title lang="en">Attribute</title>
+                            <title lang="uk">Атрибут</title>
+                        </meta>
+                    </property>
+                    <property name="attribute_content" type="text_line" mandatory="true">
+                        <meta>
+                            <title lang="en">Attribute content</title>
+                            <title lang="uk">Контент</title>
+                        </meta>
+                    </property>
+                    <property name="attribute_name" type="text_line">
+                        <meta>
+                            <title lang="en">Attribute name (optional)</title>
+                            <title lang="uk">Ім'я атрибута (опціонально)</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

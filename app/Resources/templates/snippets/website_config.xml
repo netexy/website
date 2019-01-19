@@ -1,0 +1,387 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for a "contact" snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
+    <key>website_config</key>
+
+    <meta>
+        <title lang="en">Website Config</title>
+        <title lang="uk">Конфігурація сайту</title>
+    </meta>
+
+    <areas>
+        <area key="website_config">
+            <meta>
+                <title lang="en">Website Config</title>
+                <title lang="uk">Конфігурация сайту</title>
+            </meta>
+        </area>
+    </areas>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="website_title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Website Name</title>
+                <title lang="uk">Назва сайту</title>
+                <info_text lang="en">
+                    og:site_name, copyrightHolder meta tags
+                </info_text>
+                <info_text lang="uk">
+                    og:site_name, copyrightHolder meta tags
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="logo" type="media_selection">
+            <meta>
+                <title lang="en">Site Logo</title>
+                <title lang="uk">Логотип сайту (значок)</title>
+            </meta>
+        </property>
+
+        <property name="logo_wide" type="media_selection">
+            <meta>
+                <title lang="en">Site Logo</title>
+                <title lang="uk">Логотип сайту (широкий)</title>
+            </meta>
+        </property>
+
+        <property name="twitter_site" type="text_line">
+            <meta>
+                <title lang="en">Twitter Site Property</title>
+                <title lang="uk">Twitter Site Property</title>
+                <info_text lang="en">
+                    twitter:site meta tag value
+                </info_text>
+                <info_text lang="uk">
+                    twitter:site meta tag value
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="template_namespace" type="text_line">
+            <meta>
+                <title lang="en">Templates Namespace</title>
+                <title lang="uk">Простір найменувань для шаблонів</title>
+                <info_text lang="en">
+                    Don't change unless you understand this option purpose
+                </info_text>
+                <info_text lang="uk">
+                    Не змінюйте це значення, якщо не знаєте, що воно налаштовує
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="articles_parent_node" type="single_internal_link">
+            <meta>
+                <title lang="en">Articles Root Node</title>
+                <title lang="uk">Коренева сторінка для статей</title>
+                <info_text lang="en">
+                    Used for `breadcrumbs` block as fallback root node in Articles module
+                </info_text>
+                <info_text lang="uk">
+                    Використовується у `breadcrumbs` як коренева сторінка (за замовченням) для модуля статей
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="video_parent_node" type="single_internal_link">
+            <meta>
+                <title lang="en">Video Articles Root Node</title>
+                <title lang="uk">Коренева сторінка для Відео</title>
+                <info_text lang="en">
+                    Used for top navigator
+                </info_text>
+                <info_text lang="uk">
+                    Використовується у навігації
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="navigation_contact" type="contact" mandatory="true">
+            <meta>
+                <title lang="en">Navigation Contact</title>
+                <title lang="uk">Контакт навігації</title>
+            </meta>
+        </property>
+
+        <property name="copyright" type="snippet" mandatory="true">
+            <meta>
+                <title lang="en">Copyright</title>
+                <title lang="uk">Копірайт</title>
+            </meta>
+            <params>
+                <param name="snippetType" value="copyright"/>
+            </params>
+        </property>
+
+        <property name="footer_address" type="text_editor">
+            <meta>
+                <title lang="en">Company Address in Footer</title>
+                <title lang="uk">Адреса компанії у Футері</title>
+            </meta>
+        </property>
+
+        <property name="footer_social_buttons" type="snippet" mandatory="true">
+            <meta>
+                <title lang="en">Footer Social Buttons Collection</title>
+                <title lang="uk">Соціальні кнопки у Футері</title>
+            </meta>
+            <params>
+                <param name="snippetType" value="button"/>
+            </params>
+        </property>
+
+        <!--<property name="site_logo" type="snippet" mandatory="true">-->
+            <!--<meta>-->
+                <!--<title lang="en">Site Logo</title>-->
+                <!--<title lang="uk">Логотип Сайту</title>-->
+            <!--</meta>-->
+            <!--<params>-->
+                <!--<param name="snippetType" value="logo"/>-->
+            <!--</params>-->
+        <!--</property>-->
+
+        <property name="mask_icon" type="media_selection">
+            <meta>
+                <title lang="en">Mask Icon</title>
+                <title lang="uk">Mask Icon</title>
+                <info_text lang="en">
+                    link:mask-icon URI (.svg file)
+                </info_text>
+                <info_text lang="uk">
+                    link:mask-icon URI (.svg file)
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="favicon" type="media_selection">
+            <meta>
+                <title lang="en">Favicon</title>
+                <title lang="uk">Favicon</title>
+                <info_text lang="en">
+                    favicon.ico
+                </info_text>
+                <info_text lang="uk">
+                    favicon.ico
+                </info_text>
+            </meta>
+        </property>
+
+        <!--<property name="favicon" type="media_selection">-->
+            <!--<meta>-->
+                <!--<title lang="en">Favicon</title>-->
+                <!--<title lang="uk">Favicon</title>-->
+                <!--<info_text lang="en">-->
+                    <!--favicon.ico-->
+                <!--</info_text>-->
+                <!--<info_text lang="uk">-->
+                    <!--favicon.ico-->
+                <!--</info_text>-->
+            <!--</meta>-->
+        <!--</property>-->
+
+        <property name="facebook_app_id" type="text_line">
+            <meta>
+                <title lang="en">Facebook App ID</title>
+                <title lang="uk">Facebook App ID</title>
+                <info_text lang="en">
+                    fb:app:id meta tag value
+                </info_text>
+                <info_text lang="uk">
+                    fb:app:id meta tag value
+                </info_text>
+            </meta>
+        </property>
+
+        <!--<property name="favicon" type="media_selection">-->
+            <!--<meta>-->
+                <!--<title lang="en">Favicon</title>-->
+                <!--<title lang="uk">Favicon</title>-->
+                <!--<info_text lang="en">-->
+                    <!--favicon.ico-->
+                <!--</info_text>-->
+                <!--<info_text lang="uk">-->
+                    <!--favicon.ico-->
+                <!--</info_text>-->
+            <!--</meta>-->
+        <!--</property>-->
+
+        <property name="hex_theme" type="text_line">
+            <meta>
+                <title lang="en">HEX Theme</title>
+                <title lang="uk">HEX Theme</title>
+                <info_text lang="en">
+                    Will be used in link:mask-icon, meta:theme-color and meta:msapplication-TileColor tags
+                </info_text>
+                <info_text lang="uk">
+                    Will be used in link:mask-icon, meta:theme-color and meta:msapplication-TileColor tags
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="bar_style" type="text_line">
+            <meta>
+                <title lang="en">Bar Style</title>
+                <title lang="uk">Bar Style</title>
+                <info_text lang="en">
+                    apple-mobile-web-app-status-bar-style meta tag value
+                </info_text>
+                <info_text lang="uk">
+                    apple-mobile-web-app-status-bar-style meta tag value
+                </info_text>
+            </meta>
+        </property>
+
+        <!-- SEO & OG -->
+        <property name="default_og_image" type="media_selection">
+            <meta>
+                <title lang="en">Default social sharing image</title>
+                <title lang="uk">Зображення для соцмереж (за замовченням)</title>
+            </meta>
+        </property>
+
+        <!--<property name="default_seo_title" type="text_line" mandatory="true">-->
+            <!--<meta>-->
+                <!--<title lang="en">Default SEO title</title>-->
+                <!--<title lang="uk">SEO title (за замовченням)</title>-->
+                <!--<info_text lang="en">-->
+                    <!--Will be used in og:title as well-->
+                <!--</info_text>-->
+                <!--<info_text lang="uk">-->
+                    <!--Will be used in og:title as well-->
+                <!--</info_text>-->
+            <!--</meta>-->
+        <!--</property>-->
+
+        <property name="default_seo_description" type="text_line">
+            <meta>
+                <title lang="en">Default SEO description</title>
+                <title lang="uk">SEO description (за замовченням)</title>
+                <info_text lang="en">
+                    Will be used in og:description as well
+                </info_text>
+                <info_text lang="uk">
+                    Will be used in og:description as well
+                </info_text>
+            </meta>
+        </property>
+
+        <property name="default_seo_keywords" type="text_line">
+            <meta>
+                <title lang="en">Default SEO keywords</title>
+                <title lang="uk">Ключові слова (за замовченням)</title>
+            </meta>
+        </property>
+        <!-- /end SEO & OG -->
+
+        <property name="theme" type="single_select">
+            <meta>
+                <title lang="en">Current Theme</title>
+                <title lang="uk">Поточна тема</title>
+            </meta>
+            <params>
+                <param name="default_value" value="light"/>
+                <param name="values" type="collection">
+                    <param name="light">
+                        <meta>
+                            <title lang="en">Light</title>
+                            <title lang="uk">Світла</title>
+                        </meta>
+                    </param>
+                    <param name="dark">
+                        <meta>
+                            <title lang="en">Dark</title>
+                            <title lang="uk">Темна</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+
+        <property name="ui_text_color" type="color">
+            <meta>
+                <title lang="en">UI - Text Color (light theme)</title>
+                <title lang="uk">UI - Колір Тексту (світла тема)</title>
+            </meta>
+        </property>
+
+        <property name="ui_text_color_dark_theme" type="color">
+            <meta>
+                <title lang="en">UI - Text Color (dark theme)</title>
+                <title lang="uk">UI - Колір Тексту (темна тема)</title>
+            </meta>
+        </property>
+
+        <property name="ui_background_color" type="color">
+            <meta>
+                <title lang="en">UI - Background Color (light theme)</title>
+                <title lang="uk">UI - Колір Фону (світла тема)</title>
+            </meta>
+        </property>
+
+        <property name="ui_background_color_dark_theme" type="color">
+            <meta>
+                <title lang="en">UI - Background Color (dark theme)</title>
+                <title lang="uk">UI - Колір Фону (темна тема)</title>
+            </meta>
+        </property>
+
+        <property name="ui_block_background_color" type="color">
+            <meta>
+                <title lang="en">UI - Block Background Color (light theme)</title>
+                <title lang="uk">UI - Колір Фону Блоків (світла тема)</title>
+            </meta>
+        </property>
+
+        <property name="ui_block_background_color_dark_theme" type="color">
+            <meta>
+                <title lang="en">UI - Block Background Color (dark theme)</title>
+                <title lang="uk">UI - Колір Фону Блоків (темна тема)</title>
+            </meta>
+        </property>
+
+
+        <!-- todo: accent colors -->
+
+
+        
+
+
+
+
+
+        <!--Mask icon URI-->
+        <!--link:mask-icon URI (.svg file)-->
+
+        <!--Favicon URI-->
+        <!--favicon.ico URI-->
+
+        <!--Facebook App ID-->
+        <!--fb:app:id meta tag value-->
+
+        <!--Site Name-->
+        <!--og:site_name, copyrightHolder meta tags-->
+
+        <!--Twitter site property-->
+        <!--twitter:site meta tag value-->
+
+        <!--HEX Theme-->
+        <!--Will be used in link:mask-icon, meta:theme-color and meta:msapplication-TileColor tags-->
+
+        <!--Bar Style-->
+        <!--apple-mobile-web-app-status-bar-style meta tag value-->
+    </properties>
+</template>

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>promo_partner</key>
+
+    <meta>
+        <title lang="en">Partner</title>
+        <title lang="uk">Партнер</title>
+    </meta>
+
+    <properties>
+        <!-- uses as ALT attribute value -->
+        <property name="title" type="text_line">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва Блоку</title>
+            </meta>
+        </property>
+
+        <property name="media" type="media_selection">
+            <meta>
+                <title lang="en">Image</title>
+                <title lang="uk">Зображення</title>
+            </meta>
+        </property>
+
+        <!--<property name="inverse_media" type="media_selection">-->
+            <!--<meta>-->
+                <!--<title lang="en">Inverse Image</title>-->
+                <!--<title lang="uk">Інверсне Зображення</title>-->
+            <!--</meta>-->
+        <!--</property>-->
+
+        <property name="bg_color" type="color">
+            <meta>
+                <title lang="en">Background Color</title>
+                <title lang="uk">Колір Фону</title>
+            </meta>
+        </property>
+
+        <property name="custom_class" type="text_line">
+            <meta>
+                <title lang="en">Custom CSS Class</title>
+                <title lang="uk">CSS Клас</title>
+            </meta>
+        </property>
+    </properties>
+</template>

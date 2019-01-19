@@ -1,0 +1,173 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+{#{{ dump(view) }}#}
+
+
+{#<style>#}
+    {#.pagination>li {#}
+        {#display: inline-block;#}
+    {#}#}
+    {#.pagination>li.disabled a {#}
+        {#color: gray;#}
+    {#}#}
+{#</style>#}
+
+
+{#<div property="articles" style="width: 500px;">#}
+
+<div property="articles" class="container-bg {{ customClass }}">
+    <div class="row">
+        {% if block.display_heading|default(true) %}
+            {% set heading = {
+                'title': block.title|default(),
+                'heading_level': 2,
+            } %}
+            {{ helpers.loadBlock('heading', {block: heading}) }}
+        {% endif %}
+    </div>
+    <div class="layout-width--70">
+        {% for article in block.articles %}
+            {#<div class="{{ view.articles.present_as }}">#}
+
+            {% include '@App/includes/article_preview.html.twig' with  {article: article,
+                entityId: blockId ~ '_' ~ loop.index0} %}
+        {% endfor %}
+
+        {% set page = view.articles.page %}
+        {% set disablePaging = page == 1 and not view.articles.hasNextPage %}
+
+        {% if not disablePaging %}
+        <div class="pad-xs">
+            <ul class="pagination pagination-flex pad-xs mar-xs-y">
+                {% if page-1 >= 1 %}
+                    {#<li style="display: inline-block;">#}
+                    {#<a href="{{ sulu_content_path(content.url) }}?p={{ page-1 }}">&laquo;</a>#}
+                    {#</li>#}
+                    <li class="waves-effect">
+                        <a href="{{ sulu_content_path(content.url) }}?p={{ page-1 }}"><i class="material-icons">chevron_left</i></a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="#"><i class="material-icons">chevron_left</i></a>
+                    </li>
+                {% endif %}
+                {% if view.articles.hasNextPage %}
+                    {#<li style="display: inline-block;">#}
+                    {#<a href="{{ sulu_content_path(content.url) }}?p={{ page+1 }}">&raquo;</a>#}
+                    {#</li>#}
+                    <li class="waves-effect">
+                        <a href="{{ sulu_content_path(content.url) }}?p={{ page+1 }}"><i class="material-icons">chevron_right</i></a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="#"><i class="material-icons">chevron_right</i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+
+</div>
+{#</div>#}
+
+
+
+
+
+{#<ul class="pagination">#}
+    {#<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>#}
+    {#<li class="active"><a href="#!">1</a></li>#}
+    {#<li class="waves-effect"><a href="#!">2</a></li>#}
+    {#<li class="waves-effect"><a href="#!">3</a></li>#}
+    {#<li class="waves-effect"><a href="#!">4</a></li>#}
+    {#<li class="waves-effect"><a href="#!">5</a></li>#}
+    {#<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>#}
+{#</ul>#}
+
+
+
+
+
+{#<!-- start list-articles -->#}
+{#<div id="main" class="container-bg {{ customClass }}">#}
+
+    {#<div class="layout-width--70">#}
+
+
+        {#<div class="preview preview--link">#}
+            {#<a class="preview__link" href="#!">#}
+                {#<div class="preview__img">#}
+
+
+
+                    {#<div class="placeholder placeholder--square">#}
+
+                        {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/news/nadiyni-dveri-poster.jpg" alt="Надійні вхідні двері у кожному проекті" data-src="https://netexy.if.ua/img/news/nadiyni-dveri-poster.jpg" data-srcset="[]">#}
+
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="preview__main">#}
+                    {#<time class="secondary preview__date" datetime="2018-03-28T10:00:00+01:00">#}
+                        {#28го березня 2018#}
+                    {#</time>#}
+                    {#<h2 class="flush h4 preview__heading">Надійні вхідні двері у кожному проекті</h2>#}
+                    {#<p class="copy preview__copy">В наших будинках для Вас підібрано найкращі вхідні двері українського виробника ABWEHR.</p>#}
+                {#</div>#}
+            {#</a>#}
+        {#</div>#}
+
+        {#<div class="preview preview--link">#}
+            {#<a class="preview__link" href="#!">#}
+                {#<div class="preview__img">#}
+
+
+
+                    {#<div class="placeholder placeholder--square">#}
+
+                        {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/news/3d-tur-poster.jpg" alt="3D Тур в «Містечко Козацьке»" data-src="https://netexy.if.ua/img/news/3d-tur-poster.jpg" data-srcset="[]">#}
+
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="preview__main">#}
+                    {#<time class="secondary preview__date" datetime="2018-03-28T09:00:00+01:00">#}
+                        {#28го березня 2018#}
+                    {#</time>#}
+                    {#<h2 class="flush h4 preview__heading">3D Тур в «Містечко Козацьке»</h2>#}
+                    {#<p class="copy preview__copy">Ви можете побачити, як виглядатиме Ваша квартира! Заходьте у відділ продажу «Містечко Козацьке»</p>#}
+                {#</div>#}
+            {#</a>#}
+        {#</div>#}
+
+        {#<div class="preview preview--link">#}
+            {#<a class="preview__link" href="#!">#}
+                {#<div class="preview__img">#}
+
+
+
+                    {#<div class="placeholder placeholder--square">#}
+
+                        {#<img class="js-lazy is-active" src="https://netexy.if.ua/img/news/osoblyvyi-dim-poster.png" alt="«Листопад» – дім, що світиться!" data-src="https://netexy.if.ua/img/news/osoblyvyi-dim-poster.png" data-srcset="[]">#}
+
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="preview__main">#}
+                    {#<time class="secondary preview__date" datetime="2018-01-15T13:30:00+00:00">#}
+                        {#15го січня 2018#}
+                    {#</time>#}
+                    {#<h2 class="flush h4 preview__heading">«Листопад» – дім, що світиться!</h2>#}
+                    {#<p class="copy preview__copy">Індивідуальна підсвітка комплексу та розкішні мурали роблять ваш дім справді особливим. Це справді вражає!</p>#}
+                {#</div>#}
+            {#</a>#}
+        {#</div>#}
+
+    {#</div>#}
+
+{#</div>#}
+{#<!-- end list-articles -->#}
+

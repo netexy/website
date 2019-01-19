@@ -1,0 +1,195 @@
+/*---
+
+Largely based on other components, with some ugly height classes mixed in:
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+
+		<div class="placeholder collage collage--photos">
+			<div class="row">
+				<div class="column collage__height--6 width--phone-wide-17 collage__height--phone-wide-10 width--tablet-15">
+					<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/large-4.jpg" alt="">
+				</div>
+				<div class="column collage__height--4 width--phone-wide-7 collage__height--phone-wide-10 width--tablet-9">
+					<div class="row">
+						<div class="column width--12 width--phone-wide-24 collage__height--phone-wide-5  collage__height--tablet-4">
+							<div class="row">
+								<div class="column width--tablet-12">
+									<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/small-1.jpg" alt="">
+								</div>
+								<div class="hidden column visible--tablet width--12">
+									<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/small-2.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="column width--12 width--phone-wide-24 collage__height--phone-wide-5  collage__height--tablet-6">
+							<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/medium-6.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+```
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+
+		<div class="placeholder collage collage--photos">
+			<div class="row">
+				<div class="column collage__height--4 width--phone-wide-7 collage__height--phone-wide-10 width--tablet-9">
+					<div class="row">
+						<div class="column width--12 width--phone-wide-24 collage__height--phone-wide-5">
+							<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/medium-9.jpg" alt="">
+						</div>
+						<div class="column width--12 width--phone-wide-24 collage__height--phone-wide-5">
+							<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/medium-7.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="column collage__height--6 width--phone-wide-17 collage__height--phone-wide-10 width--tablet-15">
+					<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/about/office/large-7.jpg" alt="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+```
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+
+		<div class="collage collage--copy">
+			<div class="row row--tall">
+				<div class="column width--tablet-12 panel panel--align panel--yellow">
+					<h2 class="h4">Interest and variety guaranteed!</h2>
+					<p class="copy">We work with a broad range of high profile clients in a variety of sectors, so whether you’re grabbing a brew for a Yorkshire Tea brainstorm or getting to grips with a brief from the BBC, we’ll definitely keep you busy.</p>
+				</div>
+				<div class="column column--img width--tablet-12">
+					<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/careers/careers-interest.jpg" alt="">
+				</div>
+			</div>
+			<div class="row row--alt">
+				<div class="column width--tablet-12 panel panel--align">
+					<h2 class="h4">You’re likely to stick around...</h2>
+					<p class="copy">A constantly changing environment makes it hard to settle in and do your best work. Fortunately we have one of the best staff and client retention records in the industry, part of the reason we were voted the <a href="/blog/engage-named-1-elite-digital-agency-by-the-drum">Drum’s #1 Elite Digital Agency</a> #justsayin’.</p>
+				</div>
+				<div class="column column--img width--tablet-12">
+					<img class="collage__img" src="http://engageinteractive.co.uk/assets/img/careers/careers-awards.jpg" alt="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+```
+
+*/
+
+$block: '.collage';
+
+$collage--heights: (
+	phone-wide: 5 10,
+	tablet: 4 6,
+);
+
+#{$block} {
+	.row,
+	.column {
+		height: 100%;
+	}
+
+	.video-wrapper {
+		overflow: hidden;
+		height: 100%;
+	}
+
+	&__video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		&--contain {
+			object-fit: contain;
+		}
+
+		&--left {
+			object-fit: contain;
+			object-position: center left;
+		}
+	}
+
+	&--photos {
+		@include mq('phone-wide', $type: 'max') {
+			@include responsive-ratio(3, 4);
+		}
+	}
+
+	&--copy {
+		@include mq('tablet', $type: 'max') {
+			.column--img {
+				@include responsive-ratio(1, 1);
+			}
+		}
+
+		@include mq('tablet') {
+			.row {
+				position: relative;
+			}
+
+			.column {
+				.row--tall > & {
+					min-height: rem(600px);
+				}
+
+				&--img {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+
+			.row--alt > .column--img {
+				left: 0;
+				right: auto;
+			}
+		}
+
+		@include mq('tablet-wide') {
+			.row--tall > .column {
+				min-height: rem(600px);
+			}
+		}
+	}
+
+	@each $i in 4, 6 {
+		& &__height--#{$i} {
+			height: $i * 10%;
+		}
+	}
+
+	@each $breakpoint, $rows in $collage--heights {
+		@include mq($breakpoint) {
+			@each $row in $rows  {
+				& &__height--#{$breakpoint}-#{$row} {
+					height: $row * 10%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="html_code">
+        <types>
+            <type name="html_code">
+                <meta>
+                    <title lang="en">HTML Code Block</title>
+                    <title lang="uk">Блок HTML-коду</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <property name="rel_attribute" type="text_line">
+                        <meta>
+                            <title lang="en">HTML Rel Attribute</title>
+                            <title lang="uk">HTML Rel Атрібут</title>
+                        </meta>
+                    </property>
+                    <property name="content" type="text_area">
+                        <meta>
+                            <title lang="en">HTML content</title>
+                            <title lang="uk">HTML наповнення</title>
+                        </meta>
+                    </property>
+
+                    <property name="snippet_data" type="snippet">
+                        <meta>
+                            <title lang="en">Existing HTML Snippets</title>
+                            <title lang="uk">Сніпети</title>
+                        </meta>
+                        <params>
+                            <!-- We restrict the selection to snippets of type "html_code" -->
+                            <param name="snippetType" value="html_code"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,32 @@
+{% set sectionName = sectionName|default('header') %}
+
+{# necessary for sections #}
+{% set content = context.content|default([]) %}
+
+{% set block = array_split_by_double_underscore(content)[sectionName]|default([]) %}
+{% set enabled = block and not block.disabled|default(false) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if enabled %}
+    <header class="center pad-xs">
+        <h2 class="h2 center">
+                {{ context.title }}
+        </h2>
+
+        {% if not block.author_disabled|default(false) %}
+            <p class="copy">
+                {{ 'posted'|trans }}: {{ sulu_resolve_user(context.author).contact.fullName }}
+            </p>
+        {% endif %}
+
+        {% if not block.date_disabled|default(false) %}
+            <time class="secondary" datetime="{{ context.published.date|date("c") }}">
+                {{ context.published.date|localizeddate('long', 'none', 'uk') }}
+            </time>
+        {% endif %}
+    </header>
+{% endif %}

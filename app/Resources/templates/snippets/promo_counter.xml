@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>promo_counter</key>
+
+    <meta>
+        <title lang="en">Counter</title>
+        <title lang="uk">Лічильник</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+        </property>
+
+        <property name="icon" type="text_line">
+            <meta>
+                <title lang="en">Material Icon</title>
+                <title lang="uk">Material Icon Class</title>
+            </meta>
+        </property>
+
+        <property name="count" type="text_line">
+            <meta>
+                <title lang="en">Count</title>
+                <title lang="uk">Кількість</title>
+            </meta>
+        </property>
+
+        <property name="subtitle" type="text_line">
+            <meta>
+                <title lang="en">Subtitle</title>
+                <title lang="uk">Підзаголовок</title>
+            </meta>
+        </property>
+
+        <property name="text_color" type="color">
+            <meta>
+                <title lang="en">Text Color</title>
+                <title lang="uk">Колір Тексту</title>
+            </meta>
+        </property>
+
+        <property name="icon_color" type="color">
+            <meta>
+                <title lang="en">Icon Color</title>
+                <title lang="uk">Колір Іконок</title>
+            </meta>
+        </property>
+
+        <property name="bg_color" type="color">
+            <meta>
+                <title lang="en">Background Color</title>
+                <title lang="uk">Колір Фону</title>
+            </meta>
+        </property>
+    </properties>
+</template>

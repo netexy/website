@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>button</key>
+
+    <meta>
+        <title lang="en">Button</title>
+        <title lang="uk">Кнопка</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="text" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Text</title>
+                <title lang="uk">Текст</title>
+            </meta>
+        </property>
+
+        <property name="url" type="url" mandatory="true">
+            <meta>
+                <title lang="en">URL</title>
+                <title lang="uk">URL</title>
+            </meta>
+        </property>
+
+        <property name="icon" type="media_selection">
+            <meta>
+                <title lang="en">SVG Icon</title>
+                <title lang="uk">SVG Іконка</title>
+            </meta>
+        </property>
+
+        <property name="text_color" type="color">
+            <meta>
+                <title lang="en">Text Color</title>
+                <title lang="uk">Колір Тексту</title>
+            </meta>
+        </property>
+
+        <property name="bg_color" type="color">
+            <meta>
+                <title lang="en">Background Color</title>
+                <title lang="uk">Колір Фону</title>
+            </meta>
+        </property>
+
+        <property name="custom_class" type="text_line">
+            <meta>
+                <title lang="en">Custom CSS Class</title>
+                <title lang="uk">CSS Клас</title>
+            </meta>
+        </property>
+    </properties>
+</template>

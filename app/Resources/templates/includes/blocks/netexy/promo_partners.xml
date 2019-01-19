@@ -1,0 +1,77 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="promo_partners">
+        <types>
+            <type name="promo_partners">
+                <meta>
+                    <title lang="en">Partners</title>
+                    <title lang="uk">Партнери</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+
+                    <property name="partners" type="snippet">
+                        <meta>
+                            <title lang="en">Partners</title>
+                            <title lang="uk">Партнери</title>
+                        </meta>
+
+                        <params>
+                            <param name="snippetType" value="promo_partner"/>
+                        </params>
+                    </property>
+
+                    <property name="moreLink" type="single_internal_link">
+                        <meta>
+                            <title lang="en">Link for &quot;More&quot; page</title>
+                            <title lang="uk">Сторінка &quot;Ознайомитись&quot;</title>
+                        </meta>
+
+                        <params>
+                            <param name="snippetType" value="promo_partner"/>
+                        </params>
+                    </property>
+
+                    <property name="moreText" type="text_line">
+                        <meta>
+                            <title lang="en">&quot;More&quot; link text</title>
+                            <title lang="uk">Текст для кнопки &quot;Ознайомитись&quot;</title>
+                        </meta>
+
+                        <params>
+                            <param name="snippetType" value="promo_partner"/>
+                        </params>
+                    </property>
+
+                    <property name="background_image" type="media_selection">
+                        <meta>
+                            <title lang="en">Background Image</title>
+                            <title lang="uk">Зображення Фону</title>
+                        </meta>
+                    </property>
+
+                    <property name="background_color" type="color">
+                        <meta>
+                            <title lang="en">Background Color</title>
+                            <title lang="uk">Колір Фону</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

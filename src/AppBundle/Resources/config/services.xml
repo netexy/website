@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<services>
+    <service id="netexy.form_extention.icon" class="AppBundle\Form\Extension\ButtonTypeIconExtension">
+        <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\ButtonType"/>
+    </service>
+
+
+    <service id="AppBundle\Util\MailerLoggerUtil" class="AppBundle\Util\MailerLoggerUtil">
+        <argument type="service" id="logger" />
+        <tag name="monolog.logger" channel="mailer" />
+        <tag name="swiftmailer.default.plugin" />
+    </service>
+
+    <!--AppBundle\Util\MailerLoggerUtil:-->
+    <!--arguments: ["@logger"]-->
+    <!--tags:-->
+    <!-- - { name: monolog.logger, channel: mailer }-->
+    <!-- - { name: "swiftmailer.default.plugin" }-->
+
+
+    <!--<service id="netexy.app.admin" class="\AppBundle\Admin\AppAdmin">-->
+        <!--<argument>%sulu_admin.name%</argument>-->
+        <!--<tag name="sulu.admin"/>-->
+    <!--</service>-->
+
+    <!--foobar.form_extention.icon:-->
+    <!--class: Foo\BarBundle\Form\Extension\ButtonTypeIconExtension-->
+    <!--tags:-->
+    <!-- - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ButtonType }-->
+</services>
+</container>

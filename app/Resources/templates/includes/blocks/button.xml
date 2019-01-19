@@ -1,0 +1,90 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="button">
+        <types>
+            <type name="button">
+                <meta>
+                    <title lang="en">Button</title>
+                    <title lang="uk">Кнопка</title>
+                </meta>
+
+                <properties>
+                    <!--<property name="title" type="text_line" mandatory="true">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Title</title>-->
+                            <!--<title lang="uk">Назва</title>-->
+                        <!--</meta>-->
+
+                        <!--<tag name="sulu.node.name"/>-->
+                    <!--</property>-->
+
+                    <property name="text" type="text_line" mandatory="true">
+                        <meta>
+                            <title lang="en">Text</title>
+                            <title lang="uk">Текст</title>
+                        </meta>
+                    </property>
+
+                    <property name="url" type="url" mandatory="true">
+                        <meta>
+                            <title lang="en">URL</title>
+                            <title lang="uk">URL</title>
+                        </meta>
+                    </property>
+
+                    <property name="button_type" type="single_select" mandatory="true">
+                        <meta>
+                            <title lang="en">Type</title>
+                            <title lang="uk">Тип</title>
+                        </meta>
+                        <params>
+                            <param name="default_value" value="future"/>
+                            <param name="values" type="collection">
+                                <param name="future">
+                                    <meta>
+                                        <title lang="en">Future</title>
+                                        <title lang="uk">Футуризм</title>
+                                    </meta>
+                                </param>
+                                <param name="bright">
+                                    <meta>
+                                        <title lang="en">Bright</title>
+                                        <title lang="uk">Яскравий</title>
+                                    </meta>
+                                </param>
+                                <param name="light">
+                                    <meta>
+                                        <title lang="en">Light</title>
+                                        <title lang="uk">Світлий</title>
+                                    </meta>
+                                </param>
+
+                                <param name="dark">
+                                    <meta>
+                                        <title lang="en">Dark</title>
+                                        <title lang="uk">Темний</title>
+                                    </meta>
+                                </param>
+
+                                <param name="teal">
+                                    <meta>
+                                        <title lang="en">Teal</title>
+                                        <title lang="uk">Тілесний</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

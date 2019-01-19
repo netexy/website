@@ -1,0 +1,483 @@
+/*---
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+
+		<div class="site-header is-static is-active">
+
+			<div class="site-header__placeholder">
+
+				<header class="site-header__fixed">
+
+					<div class="container site-header__container">
+						<div class="container__inner site-header__inner">
+
+							<h1 class="vh">Engage</h1>
+
+							<a class="site-header__home" href="#0">
+								<svg class="site-header__logo">
+									<use xlink:href="/assets/img/sprite.svg#branding--logo"></use>
+								</svg>
+							</a>
+
+							<nav class="site-header__nav">
+								<ul>
+									<li class="site-header__nav-item"><a href="#0">About us</a></li>
+									<li class="site-header__nav-item"><a href="#0">Our work</a></li>
+									<li class="site-header__nav-item"><a href="#0">Services</a></li>
+									<li class="site-header__nav-item"><a href="#0">Blog</a></li>
+									<li class="site-header__nav-item site-header__nav-item--menu">
+										<label class="site-header__toggle">
+											<svg class="site-header__toggle-icon"><use xlink:href="/assets/img/sprite.svg#menu"></use></svg>Menu
+										</label>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+
+				</header>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+```
+
+```
+<div class="sg-example__preview--flush" style="max-height: 15rem">
+	<div class="container">
+
+		<div class="site-header site-header--overlay is-static is-active">
+
+			<div class="site-header__placeholder">
+
+				<header class="site-header__fixed">
+
+					<div class="container site-header__container">
+						<div class="container__inner site-header__inner">
+
+							<h1 class="vh">Engage</h1>
+
+							<a class="site-header__home" href="#0">
+								<svg class="site-header__logo">
+									<use xlink:href="/assets/img/sprite.svg#branding--logo"></use>
+								</svg>
+							</a>
+
+							<nav class="site-header__nav">
+								<ul>
+									<li class="site-header__nav-item"><a href="#0">About us</a></li>
+									<li class="site-header__nav-item"><a href="#0">Our work</a></li>
+									<li class="site-header__nav-item"><a href="#0">Services</a></li>
+									<li class="site-header__nav-item"><a href="#0">Blog</a></li>
+									<li class="site-header__nav-item site-header__nav-item--menu">
+										<label class="site-header__toggle">
+											<svg class="site-header__toggle-icon"><use xlink:href="/assets/img/sprite.svg#menu"></use></svg>Menu
+										</label>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+
+				</header>
+
+			</div>
+
+			<div class="placeholder">
+				<img src="http://engageinteractive.co.uk/assets/img/careers/header-landing.jpg" alt="">
+			</div>
+
+		</div>
+
+	</div>
+</div>
+```
+
+```
+<div class="sg-example__preview--flush" style="max-height: 15rem">
+	<div class="container">
+
+		<div class="site-header site-header--overlay site-header--light is-static is-active">
+
+			<div class="site-header__placeholder">
+
+				<header class="site-header__fixed">
+
+					<div class="container site-header__container">
+						<div class="container__inner site-header__inner">
+
+							<h1 class="vh">Engage</h1>
+
+							<a class="site-header__home" href="#0">
+								<svg class="site-header__logo">
+									<use xlink:href="/assets/img/sprite.svg#branding--logo"></use>
+								</svg>
+							</a>
+
+							<nav class="site-header__nav">
+								<ul>
+									<li class="site-header__nav-item"><a href="#0">About us</a></li>
+									<li class="site-header__nav-item"><a href="#0">Our work</a></li>
+									<li class="site-header__nav-item"><a href="#0">Services</a></li>
+									<li class="site-header__nav-item"><a href="#0">Blog</a></li>
+									<li class="site-header__nav-item site-header__nav-item--menu">
+										<label class="site-header__toggle">
+											<svg class="site-header__toggle-icon"><use xlink:href="/assets/img/sprite.svg#menu"></use></svg>Menu
+										</label>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+
+				</header>
+
+			</div>
+
+			<div class="placeholder">
+				<img src="http://engageinteractive.co.uk/assets/img/about/header.jpg" alt="">
+			</div>
+
+		</div>
+
+	</div>
+</div>
+```
+
+*/
+
+$block: '.site-header';
+
+@mixin header-height($height, $padding, $flush: true) {
+  @if $flush {
+    margin-bottom: n($padding);
+
+    &--overlay {
+      margin-bottom: 0;
+    }
+  }
+
+  &__placeholder {
+    height: $height + 2 * $padding;
+  }
+
+  &__inner {
+    @include soft--ends($padding);
+    height: $height + 2 * $padding;
+  }
+
+  &__logo {
+    font-size: $height;
+  }
+
+  &__nav-item {
+    line-height: $height;
+  }
+}
+
+#{$block} {
+  $height: rem(22px);
+  $padding: $spacing-unit--small;
+  @include header-height($height, $padding, false);
+  position: relative;
+  z-index: z('site-header');
+
+  &__nav a,
+  &__toggle {
+    transition: color .4s $ease--out-quint;
+
+    &:hover,
+    &:focus {
+      color: $c--coral;
+      will-change: color;
+      transition: color 0 .4s $ease--out-quint;
+    }
+  }
+
+  &__placeholder {
+    position: relative;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    z-index: 1;
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    will-change: transform;
+    transition: $transition--transform;
+    transition-duration: $transition--duration * 2;
+
+    #{$block}.is-active & {
+      transform: none;
+    }
+  }
+
+  &__container {
+    position: relative;
+    line-height: 1;
+    background-color: transparent;
+    box-shadow: none;
+    font-family: inherit;
+    font-weight: $w--bold;
+    color: $c--black;
+
+    a {
+      color: inherit;
+    }
+
+    &::before {
+      @include pseudo;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $c--white;
+      will-change: opacity;
+      transition: $transition--opacity;
+      box-shadow: 0 1px #efefef;
+      z-index: -1;
+    }
+  }
+
+  &__home {
+    display: block;
+    float: left;
+  }
+
+  &__logo {
+    display: block;
+    position: relative;
+    top: .07em; // http://javier.xyz/visual-center/
+    width: 147.9/42.9 * 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+
+  &__nav {
+    float: right;
+    font-size: 0;
+
+    &-item {
+      display: inline-block;
+      margin-left: $rel-spacing-unit--large;
+      font-size: $p--small;
+      font-weight: $w--normal;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      a {
+        @include hardware;
+        position: relative;
+        display: inline-block;
+
+        &::before {
+          @include pseudo;
+          right: rem(1px); bottom: rem(2px); left: rem(1px);
+          height: rem(2px);
+          background-color: $c--coral;
+          transform: scaleX(0);
+          transform-origin: 100% 50%;
+          transition: transform .4s $ease--out-quint;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+
+          &::before {
+            transform: scaleX(1);
+            transform-origin: 0 50%;
+            transition: transform 0 .4s $ease--out-quint;
+          }
+        }
+      }
+    }
+
+    &-roundel {
+      $magic: 1.6;
+      display: inline-block;
+      position: absolute;
+      bottom: 50%;
+      left: 100%;
+      width: $magic * 1em;
+      height: $magic * 1em;
+      font-size: 0.5em;
+      line-height: $magic;
+      border-radius: 50%;
+      text-align: center;
+      background: $c--body-colour;
+      color: $c--white;
+    }
+  }
+
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+
+    &-icon {
+      display: inline-block;
+      width: 27.4/22.9 * 1em; // viewbox
+      height: 1em;
+      margin-right: h($rel-spacing-unit--large);
+      font-size: 0.7em; // x-height
+      fill: currentColor;
+    }
+
+    @include mq('tablet-small', $type: max) {
+      &::before {
+        display: none !important;
+      }
+    }
+  }
+
+  @include mq('tablet-small', $type: max) {
+    &__nav-item {
+      display: none;
+      visibility: hidden;
+
+      &--menu {
+        display: block;
+        visibility: visible;
+      }
+    }
+  }
+
+  $height: rem(30px);
+  $padding: $spacing-unit;
+
+  @include mq('tablet-small') {
+    @include header-height($height, $padding);
+    min-height: rem($height) + 2 * $padding;
+
+    &__nav-item--menu {
+      position: relative;
+      padding-left: $rel-spacing-unit--large;
+
+      &::before {
+        @include pseudo;
+        top: 10%;
+        left: 0;
+        width: 1px;
+        height: 80%;
+        margin-left: -1px;
+        border-radius: 2px;
+        background-color: rgba($c--black, .15);
+      }
+    }
+
+    &--overlay {
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 0 !important;
+
+      #{$block} {
+        &__placeholder {
+          position: absolute;
+        }
+      }
+    }
+
+    &--light {
+      background-color: $c--grey;
+
+      > .placeholder {
+        background-color: transparent;
+      }
+
+      &.is-static {
+        #{$block} {
+          &__container {
+            color: $c--white;
+          }
+
+          &__nav {
+            &-item--menu::before {
+              @include hardware;
+              background-color: $c--white;
+            }
+
+            &-roundel {
+              background-color: $c--white;
+              color: $c--body-colour;
+            }
+          }
+        }
+
+        a {
+          &::before {
+            background-color: $c--white;
+          }
+
+          &:hover,
+          &:focus {
+            color: $c--white;
+
+            &::before {
+              background-color: $c--white;
+            }
+          }
+        }
+      }
+    }
+
+    &.is-static {
+      #{$block} {
+        &__fixed {
+          position: absolute;
+          transition: none;
+        }
+
+        &__container::before {
+          opacity: 0;
+        }
+      }
+    }
+
+    &--overlay.is-static &__container::before {
+      transition: none;
+    }
+  }
+
+  $height: rem(35px);
+
+  @include mq('tablet-wide') {
+    @include header-height($height, $padding);
+    min-height: rem($height) + 3 * $padding;
+
+    &__placeholder {
+      top: $padding;
+    }
+
+    &__nav-item {
+      font-size: $p--large;
+    }
+  }
+
+  $height: rem(44px);
+  $padding: $spacing-unit--large;
+
+  @include mq(rem(768px), $property: 'height') {
+    @include mq('desktop-wide') {
+      @include header-height($height, $padding);
+      min-height: rem($height) + 3 * $padding;
+    }
+  }
+}

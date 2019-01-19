@@ -1,0 +1,469 @@
+//@import 'settings';
+// setting
+$html-font-size: 16px;
+$dev-mode: false !default;
+
+@import 'utility/functions';
+//@import '../variables.json';
+/*
+
+	Typography
+
+*/
+
+// font stacks
+// for embedded custom fonts, list name below as normal. To generate code see example in utlity/core.scss
+$stack: 'SF Pro Display',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+$stack_txt: 'SF Pro Text',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+$stack--sans: $stack;
+$stack--heading: $stack--sans;
+$stack--text: $stack_txt;
+.stack--sans {
+  font-family: $stack--sans;
+}
+.stack--text {
+  font-family: $stack--text;
+}
+
+// font sizes
+$h-demoooo: rem(16px);
+
+$h--xxx-small: rem(16px);
+$h--xx-small: rem(18px);
+$h--x-small: rem(20px);
+$h--small: rem(22px);
+$h--medium: rem(24px);
+$h--large: rem(28px);
+$h--x-large: rem(32px);
+$h--xx-large: rem(50px);
+$h--xxx-large: rem(70px);
+
+$p--x-small: rem(12px);
+$p--small: rem(14px);
+$p: rem(16px);
+$p--large: rem(18px);
+$p--x-large: rem(20px);
+
+// line-height ratios
+$lh: 2;
+$lh--x-small: 1.2;
+$lh--small: 1.6;
+
+
+// letter spacing
+$ls: ( base: 0,
+heading: -15,
+large: 200);
+
+
+// weights :: display
+$w--light: 300;
+$w--normal: 400;
+$w--semibold: 500;
+$w--bold: 600;
+$w--heavy: 700;
+
+.w--light {
+  font-weight: $w--light;
+}
+
+// weights :: text
+$w--light-txt: 200;
+$w--normal-txt: 400;
+$w--bold-txt: 600;
+$w--heavy-txt: 700;
+
+/*
+
+	Layout
+
+*/
+
+// basic spacing units
+$spacing-unit--xx-small: rem(6px);
+$spacing-unit--x-small: rem(10px);
+$spacing-unit--small: rem(20px);
+$spacing-unit: rem(30px);
+$spacing-unit--large: rem(40px);
+$spacing-unit--x-large: rem(50px);
+$spacing-unit--xx-large: rem(80px);
+$spacing-unit--xxx-large: rem(100px);
+
+$rel-spacing-unit--small: 14/18 * 1em;
+$rel-spacing-unit: 21/18 * 1em;
+$rel-spacing-unit--large: 4/3 * 1em;
+
+
+// page gutter
+$page-gutter: $spacing-unit--small;
+$page-gutter--desktop: $spacing-unit--large;
+
+
+// grid
+$grid-column-count: 24;
+$grid-column-gutter: $spacing-unit--small;
+$grid-column-gutter--tablet: $spacing-unit;
+
+
+
+
+
+// media queries and breakpoints
+// build mobile first 300+
+$breakpoints: ( 'base': 375px,
+'phone': 480px,
+'phone-wide': 560px,
+'phablet': 640px,
+'tablet-small': 768px,
+'tablet': 1024px,
+'tablet-wide': 1248px,
+'desktop': 1500px,
+'desktop-wide': 1600px);
+
+$breakpoints--rem: $breakpoints;
+@each $name,
+$width in $breakpoints {
+  $breakpoints--rem: map-merge($breakpoints--rem, ($name: rem($width)));
+}
+
+@each $name,
+$width in $breakpoints {
+  $breakpoints: map-merge($breakpoints, ($name: em($width, $browser-default-font-size)));
+}
+
+$max-width: breakpoint('desktop-wide');
+
+
+
+
+// once dev mode is false, you must define any block grids, column grids and flush margins for each breakpoint
+// this is to keep unused code to a minimum
+$grid-bp: ( 'base': ( 'width': (12, 24),
+'push': (),
+'pull': (),
+'block': (1, 2),
+'flush': (1, 2)),
+'phone': ( 'width': (),
+'push': (),
+'pull': (),
+'block': (2, 3),
+'flush': ()),
+'phone-wide': ( 'width': (2, 7, 17, 24),
+'push': (),
+'pull': (),
+'block': (2, 3),
+'flush': (3)),
+'phablet': ( 'width': (),
+'push': (),
+'pull': (),
+'block': (2, 3),
+'flush': (2)),
+'tablet-small': ( 'width': (4, 8, 12),
+'push': (),
+'pull': (),
+'block': (2, 3, 4),
+'flush': (4)),
+'tablet': ( 'width': (9, 12, 15),
+'push': (),
+'pull': (),
+'block': (2, 3),
+'flush': (3)),
+'tablet-wide': ( 'width': (3, 5, 8, 16),
+'push': (),
+'pull': (),
+'block': (2, 3, 4, 5),
+'flush': (3, 4, 5)),
+'desktop': ( 'width': (4, 6, 18),
+'push': (),
+'pull': (),
+'block': (2, 3),
+'flush': ()),
+'desktop-wide': ( 'width': (),
+'push': (),
+'pull': (),
+'block': (),
+'flush': ()));
+
+
+
+// z-indexing
+/*
+ordered from high to low
+suggested naming convention would be the class/ID the z-index is going on
+*/
+
+$z-indexes: ( 'outdated-browser',
+'navigation-overlay',
+'site-header',
+'site-footer',
+'site-content');
+
+
+
+/*
+
+	Colours
+
+*/
+
+// brand colours
+$c--bg: #0b0d1c;
+$c--headers: #fff;
+
+$c--body: #16182d;
+.c--body {
+  background-color: $c--body !important;
+}
+$c--glass: rgba(22, 24, 45, .55);
+$c--trans: rgba(22, 24, 45, .35);
+$c--zero: rgba(0, 0, 0, .0);
+
+$c--akcent: #ffe030;
+
+$c--gradient: linear-gradient(to right, $c--body, $c--body, $c--trans, $c--zero, $c--zero);
+$c--xs-gradient: linear-gradient(to right, $c--body, $c--body, $c--body, $c--trans, $c--zero);
+
+$c--yellow: #fe0;
+$c--dirty: #d7a900;
+$c--black: #1a1919;
+$c--coral: #FF3700;
+$c--blue: #88dbdf;
+$c--violet: #BB0BD9;
+
+$c--brand-primary: $c--yellow;
+$c--brand-secondary: $c--black;
+
+
+// greyscale
+$c--grey-dark: #3d4247;
+$c--grey: #969696;
+$c--grey-2: #656565;
+$c--grey-light: #d9d9d9;
+$c--grey-x-light: rgba(255, 255, 255, .25);
+$c--grey-xx-light: #eff7ff;
+$c--white: #fff;
+
+
+// other colours
+$c--red: #B20936;
+$c--green: #76CC14;
+$c--blue-link: #19C6FF;
+
+$c--red-csr: #CC1445;
+$c--elympics: linear-gradient(135deg, #1d5c80, #2ba4ab);
+$c--client: $c--grey-light;
+$c--client-alt: $c--grey-2;
+
+$c--stone-light: #7b858e;
+$c--stone: #697b8b;
+
+$c--teal: #00afd8;
+$c--teal-light: #3adaff;
+
+// social colours
+$c--twitter: #55acee;
+$c--facebook: #3b5998;
+$c--youtube: #bb0000;
+$c--pinterest: #cb2027;
+$c--linkedin: #007bb5;
+$c--instagram: #8a3ab9; // new purple colour
+$c--insta-old: #125688; // old blue colour
+// form & message positive/negative colours
+$c--positive: $c--green;
+$c--negative: $c--red;
+
+
+// top level element colours
+$c--body-bg: $c--body;
+$c--body-colour: $c--black;
+
+
+// colour map (only use colours from the styleguide)
+// used for when looping through panel/theme styles
+$colours: ( // primary colours
+'yellow': ( 'base': $c--brand-primary),
+'green': ( 'base': $c--green),
+'red': ( 'base': $c--red),
+'blue': ( 'base': $c--blue), // greyscale
+'black': ( 'base': $c--black),
+'grey': ( 'base': $c--grey),
+'grey-dark': ( 'base': $c--grey-dark),
+'grey-light': ( 'base': $c--grey-light),
+'grey-off-white': ( 'base': $c--grey-xx-light),
+'white': ( 'base': $c--white));
+
+
+
+/*
+
+	Easing/Timing
+
+*/
+
+//	Cubic
+$ease--in-cubic: cubic-bezier(.55, .055, .675, .19);
+$ease--out-cubic: cubic-bezier(.215, .61, .355, 1);
+$ease--in-out-cubic: cubic-bezier(.645, .045, .355, 1);
+
+//	Circ
+$ease--in-circ: cubic-bezier(.6, .04, .98, .335);
+$ease--out-circ: cubic-bezier(.075, .82, .165, 1);
+$ease--in-out-circ: cubic-bezier(.785, .135, .15, .86);
+
+//	Expo
+$ease--in-expo: cubic-bezier(.95, .05, .795, .035);
+$ease--out-expo: cubic-bezier(.19, 1, .22, 1);
+$ease--in-out-expo: cubic-bezier(1, 0, 0, 1);
+
+//	Quad
+$ease--in-quad: cubic-bezier(.55, .085, .68, .53);
+$ease--out-quad: cubic-bezier(.25, .46, .450, .94);
+$ease--in-out-quad: cubic-bezier(.455, .03, .515, .955);
+
+//	Quart
+$ease--in-quart: cubic-bezier(.895, .03, .685, .22);
+$ease--out-quart: cubic-bezier(.165, .84, .44, 1);
+$ease--in-out-quart: cubic-bezier(.77, 0, .175, 1);
+
+//	Quint
+$ease--in-quint: cubic-bezier(.755, .05, .855, .06);
+$ease--out-quint: cubic-bezier(.23, 1, .320, 1);
+$ease--in-out-quint: cubic-bezier(.86, 0, .07, 1);
+
+//	Sine
+$ease--in-sine: cubic-bezier(.47, 0, .745, .715);
+$ease--out-sine: cubic-bezier(.39, .575, .565, 1);
+$ease--in-out-sine: cubic-bezier(.445, .05, .55, .95);
+
+//	Back
+$ease--in-back: cubic-bezier(.6, -.28, .735, .045);
+$ease--out-back: cubic-bezier(.175, .885, .32, 1.275);
+$ease--in-out-back: cubic-bezier(.68, -0.55, .265, 1.55);
+
+//	Smooth fade
+$ease--smooth-fade: cubic-bezier(.365, .005, .355, 1);
+
+//	Transitions
+$transition--duration: .2s;
+$transition--duration-long: .4s;
+$transition--ease: $ease--in-out-cubic;
+
+$transition--transform: transform $transition--duration $transition--ease;
+$transition--background: background $transition--duration $transition--ease;
+$transition--color: color $transition--duration $ease--smooth-fade;
+$transition--opacity: opacity $transition--duration $ease--smooth-fade;
+$transition--width: width $transition--duration $transition--ease;
+
+$transition--fade-in: visibility 0s linear 0s,
+opacity $transition--duration $ease--smooth-fade;
+$transition--fade-out: visibility 0s linear $transition--duration,
+opacity $transition--duration $ease--smooth-fade;
+
+// MATERIALIZE 1beta
+$num-cols: 12 !default;
+$gutter-width: 1.5rem !default;
+$element-top-margin: $gutter-width/3 !default;
+$element-bottom-margin: ($gutter-width*2)/3 !default;
+// Text Inputs + Textarea
+$input-height: 2.5rem !default;
+$input-border-color: $c--grey-2 !default;
+$input-border: 1px solid $input-border-color !default;
+$input-background: #fff !default;
+$input-font-size: 16px !default;
+$input-margin-bottom: 8px;
+$input-margin: 0 0 8px 0 !default;
+$input-padding: 0 !default;
+$label-font-size: .8rem !default;
+$input-disabled-color: rgba(0, 0, 0, .42) !default;
+$input-disabled-solid-color: #949494 !default;
+$input-disabled-border: 1px dotted $input-disabled-color !default;
+$input-invalid-border: 1px solid $c--red !default;
+$input-icon-size: 2rem;
+$placeholder-text-color: $c--grey-2 !default;
+
+$dropdown-bg-color: #fff !default;
+$dropdown-hover-bg-color: #eee !default;
+$dropdown-color: $c--blue-link !default;
+$dropdown-item-height: 50px !default;
+
+$input-focus-color: $c--blue-link !default;
+$input-success-color: $c--green !default;
+$input-error-color: $c--red !default;
+
+.body-bg {
+  background-color: $c--bg;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $c--headers;
+  }
+  .product-headline {
+    color: $c--bg;
+  }
+}
+
+.container-bg {
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+  -moz-transition: -moz-transform .4s ease-in-out;
+  -o-transition: -o-transform .4s ease-in-out;
+  -ms-transition: -ms-transform .4s ease-in-out;
+  transition: -webkit-transform .4s ease-in-out;
+  -o-transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-bg {
+  border-style: solid;
+  border-width: .22rem;
+  border-color: rgba(255, 255, 255, .22);
+  border-radius: .22rem;
+  background-color: $c--body;
+  padding: .33rem;
+  @extend .z-depth-3;
+}
+
+.credo__text:before {
+  content: '“';
+  top: 0;
+  left: 15px;
+}
+
+.credo__text:before {
+  content: '”';
+  bottom: -20px;
+  right: 30px;
+}
+
+.credo__text:after,
+.credo__text:before {
+  position: absolute;
+  font-family: $stack--text;
+  font-size: 80px;
+  font-weight: $w--heavy-txt;
+  color: $c--akcent;
+}
+
+
+.c--akcent {
+  color: $c--akcent !important;
+}
+.bg--blue {
+  background-color: mix($c--blue-link, $c--white, 55%);
+}

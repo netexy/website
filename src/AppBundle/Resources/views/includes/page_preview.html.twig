@@ -1,0 +1,28 @@
+{% set _content = sulu_content_load(article.uuid) %}
+{% set previewImages = sulu_content_load(article.uuid).preview_image__media|default() %}
+{% if 0 == previewImages|length %}
+    {% set previewImages = _content.extension.excerpt.images %}
+{% endif %}
+{#{{ dump(_content) }}#}
+<div class="preview preview--link">
+    <a class="preview__link" href="{{ sulu_content_path(article.path) }}">
+        <div class="preview__img">
+            <div class="placeholder placeholder--square placeholder--rounded">
+            <div>
+                {% if previewImages|length %}
+                <img class="js-lazy is-active" src="{{ previewImages[0].thumbnails['192x192'] }}" alt="{{
+                article.title
+                }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="preview__main">
+            <time class="secondary preview__date" datetime="2018-03-28T09:00:00+01:00">
+            <time class="secondary preview__date" datetime="{{ article.published.date|date("c") }}">
+                {{ article.published.date|localizeddate('long', 'none', 'uk') }}
+            </time>
+            <h2 class="flush h4 preview__heading">{{ article.title }}</h2>
+            <p class="copy preview__copy">{{ _content.extension.excerpt.description|raw }}</p>
+        </div>
+    </a>
+</div>

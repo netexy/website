@@ -1,0 +1,23 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="link_css">
+        <types>
+            <type name="link_css">
+                <meta>
+                    <title lang="en">CSS External Stylesheet</title>
+                    <title lang="uk">CSS файл</title>
+                </meta>
+
+                <properties>
+                    <property name="href" type="text_line" mandatory="true">
+                        <meta>
+                            <title lang="en">HREF</title>
+                            <title lang="uk">HREF</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

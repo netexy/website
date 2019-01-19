@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "cd css && compass compile -s compressed --sass-dir=. --css-dir=.",
+    "update:ionicons": "cp -R node_modules/ionicons-npm/fonts/* fonts/"
+  },
+  "dependencies": {
+    "ionicons-npm": "^2.0.1",
+    "jquery": "^2.2.4",
+    "modernizr": "^3.3.1",
+    "slick-carousel": "^1.6.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "uglify-js": "^2.7.3",
+    "watchify": "^3.7.0"
+  }
+}

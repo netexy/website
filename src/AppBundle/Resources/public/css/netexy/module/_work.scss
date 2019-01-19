@@ -1,0 +1,564 @@
+/*---
+
+```
+<div class="sg-example__preview--flush">
+	<div class="container">
+
+		<div class="row row--gutter flush-first--tablet-small-3">
+			<article class="column width--tablet-small-8">
+
+				<a class="work work--third" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Yorkshire Tea</p>
+
+						<h1 class="h2 work__heading">Brewing up a new&nbsp;site&nbsp;for Yorkshire&nbsp;Tea</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-main-site/460-x-600.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-main-site/300-x-400.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-main-site/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-8">
+
+				<a class="work work--third" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Wagg Foods</p>
+
+						<h1 class="h2 work__heading">Teaching an old dog new tricks</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/wagg/460-x-600.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/wagg/300-x-400.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/wagg/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-8">
+
+				<a class="work work--third" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Bettys Easter</p>
+
+						<h1 class="h2 work__heading">An imperial easter success</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/bettys-easter/460-x-600.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/bettys-easter/300-x-400.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/bettys-easter/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-12">
+
+				<a class="work work--tall" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Bar + Block</p>
+
+						<h1 class="h2 work__heading">Grills, thrills &amp;<br>all the frills</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing//bar-block/710-x-820.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing//bar-block/455-x-525.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing//bar-block/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-12">
+
+				<a class="work work--half" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Yorkshire Tea</p>
+
+						<h1 class="h2 work__heading">Hitting it for six with&nbsp;Yorkshire&nbsp;Tea</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/710-x-400.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/455-x-260.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-12">
+
+				<a class="work work--half" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Jet2holidays</p>
+
+						<h1 class="h2 work__heading">All I want for Christmas is&nbsp;Jet2</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/710-x-400.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/455-x-260.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column">
+
+				<a class="work work--light work--full" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">ASOS</p>
+
+						<h1 class="h2 work__heading">Disrupting the world of fashion&nbsp;with&nbsp;ASOS</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/asos/1440-x-580.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/asos/930-x-375.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/asos/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-12">
+
+				<a class="work work--half" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Yorkshire Tea</p>
+
+						<h1 class="h2 work__heading">Hitting it for six with&nbsp;Yorkshire&nbsp;Tea</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/710-x-400.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/455-x-260.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/yorkshire-tea-cricket/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+			<article class="column width--tablet-small-12">
+
+				<a class="work work--half" href="#0">
+
+					<div class="work__inner">
+
+						<p class="work__client">Jet2holidays</p>
+
+						<h1 class="h2 work__heading">All I want for Christmas is&nbsp;Jet2</h1>
+
+						<p class="work__cta">View project</p>
+
+					</div>
+
+					<picture>
+						<source media="(min-width: 64em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/710-x-400.jpg">
+						<source media="(min-width: 40em)" srcset="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/455-x-260.jpg">
+						<img class="work__img" src="http://engageinteractive.co.uk/assets/img/work/landing/jet2holidays/640-x-200.jpg" alt="">
+					</picture>
+
+				</a>
+
+			</article>
+		</div>
+
+	</div>
+</div>
+```
+
+*/
+
+$block: '.work';
+
+#{$block} {
+
+	$ease--bg-out: cubic-bezier(.25,0,.125,1);
+	$ease--bg-in: cubic-bezier(.75, 0,.5, 1);
+
+	@include hardware;
+	position: relative;
+	height: rem(200px);
+	display: block;
+	overflow: hidden;
+	font-family: inherit;
+	background-color: $c--grey;
+	background-size: cover;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY($spacing-unit--x-large);
+	transition: color .08s $ease--smooth-fade .18s,
+				opacity .8s $ease--smooth-fade,
+				visibility .8s $ease--smooth-fade,
+				transform .8s $ease--out-cubic;
+
+	&--white { color: $c--white; }
+	&--black { color: $c--black; }
+
+	&::before {
+		@include pseudo;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 110%; // sub-pixel clipping bug when 100%, so overlap
+		background-color: $c--akcent;
+		z-index: 1;
+		transition: transform .3s $ease--bg-in;
+	}
+
+	&__inner {
+		position: absolute;
+		left: $spacing-unit;
+		bottom: $spacing-unit;
+		right: $spacing-unit;
+		z-index: 2;
+		transition: transform .3s $ease--in-out-cubic;
+	}
+
+	&__heading,
+	&__cta {
+		margin-top: $spacing-unit--x-small;
+	}
+
+	&__client {
+		font-size: $p--small;
+		font-weight: $w--light;
+        text-shadow: 0px 1px 2px $c--glass;
+	}
+
+	&__heading {
+		max-width: 80%;
+		font-size: $h--x-small;
+		color: inherit;      
+	}
+
+	&__cta {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+		font-size: $p--small;
+		transition: $transition--fade-out;
+		will-change: opacity;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-width: none;
+		height: 100%;
+		z-index: 0;
+	}
+
+	&--light {
+		background-color: $c--grey-xx-light;
+		color: $c--black;
+	}
+
+	&:hover,
+	&:focus {
+		color: $c--black;
+		transition-delay: .03s, 0s, 0s, 0s;
+        text-shadow: none;
+
+		&::before {
+			transition-timing-function: $ease--bg-out;
+			transform: translateY(105/110 * -100%); // account for overlap mentioned above
+		}
+
+		& #{$block}__inner {
+			transition-delay: .05s;
+			transition-timing-function: $ease--out-cubic;
+			transform: translateY(n($p--x-small + $spacing-unit--x-small));
+		}
+
+		& #{$block}__cta {
+			visibility: visible;
+			opacity: 1;
+			transition: $transition--fade-in;
+		}
+
+		& #{$block}__heading {
+          color: $c--body;
+          transition-delay: .03s, 0s, 0s, 0s;
+          text-shadow: none;
+		}
+	}
+
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	@include mq('tablet-small') {
+		$tall: 1.12;
+		height: auto;
+
+		&__heading {
+			max-width: none;
+			margin-top: 0;
+			font-size: $h--medium;
+		}
+
+		&__client,
+		&__cta {
+			font-size: $h--small;
+		}
+
+		&:hover,
+		&:focus {
+			& #{$block}__inner {
+				transform: translateY(n($p--small + $spacing-unit--x-small));
+			}
+		}
+
+		&--third {
+			padding-top: 423/288 * 100%;
+		}
+
+		&--tall {
+			padding-bottom: $grid-column-gutter; // mirror columns
+			padding-top: $tall * 100%;
+			transition-delay: .1s, 0s, 0s, 0s;
+
+			&:hover,
+			&:focus {
+				transition-delay: .07s, 0s, 0s, 0s;
+			}
+
+			#{$block}__inner {
+				top: rem(120px);
+				bottom: auto;
+			}
+		}
+
+		&--half,
+		&--full {
+			#{$block}__img {
+				width: 100%;
+				max-width: none;
+				height: auto;
+			}
+		}
+
+		&--half {
+			padding-top: $tall * 50%;
+		}
+
+		&--full {
+			padding-top: 580/1440 * 100%;
+
+			#{$block}__heading {
+				max-width: 60%;
+				font-size: 4.25rem;
+			}
+		}
+
+		&--related {
+			padding-top: 0;
+
+			#{$block}__heading {
+				font-size: $h--x-large;
+			}
+		}
+	}
+
+	@include mq('tablet') {
+		&--tall {
+			padding-bottom: $grid-column-gutter--tablet; // mirror columns
+		}
+	}
+
+	@include mq('tablet-wide') {
+
+		&__heading {
+			font-size: $h--large;
+		}
+
+		&:hover,
+		&:focus {
+			& #{$block}__inner {
+				transform: translateY(n($p + $spacing-unit--x-small));
+			}
+		}
+
+		&--tall &__inner {
+			top: rem(160px);
+		}
+	}
+
+	@include mq('desktop') {
+		&__inner {
+			left: $spacing-unit--x-large;
+			bottom: $spacing-unit--x-large;
+			right: $spacing-unit--x-large;
+		}
+
+		&--full &__heading {
+			font-size: $h--xx-large;
+			line-height: $lh--x-small;
+		}
+
+		&:hover,
+		&:focus {
+			& #{$block}__inner {
+				transform: translateY(n($p--large + $spacing-unit--x-small));
+			}
+		}
+	}
+
+	@include mq('desktop-wide') {
+
+		&__heading {
+			font-size: $h--xx-large;
+			line-height: $lh--x-small;
+		}
+
+		&__client,
+		&__cta {
+			font-size: $p--large;
+		}
+
+		&:hover,
+		&:focus {
+			& #{$block}__inner {
+				transform: translateY(n($p + $spacing-unit--small));
+			}
+		}
+
+		&--full &__heading {
+			font-size: $h--xxx-large;
+		}
+	}
+}
+
+#{$block}-header {
+	position: relative;
+	border-bottom: rem(20px) solid $c--akcent;
+
+	&__inner {
+		@include soft--ends(40px);
+
+		@include mq('tablet-small') {
+			@include soft--ends(8vh);
+		}
+
+		@include mq('desktop') {
+			@include soft--ends(16vh);
+		}
+	}
+
+	&__client {
+        text-shadow: none;
+	}
+
+	&__title {
+		margin: 1rem auto 0 0;
+		width: 80%;
+	}
+}
+
+.related-work {
+	position: relative;
+	background-color: $c--grey-xx-light;
+
+	.row {
+		height: 100%;
+	}
+
+	.next-up {
+		position: static;
+		padding: $spacing-unit;
+		background-color: $c--grey-xx-light;
+
+		@include mq('tablet-wide', max) {
+			padding: $spacing-unit--small;
+			background-color: $c--white;
+		}
+
+		h1 {
+			@include mq('tablet-wide') {
+				position: absolute;
+				top: 50%; left: (100% / 6);
+				transform: translate(-50%,-50%);
+			}
+			@include mq('desktop') {
+				left: (100% / 24) * 3;
+			}
+		}
+
+	}
+
+	.column--img {
+		min-height: rem(160px);
+
+		@include mq('tablet-wide') {
+			min-height: rem(200px);
+		}
+	}
+
+	.work__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
